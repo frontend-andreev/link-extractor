@@ -1,0 +1,201 @@
+<!doctype html>
+<!--
+  Welcome page, opened once after install (docs/ARCHITECTURE.md §17).
+  One page, two blocks: #pin (how to pin the icon) and #usage (how to use it). body[data-mode]
+  only folds #pin: "pin" — both blocks in full; "usage" — #pin is one line "✓ Icon pinned…".
+  The .when-pin / .when-usage pairs are the texts of each mode. Without JS it stays "pin".
+  English is the markup itself (data-i18n="key"); other languages come from strings.js.
+  Only relative paths: the page must work on the domain, on the local server and from file://.
+  data-store-id: the Chrome Web Store ID, filled in after the first upload; empty — no polling
+  unless the extension passed its own ID in the link.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Link Extractor is installed</title>
+    <link rel="icon" href="img/icon-32.png" />
+    <link rel="stylesheet" href="welcome.css" />
+  </head>
+  <body data-mode="pin" data-store-id="">
+    <main>
+      <header class="hero">
+        <img src="img/icon-128.png" width="72" height="72" alt="" />
+        <h1>
+          <span class="when-pin" data-i18n="pinTitle">Link Extractor is installed</span
+          ><span class="when-usage" data-i18n="usageTitle">Link Extractor is ready</span>
+        </h1>
+        <p class="when-pin" data-i18n="pinLead">
+          Pin it to your toolbar so it's always one click away.
+        </p>
+        <p class="when-usage" data-i18n="usageLead">
+          Get every link on a page as a clean list: full URLs, in page order, without duplicates.
+        </p>
+      </header>
+
+      <section id="pin" class="card pin-block">
+        <div class="when-pin">
+          <ol class="pin-steps" tabindex="-1">
+            <li>
+              <span class="num">1</span
+              ><span data-i18n="pinStep1"
+                >Click the puzzle icon in the top-right corner of Chrome.</span
+              >
+            </li>
+            <li>
+              <span class="num">2</span
+              ><span data-i18n="pinStep2">Click the pin next to Link Extractor.</span>
+            </li>
+          </ol>
+          <img
+            class="figure"
+            src="img/en/pin-steps.svg"
+            width="720"
+            height="360"
+            data-i18n-alt="pinFigureAlt"
+            alt="Chrome's extensions menu showing the puzzle icon (1) and the pin next to Link Extractor (2)"
+          />
+        </div>
+        <p class="pinned when-usage">
+          <span class="check" aria-hidden="true">✓</span
+          ><span class="pinned-text" data-i18n="pinnedText">Icon pinned to your toolbar</span>
+          <span class="pinned-help"
+            ><span data-i18n="pinnedHelpText">Don't see it?</span>
+            <a href="#pin" data-switch="pin" data-i18n="pinnedHelpLink">Show how to pin it</a></span
+          >
+        </p>
+        <!-- Screen readers: welcome.js puts a short "Icon pinned…" here when #pin folds while the
+             page is open. The region is always in the page and empty until then — a region that
+             appears from display:none is often not read out at all (R16-13). -->
+        <p class="sr-only" role="status" data-announce></p>
+      </section>
+
+      <section id="usage" class="card usage-block" aria-labelledby="usage-title">
+        <h2 id="usage-title" class="block-title">
+          <span class="when-pin" data-i18n="usageNextTitle">How to use it</span
+          ><span class="when-usage" data-i18n="usageHowTitle">How to use it</span>
+        </h2>
+        <img
+          class="figure toolbar"
+          src="img/toolbar-icon.svg"
+          width="720"
+          height="120"
+          data-i18n-alt="toolbarAlt"
+          alt="The Link Extractor icon on the Chrome toolbar"
+        />
+        <ol class="steps">
+          <li class="step">
+            <div>
+              <h3>
+                <span class="num">1</span><span data-i18n="step1Title">Open the link list</span>
+              </h3>
+              <p data-i18n="step1Text">
+                Open any other web page and click the Link Extractor icon. A side panel opens with
+                all the links on the page.
+              </p>
+            </div>
+            <picture>
+              <source srcset="img/en/step-1-dark.webp" media="(prefers-color-scheme: dark)" />
+              <img
+                class="shot"
+                src="img/en/step-1-light.webp"
+                width="360"
+                height="560"
+                data-i18n-alt="step1Alt"
+                alt="The side panel with the links of the page"
+              />
+            </picture>
+          </li>
+          <li class="step">
+            <div>
+              <h3>
+                <span class="num">2</span
+                ><span data-i18n="step2Title">Find the links you need</span>
+              </h3>
+              <p>
+                <span data-i18n="step2Before"
+                  >Type in the search box to narrow the list, or click the sliders icon </span
+                ><img
+                  class="ui-icon"
+                  src="img/sliders-icon.svg"
+                  width="24"
+                  height="24"
+                  alt=""
+                /><span data-i18n="step2Middle"> to open </span
+                ><b data-i18n="uiFilters">Filters &amp; settings</b
+                ><span data-i18n="step2After">.</span>
+              </p>
+            </div>
+            <picture>
+              <source srcset="img/en/step-2-dark.webp" media="(prefers-color-scheme: dark)" />
+              <img
+                class="shot"
+                src="img/en/step-2-light.webp"
+                width="360"
+                height="560"
+                data-i18n-alt="step2Alt"
+                alt="Searching the list of links"
+              />
+            </picture>
+          </li>
+          <li class="step">
+            <div>
+              <h3>
+                <span class="num">3</span><span data-i18n="step3Title">Copy or download</span>
+              </h3>
+              <p>
+                <span data-i18n="step3Before">Click </span><b data-i18n="uiCopy">Copy URLs</b
+                ><span data-i18n="step3Middle"> to put the links on your clipboard, or </span
+                ><b data-i18n="uiCsv">CSV</b
+                ><span data-i18n="step3After"> to download a file for Excel or Google Sheets.</span>
+              </p>
+            </div>
+            <picture>
+              <source srcset="img/en/step-3-dark.webp" media="(prefers-color-scheme: dark)" />
+              <img
+                class="shot"
+                src="img/en/step-3-light.webp"
+                width="360"
+                height="560"
+                data-i18n-alt="step3Alt"
+                alt="The Copy URLs and CSV buttons in the side panel"
+              />
+            </picture>
+          </li>
+          <li class="step">
+            <div>
+              <h3>
+                <span class="num">4</span><span data-i18n="step4Title">Only part of a page?</span>
+              </h3>
+              <p>
+                <span data-i18n="step4Before">Select it, right-click, and choose </span
+                ><b data-i18n="uiSelection">Extract links from the selection</b
+                ><span data-i18n="step4After">.</span>
+              </p>
+            </div>
+            <img
+              class="shot"
+              src="img/en/step-4.svg"
+              width="360"
+              height="300"
+              data-i18n-alt="step4Alt"
+              alt="Selected text and the context menu item “Extract links from the selection”"
+            />
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p data-i18n="footer">Links never leave your browser.</p>
+    </footer>
+
+    <script src="strings.js"></script>
+    <script src="welcome.js"></script>
+  </body>
+</html>

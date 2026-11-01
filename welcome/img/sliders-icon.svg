@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- The panel's "Filters & settings" button: a framed sliders icon without a label.
+       Copied by hand from src/ui/icons.tsx (sliders) and panel.css (the framed icon button), not imported:
+       the site must not depend on the extension's code. Two themes — prefers-color-scheme. -->
+  <style>
+    .frame { fill: #ffffff; stroke: #b9c1ca; }
+    .ico { fill: none; stroke: #59626c; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    @media (prefers-color-scheme: dark) {
+      .frame { fill: #1a1d22; stroke: #4a525c; }
+      .ico { stroke: #a6afb9; }
+    }
+  </style>
+  <rect class="frame" x="0.5" y="0.5" width="31" height="31" rx="7" />
+  <g class="ico" transform="translate(8 8) scale(0.6667)">
+    <path d="M4 6h9" />
+    <path d="M17 6h3" />
+    <path d="M4 12h3" />
+    <path d="M11 12h9" />
+    <path d="M4 18h11" />
+    <path d="M19 18h1" />
+    <circle cx="15" cy="6" r="2" />
+    <circle cx="9" cy="12" r="2" />
+    <circle cx="17" cy="18" r="2" />
+  </g>
+</svg>

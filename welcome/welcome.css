@@ -1,0 +1,142 @@
+/* Страница приветствия Link Extractor — оформление дизайнера (2026-10-29).
+   Цвета бренда — как у иконки и баннеров: синий #2F7CF6, оранжевый #FF7A1A, тёмно-синий фон шапки.
+   Тема — prefers-color-scheme; шрифты системные. Режим — body[data-mode="pin" | "usage"]
+   (с правки 2026-10-30 он только сворачивает блок #pin, см. конец файла). */
+:root {
+  color-scheme: light dark;
+  --bg: #f4f6fa;
+  --card: #ffffff;
+  --text: #1c2127;
+  --muted: #59626c;
+  --line: #e3e7ed;
+  --accent: #ff7a1a;
+  --link: #0a62d0;
+  --shot-border: #dfe3e8;
+  --hero: radial-gradient(120% 160% at 0% 0%, #22427f 0%, #0f1d3a 60%, #0a1428 100%);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1320;
+    --card: #151c2b;
+    --text: #e7e9ec;
+    --muted: #a6afb9;
+    --line: #273042;
+    --link: #8dbbff;
+    --shot-border: #2c3445;
+  }
+}
+
+* { box-sizing: border-box; margin: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* .when-pin / .when-usage — тексты и части каждого режима (правка 2026-10-30) */
+body[data-mode="pin"] .when-usage,
+body[data-mode="usage"] .when-pin { display: none; }
+
+/* шапка: иконка и заголовок на тёмно-синем, как на промо-плитке */
+.hero { background: var(--hero); color: #fff; padding: 56px 24px 112px; text-align: center; }
+.hero img { width: 72px; height: 72px; display: block; margin: 0 auto 18px; }
+.hero h1 { font-size: 40px; line-height: 1.15; font-weight: 700; letter-spacing: -0.5px; }
+.hero p { font-size: 19px; color: #c9d6ee; margin-top: 10px; }
+
+.card {
+  width: min(880px, calc(100% - 48px)); margin: -72px auto 0; background: var(--card); border-radius: 20px;
+  padding: 40px 48px 36px; box-shadow: 0 20px 50px rgba(10, 20, 40, .14);
+}
+@media (prefers-color-scheme: dark) { .card { box-shadow: 0 20px 50px rgba(0, 0, 0, .45); } }
+
+/* шаги закрепления: номера как метки на картинке */
+.pin-steps { list-style: none; padding: 0; display: grid; gap: 14px; margin-bottom: 28px; }
+.pin-steps li { display: flex; align-items: center; gap: 14px; font-size: 19px; }
+.num {
+  flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #fff;
+  display: grid; place-items: center; font-weight: 700; font-size: 17px;
+}
+.figure { display: block; width: 100%; max-width: 720px; height: auto; margin: 0 auto; }
+
+/* шаги «как пользоваться»: текст слева, скриншот панели справа */
+.toolbar { margin: 4px auto 36px; }
+.steps { list-style: none; padding: 0; display: grid; gap: 0; }
+.step { display: grid; grid-template-columns: 1fr 300px; gap: 36px; align-items: center; padding: 32px 0; border-top: 1px solid var(--line); }
+.step h3 { display: flex; align-items: center; gap: 14px; font-size: 23px; line-height: 1.25; margin-bottom: 10px; }
+.step p { color: var(--muted); padding-left: 48px; }
+.step kbd {
+  font: 600 14px/1 system-ui, sans-serif; padding: 3px 7px; border-radius: 6px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--text);
+}
+.shot { width: 300px; height: auto; display: block; border-radius: 14px; border: 1px solid var(--shot-border);
+        box-shadow: 0 12px 30px rgba(10, 20, 40, .12); }
+
+
+.foot { height: 56px; }
+
+/* узкое окно (меньше ~760 px): скриншот под текстом */
+@media (max-width: 760px) {
+  .hero { padding: 40px 20px 96px; }
+  .hero h1 { font-size: 32px; }
+  .card { margin: -64px 12px 0; padding: 28px 20px; }
+  .step { grid-template-columns: 1fr; gap: 18px; }
+  .step p { padding-left: 0; }
+  .shot { margin: 0 auto; }
+}
+
+/* Дополнения разработчика (веха 16B), выше — файл дизайнера без изменений:
+   подвал с текстом вместо пустого отступа; названия кнопок панели в шагах — чуть заметнее;
+   значок фильтров в шаге 2. */
+.foot { height: auto; padding: 28px 24px 44px; text-align: center; color: var(--muted); font-size: 15px; }
+.step p b { color: var(--text); font-weight: 600; }
+/* The filters button has no label, only the sliders icon: show the same icon inline in step 2. */
+.ui-icon { display: inline-block; width: 24px; height: 24px; vertical-align: -6px; }
+
+/* Дополнения разработчика (веха 16, правки теста m16).
+   B16-1: «откройте другую страницу» — шаг 1 блока #usage; с 2026-10-30 он виден и под шагами
+   закрепления, поэтому отдельная строка под картинкой закрепления убрана.
+   B16-2: at 320 px the fixed 300 px shot was wider than the card. A plain 1fr track grows to the
+   shot's width, so the track gets a zero minimum and the shot shrinks to fit it. The card's
+   desktop width (100% − 48 px) with the narrow 12 px margins left it off-centre: 12 px on the
+   left, 36 px on the right — auto width gives 12 px on both sides. */
+@media (max-width: 760px) {
+  .card { width: auto; }
+  .step { grid-template-columns: minmax(0, 1fr); }
+  .shot { max-width: 100%; }
+}
+
+/* Правка 2026-10-30 (просьба Даниила): одна страница, два блока. Сверху #pin («как закрепить»),
+   под ним — #usage («как пользоваться») во всех режимах; закрепил — #pin сворачивается в строку
+   «✓ Значок закреплён…». Вторая карточка идёт под первой, а не наезжает на шапку. */
+.usage-block { margin-top: 24px; }
+.block-title { font-size: 28px; line-height: 1.2; text-align: center; margin-bottom: 20px; }
+/* The fold is corrected by welcome.js (the block under the reader stays put, W24). Chrome's own
+   scroll anchoring is off just in case, so that one mechanism decides: with it on, the W24 tests
+   still pass (checked 2026-10-30, R16-15), no double correction was seen. The price: on a window
+   resize the text the reader is on may drift — anchoring would have held it. */
+html, body { overflow-anchor: none; }
+/* Folded #pin: one line, the same card. */
+body[data-mode="usage"] .pin-block { padding: 18px 28px; }
+.pinned { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 12px; text-align: center; }
+.pinned .check {
+  flex: none; width: 28px; height: 28px; border-radius: 50%; background: #1f9d55; color: #fff;
+  display: grid; place-items: center; font-weight: 700; font-size: 16px; line-height: 1;
+}
+.pinned-text { font-weight: 600; }
+.pinned-help { color: var(--muted); }
+.pinned-help a { color: var(--link); font-weight: 600; text-decoration: none; }
+.pinned-help a:hover { text-decoration: underline; }
+.pin-steps:focus { outline: none; }
+@media (max-width: 760px) {
+  .usage-block { margin: 16px 12px 0; }
+  .block-title { font-size: 24px; }
+  body[data-mode="usage"] .pin-block { padding: 14px 16px; }
+}
+/* R16-13: the live region for screen readers — in the page, but not on the screen. */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+/* B16-5: the link on the "✓" line never breaks inside (ru at 320 px: «Как его / закрепить»);
+   when the line is too narrow, the whole link moves under "Don't see it?". */
+.pinned-help a { white-space: nowrap; }
