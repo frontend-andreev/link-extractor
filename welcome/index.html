@@ -8,13 +8,19 @@
   Only relative paths: the page must work on the domain, on the local server and from file://.
   data-store-id: the Chrome Web Store ID, filled in after the first upload; empty — no polling
   unless the extension passed its own ID in the link.
+  data-posthog-key / data-posthog-host: the install counter (Daniil, 2026-11-02; welcome.js,
+  countInstall). The key is the PostHog project's public key "phc_..." — set, so the counter is
+  on (an empty key would turn it off, and the page would ask no other server). One anonymous
+  "extension_installed" event goes to the host, only when the extension opened the page; CSP
+  connect-src allows that host alone. docs/PRIVACY.md, "Welcome page", says so — keep them in
+  step.
 -->
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://us.i.posthog.com; base-uri 'none'; form-action 'none'"
     />
     <meta name="referrer" content="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,7 +28,12 @@
     <link rel="icon" href="img/icon-32.png" />
     <link rel="stylesheet" href="welcome.css" />
   </head>
-  <body data-mode="pin" data-store-id="">
+  <body
+    data-mode="pin"
+    data-store-id=""
+    data-posthog-key="phc_tFcMxYCCwc2YFPpFawtReMqKPrkwu38JJDbAiKkg5QWo"
+    data-posthog-host="https://us.i.posthog.com"
+  >
     <main>
       <header class="hero">
         <img src="img/icon-128.png" width="72" height="72" alt="" />
