@@ -1,0 +1,161 @@
+<!doctype html>
+<!--
+  "What went wrong?" page (docs/ARCHITECTURE.md §18, EDGE_CASES U3, U4, U6, U17), variant 2 of
+  the designer's pages, "one click" (docs/design/m18/). The panel opens it after 1–3 stars:
+  ?stars=N&from=ask|strip&v=<version>&hl=<UI language>&utm_source=extension&utm_medium=rating
+  (4–5 stars go straight to the store and never come here).
+  body[data-step]: "ask" — the reason buttons; "got" — the reason is in, an optional comment;
+  "sent" — thanks. Without JS it stays "ask". The card is the one of /uninstall/
+  (site/shared/count.js, site/shared/answers.css).
+  The given stars and "You rated … N out of 5" are hidden until feedback.js has checked the
+  link: a plain visit shows neither. "$1" in data-i18n="rated" is the number of stars.
+  The quiet line under the card leads to the store's reviews and is always there, before and
+  after an answer: anyone can post a public review (not review gating, QUESTIONS 2026-11-09).
+  English is the markup itself (data-i18n="key"); Russian comes from strings.js.
+  Only relative paths: the page must work on the domain, on the local server and from file://.
+  data-posthog-key / data-posthog-host: the same PostHog project as the welcome page; CSP
+  connect-src allows that host alone. Events go out only on https://link-extractor.com and
+  never from an automated browser (count.js). docs/PRIVACY.md says what is sent — keep them in
+  step. noindex: nobody should land here from a search.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://us.i.posthog.com; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>What went wrong?</title>
+    <link rel="icon" href="../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../shared/answers.css" />
+  </head>
+  <body
+    data-step="ask"
+    data-posthog-key="phc_tFcMxYCCwc2YFPpFawtReMqKPrkwu38JJDbAiKkg5QWo"
+    data-posthog-host="https://us.i.posthog.com"
+  >
+    <header class="hero">
+      <img src="../welcome/img/icon-128.png" width="64" height="64" alt="" />
+      <h1 data-i18n="title">What went wrong?</h1>
+      <div class="given" data-given hidden aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"
+          />
+        </svg>
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"
+          />
+        </svg>
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"
+          />
+        </svg>
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"
+          />
+        </svg>
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"
+          />
+        </svg>
+      </div>
+      <p class="lead">
+        <span data-i18n="rated" data-rated hidden>You rated Link&nbsp;Extractor $1 out of 5.</span>
+        <span data-i18n="lead"
+          >Tell us what to fix. Only we see this — it isn’t a public review.</span
+        >
+      </p>
+    </header>
+
+    <main class="card">
+      <section class="when-ask" aria-labelledby="question">
+        <h2 class="q" id="question" data-i18n="question">What was the problem?</h2>
+        <p class="hint" data-i18n="oneClick">Click a reason — it’s sent right away.</p>
+        <div class="reasons" role="group" aria-labelledby="question">
+          <button type="button" class="reason" data-reason="links_not_found">
+            <span data-i18n="reasonLinksNotFound">Didn’t find the links I needed</span
+            ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+          <button type="button" class="reason" data-reason="wrong_result">
+            <span data-i18n="reasonWrongResult">Result was wrong or incomplete</span
+            ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+          <button type="button" class="reason" data-reason="hard_to_use">
+            <span data-i18n="reasonHardToUse">Hard to use</span
+            ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+          <button type="button" class="reason" data-reason="missing_feature">
+            <span data-i18n="reasonMissingFeature">A feature is missing</span
+            ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+          <button type="button" class="reason" data-reason="slow">
+            <span data-i18n="reasonSlow">Slow or freezes</span
+            ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+          <button type="button" class="reason" data-reason="other">
+            <span data-i18n="reasonOther">Something else</span
+            ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="when-got">
+        <div class="got">
+          <div class="ok" aria-hidden="true">✓</div>
+          <div>
+            <h2 tabindex="-1" data-got-title data-i18n="got">Thanks, got it.</h2>
+            <span class="chosen" data-chosen></span>
+            <button type="button" class="change" data-change data-i18n="change">Change</button>
+          </div>
+        </div>
+        <label class="lbl" for="comment"
+          ><span data-i18n="addWords">Want to add a few words?</span>
+          <span class="optional" data-i18n="optional">(optional)</span></label
+        >
+        <textarea
+          id="comment"
+          rows="3"
+          maxlength="2000"
+          aria-describedby="privacy-note"
+          data-comment
+          data-i18n-placeholder="placeholder"
+          placeholder="What should we fix?"
+        ></textarea>
+        <div class="actions">
+          <button type="button" class="send" data-send disabled data-i18n="send">Send</button>
+          <span class="anon" id="privacy-note" data-i18n="privacyNote"
+            >Please don’t include personal details: we don’t ask for your name or email.</span
+          >
+        </div>
+      </section>
+
+      <section class="when-sent sent" tabindex="-1" aria-labelledby="thanks" data-sent>
+        <div class="ok" aria-hidden="true">✓</div>
+        <h2 id="thanks" data-i18n="thanks">Thank you!</h2>
+        <p data-i18n="sentText">We read every message and fix what we can.</p>
+        <p data-i18n="closeTab">You can close this tab.</p>
+      </section>
+    </main>
+
+    <p class="after">
+      <span data-i18n="publicReviewText">You can also post a public review in the</span>
+      <a
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg/reviews"
+        data-i18n="publicReviewLink"
+        >Chrome Web Store</a
+      >.
+    </p>
+
+    <script src="strings.js"></script>
+    <script src="../shared/count.js"></script>
+    <script src="feedback.js"></script>
+  </body>
+</html>

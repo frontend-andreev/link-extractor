@@ -9,10 +9,11 @@
   data-store-id: the Chrome Web Store ID, filled in after the first upload; empty — no polling
   unless the extension passed its own ID in the link.
   data-posthog-key / data-posthog-host: the install counter (Daniil, 2026-11-02; welcome.js,
-  countInstall). The key is the PostHog project's public key "phc_..." — set, so the counter is
-  on (an empty key would turn it off, and the page would ask no other server). One anonymous
-  "extension_installed" event goes to the host, only when the extension opened the page; CSP
-  connect-src allows that host alone. docs/PRIVACY.md, "Welcome page", says so — keep them in
+  countInstall, sent by ../shared/count.js with the site's le_id since 18D). The key is the
+  PostHog project's public key "phc_..." — set, so the counter is on (an empty key would turn
+  it off, and the page would ask no other server). One anonymous "extension_installed" event
+  goes to the host, only when the extension opened the page; CSP connect-src allows that host
+  alone. docs/PRIVACY.md, "Our website", says so — keep them in
   step.
 -->
 <html lang="en">
@@ -30,7 +31,7 @@
   </head>
   <body
     data-mode="pin"
-    data-store-id=""
+    data-store-id="jhkaajdkjhnfgllboflfppkhaaclfagg"
     data-posthog-key="phc_tFcMxYCCwc2YFPpFawtReMqKPrkwu38JJDbAiKkg5QWo"
     data-posthog-host="https://us.i.posthog.com"
   >
@@ -207,6 +208,7 @@
     </footer>
 
     <script src="strings.js"></script>
+    <script src="../shared/count.js"></script>
     <script src="welcome.js"></script>
   </body>
 </html>

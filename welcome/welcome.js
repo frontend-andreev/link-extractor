@@ -19,11 +19,14 @@
  * anchoring is off (welcome.css), just in case, so that one mechanism decides.
  *
  * A plain script, not a module: modules do not load from file://. No imports from the
- * product — Form Filler copies this folder and changes only constants, texts and pictures.
+ * product — Form Filler copies this folder (with ../shared/count.js) and changes only
+ * constants, texts and pictures.
  * Nothing from the link is ever written into the page; texts go in with textContent.
  *
- * The one request to another server is the install counter (countInstall): off while
- * body[data-posthog-key] is empty.
+ * The one request to another server is the install counter (countInstall), sent by the
+ * site's shared counter ../shared/count.js, loaded just before this script: off while
+ * body[data-posthog-key] is empty, anywhere but the published site, and in an automated
+ * browser. The page itself works without it (and without the shared folder).
  */
 (function () {
   'use strict';
@@ -279,47 +282,30 @@
   }
 
   /**
-   * The install counter (Daniil, 2026-11-02): one anonymous "extension_installed" event to
-   * PostHog's capture endpoint. Only when a key is set and the extension itself opened the
-   * page (a well-formed ID in the link) — a visitor who just came to the site is not an
-   * install. Only what the link already says: Chrome's language and whether the icon is
-   * pinned, plus the mode shown; never the ID, the address or the referrer. A random
-   * distinct_id and no person profile, so nothing ties two events together. sessionStorage
-   * keeps a reload from counting twice; whatever goes wrong, the page works as before.
+   * The install counter (Daniil, 2026-11-02; 18D: on the site's shared counter). One
+   * "extension_installed" event, only when the extension itself opened the page (a well-formed
+   * ID in the link) — a visitor who just came to the site is not an install. Only what the
+   * link already says: Chrome's language and whether the icon is pinned, plus the mode shown;
+   * never the ID, the address or the referrer. Everything else is ../shared/count.js: it
+   * sends only on the published site with a key and never in an automated browser, and its
+   * distinct_id is the site's le_id — the same one the uninstall page and /feedback/ send, so
+   * a person's install, rating and removal line up (ARCHITECTURE.md §18, U5, U6). The mark in
+   * sessionStorage keeps a reload from counting twice. No count.js (a copy without the shared
+   * folder) — no count; whatever goes wrong, the page works as before.
    */
   function countInstall() {
-    const key = document.body.dataset.posthogKey || '';
-    const host = document.body.dataset.posthogHost || '';
+    const site = /** @type {{ LinkExtractorSite?: LinkExtractorSite }} */ (
+      /** @type {unknown} */ (window)
+    ).LinkExtractorSite;
     const fromLink = params.get('id');
-    if (!key || !host || fromLink === null || !EXTENSION_ID.test(fromLink)) return;
-    try {
-      if (sessionStorage.getItem('installCounted')) return;
-      sessionStorage.setItem('installCounted', '1');
-    } catch {
-      // storage blocked: count anyway; a reload may then count twice, which is rare
-    }
+    if (!site || fromLink === null || !EXTENSION_ID.test(fromLink)) return;
     const hl = params.get('hl');
     const pinned = params.get('pinned');
     /** @type {Record<string, unknown>} */
-    const properties = { $process_person_profile: false, mode: document.body.dataset.mode };
+    const properties = { mode: document.body.dataset.mode };
     if (hl !== null && LANGUAGE_TAG.test(hl)) properties.chrome_language = hl;
     if (pinned === '1' || pinned === '0') properties.pinned = pinned === '1';
-    try {
-      // eslint-disable-next-line no-restricted-globals -- the install counter, the one request
-      fetch(host + '/i/v0/e/', {
-        method: 'POST',
-        keepalive: true,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          api_key: key,
-          event: 'extension_installed',
-          distinct_id: crypto.randomUUID(),
-          properties,
-        }),
-      }).catch(() => undefined);
-    } catch {
-      // no fetch or no crypto.randomUUID (not a secure context): no count, nothing else
-    }
+    site.sendOnce('installCounted', 'extension_installed', properties);
   }
 
   applyLanguage(pickLanguage(params.get('hl'), navigator.language));

@@ -1,0 +1,259 @@
+<!doctype html>
+<!--
+  Privacy policy, published at https://link-extractor.com/privacy/ (the Chrome Web Store asks for it).
+  The text is docs/PRIVACY.md word for word: when the document changes, change this page too
+  (tests/page/privacy.spec.ts compares the headings and paragraphs).
+  No scripts and no requests to other hosts; the icon is the welcome page's.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Link Extractor privacy policy: the extension collects no personal data and your links never leave your browser. Our website counts installs, low ratings and removals with PostHog, using a random ID."
+    />
+    <title>Privacy Policy — Link Extractor</title>
+    <link rel="icon" href="../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="privacy.css" />
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <img src="../welcome/img/icon-128.png" width="56" height="56" alt="" />
+        <h1>Privacy Policy — Link Extractor</h1>
+        <p><em>Last updated: November 23, 2026</em></p>
+      </header>
+
+      <article class="card">
+        <p>
+          Link Extractor is a Chrome extension that lists the links of the page you are viewing, so
+          you can filter, copy or save them as a CSV file. It works entirely inside your browser.
+        </p>
+
+        <h2>The short version</h2>
+        <ul>
+          <li>The extension itself collects no personal data and makes no network requests.</li>
+          <li>
+            The links you extract never leave your browser. They go only where you send them
+            yourself: your clipboard or a file you download.
+          </li>
+          <li>The extension has no analytics, no tracking and no ads.</li>
+          <li>
+            Our website, link-extractor.com, counts the install, a 1–3 star rating and the removal
+            of the extension, with the answers you choose to give there. Each event carries a
+            random ID kept in your browser by the website. With the IP address PostHog receives,
+            this ID may count as pseudonymous personal data under laws such as the GDPR. We do not
+            ask for your name or email, do not try to connect this ID to them and never sell it; it
+            goes only to PostHog, which processes it for us. It stays after you remove the
+            extension; clearing the site data of link-extractor.com deletes it. See "Our website"
+            below.
+          </li>
+        </ul>
+
+        <h2>What the extension reads</h2>
+        <p>
+          The extension reads a page only when you ask it to: when you click its icon, press its
+          keyboard shortcut, or choose "Extract links from the selection" in the right-click menu.
+          It reads the links of that page (their addresses, text and a few attributes such as
+          <code>rel</code>) and shows them in Chrome's side panel. While the panel is open and
+          automatic updates are on, it reads the tab again when the tab goes to another page, so the
+          list matches what you see. It does not change the page; the only exception is a short
+          highlight of a link when you ask the extension to show that link on the page.
+        </p>
+        <p>
+          The list exists only while the side panel is open. It is not saved anywhere and is gone
+          when you close the panel.
+        </p>
+
+        <h2>Permissions and why they are needed</h2>
+        <p>Requested at install:</p>
+        <ul>
+          <li>
+            <strong>activeTab</strong> — read the tab you are on, and only after you click the icon
+            or use the shortcut or the menu item.
+          </li>
+          <li>
+            <strong>scripting</strong> — run the small script that reads the links of that tab.
+          </li>
+          <li><strong>sidePanel</strong> — show the list in Chrome's side panel.</li>
+          <li>
+            <strong>contextMenus</strong> — add "Extract links from the selection" to the
+            right-click menu.
+          </li>
+          <li><strong>storage</strong> — remember your settings (see below).</li>
+        </ul>
+        <p>
+          Optional, asked only when you turn on a feature that needs it. You can say no, and you can
+          take it back at any time in Chrome's extension settings:
+        </p>
+        <ul>
+          <li>
+            <strong>Access to all sites</strong> — two features use it. Automatic list updates after
+            the tab moves to another site: Chrome does not let an extension ask for "just this new
+            site", so the only choice is all sites. And links inside embedded blocks (frames) loaded
+            from other sites: here the extension asks for those sites only. Chrome describes this
+            access as "Read and change all your data on all websites"; the extension still only
+            reads links, and only from the tab you are using it on.
+          </li>
+        </ul>
+
+        <h2>What is stored on your device</h2>
+        <p>In Chrome's extension storage, on your computer only:</p>
+        <ul>
+          <li>
+            your settings: how duplicates are handled, address options (unwrapping redirect links,
+            removing tracking parameters, readable addresses), the CSV separator, the copy format,
+            whether the list updates automatically, and whether you declined access to all sites;
+          </li>
+          <li>
+            whether the extension has already asked you to rate it and whether you have rated it.
+            The number of stars is not stored;
+          </li>
+          <li>
+            for a moment, while the side panel opens: which tab to read and whether to read the
+            whole page or the selection. Chrome deletes this when the browser closes.
+          </li>
+        </ul>
+        <p>
+          Your filters and the links themselves are never stored. Removing the extension deletes
+          everything listed here. It does not delete the random ID that our website keeps in its own
+          storage in your browser (see "The random ID" below); to delete that too, clear the site
+          data of link-extractor.com in Chrome's settings.
+        </p>
+
+        <h2>Network requests</h2>
+        <p>
+          None. The extension does not contact any server, ours or anyone else's. Unwrapping
+          redirect links and removing tracking parameters are done by reading the address itself,
+          without opening the link.
+        </p>
+
+        <h2>Our website</h2>
+        <p>
+          Three pages of our website, link-extractor.com, open from the extension. They are pages on
+          the internet, so your browser loads them like any other website.
+        </p>
+        <ul>
+          <li>
+            <strong>Welcome page</strong>, once, right after you install the extension:
+            <strong>https://link-extractor.com/welcome/</strong>. The address includes the
+            extension's ID, your Chrome interface language and whether the extension icon is pinned
+            to the toolbar, so the page can show the right instructions. The page can ask the
+            extension one thing: whether its icon is pinned. It does not open on updates, and does
+            not open when your organization installs the extension for you.
+          </li>
+          <li>
+            <strong>"What went wrong?" page</strong>, when you rate the extension 1 to 3 stars in
+            its panel: <strong>https://link-extractor.com/feedback/</strong>. The address includes
+            the stars you gave, where you gave them (the question in the panel or the line under its
+            buttons), the extension's version, your Chrome interface language and two fixed labels
+            that show the extension opened the page (<code>utm_source=extension</code>,
+            <code>utm_medium=rating</code>). 4 or 5 stars open the extension's reviews in the Chrome
+            Web Store directly, not our website.
+          </li>
+          <li>
+            <strong>Uninstall page</strong>, which Chrome opens when you remove the extension:
+            <strong>https://link-extractor.com/uninstall/</strong>. The address includes the
+            extension's version, your Chrome interface language and two fixed labels that show the
+            extension opened the page (<code>utm_source=extension</code>,
+            <code>utm_medium=uninstall</code>).
+          </li>
+        </ul>
+
+        <h3>What these pages count</h3>
+        <p>
+          When the extension opens one of these pages, the page sends one event to PostHog, an
+          analytics service, so we know how many people installed the extension, rated it low, or
+          removed it, and why:
+        </p>
+        <ul>
+          <li>
+            the welcome page: "extension installed", with your Chrome interface language, whether
+            the extension icon is pinned and which instructions the page showed;
+          </li>
+          <li>
+            the "What went wrong?" page: "feedback opened", with the stars, where you gave them, the
+            version and the language;
+          </li>
+          <li>the uninstall page: "extension uninstalled", with the version and the language.</li>
+        </ul>
+        <p>
+          On the "What went wrong?" and uninstall pages you can also answer why. A click on a reason
+          sends that reason (one of the six on the page), with the stars or the version; if you
+          write a comment and press "Send", the page sends your text (at most 2,000 characters) with
+          your reason and the same stars or version. Each answer also carries a random number for
+          that one visit of the page, so that a changed answer replaces the earlier one. No answer
+          is sent until you click; please do not write personal data in the comment.
+        </p>
+        <p>
+          Every event also carries the site's name (link-extractor.com), so that our own tests can
+          be told apart, and the random ID described below. No event contains the extension's ID,
+          the page address or a referrer. Unless you type them into a comment, no event contains
+          your name, your email or your links. If you open these pages at their plain address rather
+          than from the extension, they count no install, rating or removal; a reason or a comment
+          you choose to send is still sent.
+        </p>
+
+        <h3>The random ID</h3>
+        <p>
+          So that the install, a rating and the removal of one installation can be seen as one path,
+          the website keeps a random ID ("le_id") in its own storage in your browser (the website's
+          local storage on link-extractor.com, not in the extension), created the first time one of
+          these pages sends an event. The same ID goes with each event from that browser profile. It
+          is not derived from anything about you or your computer, it is never put in an address and
+          the extension never sees it. Removing the extension does not delete it, because it belongs
+          to the website. Clearing the site data of link-extractor.com in Chrome's settings deletes
+          it; then the next event gets a new one and is no longer linked to the earlier ones.
+          Besides this ID, the pages store only a mark in the tab's session storage, so that
+          reloading a page does not count it twice. They set no cookies.
+        </p>
+
+        <h3>Where the data goes</h3>
+        <p>
+          Events go to PostHog's US cloud (us.i.posthog.com), so they are processed in the United
+          States. PostHog receives your IP address and may use it to estimate an approximate
+          location (<a
+            href="https://posthog.com/privacy"
+            >PostHog's privacy policy</a
+          >). Events are not tied to a person profile. The pages are hosted on GitHub Pages, which,
+          like any web host, may keep standard server logs such as IP addresses and the addresses of
+          the pages requested (<a
+            href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+            >GitHub's privacy statement</a
+          >).
+        </p>
+        <p>
+          The extension itself still sends nothing: it only tells Chrome which page to open, and the
+          links you extract never leave your browser.
+        </p>
+
+        <h2>Payments</h2>
+        <p>There are none. The extension is free and has no paid features.</p>
+
+        <h2>Children</h2>
+        <p>
+          The extension collects no data from anyone, including children. The counters on our
+          website do not ask for anyone's age, name or email. Link Extractor is not intended for
+          children.
+        </p>
+
+        <h2>Changes</h2>
+        <p>
+          If this policy changes, the new version will be published at this address with a new date.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about privacy:
+          <a href="mailto:daniil.developer02@gmail.com">daniil.developer02@gmail.com</a>
+        </p>
+      </article>
+    </main>
+  </body>
+</html>
