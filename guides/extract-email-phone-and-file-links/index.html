@@ -1,0 +1,170 @@
+<!doctype html>
+<!--
+  Guide: mailto/tel/sms and file links. Facts: src/core/url.ts (classifyLink, FILE_EXTENSIONS),
+  filterType* and filterScopeHelp strings, home FAQ.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How to extract email, phone and file links from a page — Link Extractor</title>
+    <meta
+      name="description"
+      content="Get only the mailto, tel and file links of a web page — PDFs, documents, archives — with their link text, then copy them or export a CSV for Excel."
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/guides/extract-email-phone-and-file-links/"
+    />
+    <link rel="icon" href="../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../home.css" />
+    <link rel="stylesheet" href="../guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="How to extract email, phone and file links from a page" />
+    <meta
+      property="og:description"
+      content="Only the mailto, tel and file links of a page, with their text, ready to copy."
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/guides/extract-email-phone-and-file-links/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Guides</p>
+      <h1>How to extract email, phone and PDF links from a page</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Add to Chrome — it's free</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Short answer:</b> open the page, click the Link Extractor icon, open
+          <b>Filters &amp; settings</b> and under <b>Type</b> choose <b>Email</b>, <b>Phones</b> or
+          <b>Files</b>. The list keeps only those links, and <b>Copy URLs</b> or <b>CSV</b> gives
+          you just them.
+        </p>
+
+        <h2>Who this is for</h2>
+        <p>
+          Anyone collecting contacts from a team page, a directory or a list of suppliers, and
+          anyone who needs every PDF, document or archive linked from a page: reports, price lists,
+          course materials, downloads.
+        </p>
+
+        <h2>Which links count as what</h2>
+        <ul>
+          <li><b>Email</b>: <code>mailto:</code> links.</li>
+          <li><b>Phones</b>: <code>tel:</code> and <code>sms:</code> links.</li>
+          <li>
+            <b>Files</b>: links whose address ends in a file extension — PDF; Word, Excel and
+            PowerPoint documents; OpenDocument, RTF, TXT, CSV and EPUB; ZIP, RAR, 7z and other
+            archives; images; audio and video; installers and disk images — and any link marked for
+            download on the page.
+          </li>
+          <li><b>Pages</b>: all other web links.</li>
+        </ul>
+        <p>Nothing selected under <b>Type</b> means all types.</p>
+
+        <h2>Step by step</h2>
+        <ol>
+          <li>
+            Open the page and click the Link Extractor icon (Alt+Shift+L, on a Mac Ctrl+Shift+L).
+          </li>
+          <li>Open <b>Filters &amp; settings</b>.</li>
+          <li>
+            Under <b>Type</b>, choose <b>Email</b>, <b>Phones</b> or <b>Files</b>; you can choose
+            more than one.
+          </li>
+          <li>
+            For one kind of file, also type it in the search box: <code>.pdf</code> keeps only PDFs,
+            <code>.docx</code> only Word documents.
+          </li>
+          <li>
+            Click <b>Copy URLs</b>, or <b>CSV</b> for a file with the link text and type of each
+            link.
+          </li>
+        </ol>
+
+        <h3>What you get</h3>
+        <p>
+          Email and phone links are copied exactly as they are on the page, for example
+          <code>mailto:sales@example.com</code> or <code>tel:+15551234567</code>, with the link text
+          next to them in the list and the file. Duplicates are merged, so an address that appears
+          in the header and the footer is one row. File links are full URLs you can open or
+          download.
+        </p>
+
+        <h2>Limits, said plainly</h2>
+        <ul>
+          <li>
+            <b>Only links.</b> An email address or phone number written as plain text, not as a
+            link, is not in the list. Link Extractor lists links; it does not search the page text.
+          </li>
+          <li>
+            <b>Files are recognised by their address.</b> A download link that ends in something
+            like <code>/download?id=42</code> has no extension; it is counted as a page unless the
+            page marks it as a download.
+          </li>
+          <li>
+            <b>It does not download the files.</b> You get their addresses; it makes no network
+            requests.
+          </li>
+          <li>
+            The <b>Internal</b> and <b>External</b> filters hide email and phone links, because they
+            have no site.
+          </li>
+        </ul>
+
+        <h2>When another tool is the better choice</h2>
+        <ul>
+          <li>
+            <b>Contacts across a whole website.</b> Link Extractor does not crawl; it reads the one
+            page you have open.
+          </li>
+          <li>
+            <b>Downloading every file at once.</b> Paste the copied URLs into a download manager.
+          </li>
+        </ul>
+
+        <h2>Questions</h2>
+        <h3>Is the email address copied with “mailto:”?</h3>
+        <p>
+          Yes, the link is copied as the page has it, including any <code>?subject=</code> part. To
+          get bare addresses, remove <code>mailto:</code> with find and replace in your spreadsheet.
+        </p>
+        <h3>Can I get the PDFs linked from a page inside a frame?</h3>
+        <p>
+          Yes, frames from the same site are read along with the page. Frames from other sites need
+          your permission, and the panel says when it could not read one.
+        </p>
+        <h3>Is it free?</h3>
+        <p>Yes. No account, no paid features, and the links stay in your browser.</p>
+
+        <p class="more">
+          Related: <a href="../copy-link-text-and-url/">copy link text and URL pairs into Excel</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Home</a> · <a href="../../privacy/">Privacy policy</a> ·
+        <a href="../../feedback/">Contact</a>
+      </p>
+      <p>Links never leave your browser.</p>
+    </footer>
+  </body>
+</html>

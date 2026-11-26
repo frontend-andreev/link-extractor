@@ -1,0 +1,176 @@
+<!doctype html>
+<!--
+  Guide: remove UTM and other tracking tags, and show the real address of redirect links.
+  Facts: src/core/tracking.ts (the list, off by default), src/core/redirects.ts (the wrappers,
+  on by default, read from the address without the network), milestone 4 (released).
+  Screenshot of these two options: none yet — see the place marked below.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      How to remove UTM tags and unwrap redirect links from extracted URLs — Link Extractor
+    </title>
+    <meta
+      name="description"
+      content="Get clean URLs from a page: strip utm_source, fbclid, gclid and other tracking tags, and replace Google, Bing or Facebook redirect links with the address they lead to."
+    />
+    <link rel="canonical" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <link rel="icon" href="../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../home.css" />
+    <link rel="stylesheet" href="../guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="How to remove UTM tags and unwrap redirect links" />
+    <meta
+      property="og:description"
+      content="Clean URLs from any page: no utm_source, fbclid or gclid, and real addresses instead of google.com/url?q= wrappers."
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/guides/remove-tracking-and-redirects/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Guides</p>
+      <h1>How to remove UTM tags and unwrap redirect links</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Add to Chrome — it's free</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Short answer:</b> in Link Extractor, open <b>Filters &amp; settings</b> and turn on
+          <b>Remove utm and other tracking tags</b>. Redirect links are already shown as their real
+          address: <b>Real URL instead of redirect</b> is on by default. Both apply to the list, to
+          what you copy and to the CSV.
+        </p>
+
+        <h2>Two different problems</h2>
+        <p>
+          <b>Tracking tags</b> are parameters added to an address to count clicks:
+          <code>https://shop.example/item?utm_source=newsletter&amp;fbclid=…</code>. The page is the
+          same with or without them, but in a spreadsheet the tagged copies look like different
+          links and make your list longer.
+        </p>
+        <p>
+          <b>Redirect links</b> wrap the real address in another one:
+          <code>https://www.google.com/url?q=https://example.com/</code> or
+          <code>https://l.facebook.com/l.php?u=…</code>. Copy them as they are and every row starts
+          with google.com or facebook.com, so you cannot sort or filter by the site they lead to.
+        </p>
+
+        <h2>Step by step</h2>
+        <ol>
+          <li>
+            Open the page and click the Link Extractor icon (Alt+Shift+L, on a Mac Ctrl+Shift+L).
+          </li>
+          <li>Open <b>Filters &amp; settings</b>.</li>
+          <li>
+            Under <b>Copy &amp; files</b>, turn on <b>Remove utm and other tracking tags</b>. Leave
+            <b>Real URL instead of redirect</b> on.
+          </li>
+          <li>
+            Check the list: the panel says
+            <b>utm and other tracking tags are removed from the URLs</b>, and how many redirect
+            links show their real URL. Each of them is marked <b>from redirect</b>; hover over the
+            mark to see the address from the page.
+          </li>
+          <li>Click <b>Copy URLs</b> or <b>CSV</b>.</li>
+        </ol>
+        <!-- Screenshot wanted: Filters & settings → Copy & files with both options visible (en,
+             light and dark, 360×560 like welcome/img/en/step-*.webp). None exists yet. -->
+        <p>The settings are remembered for the next pages.</p>
+
+        <h3>Which tags are removed</h3>
+        <p>
+          Every <code>utm_…</code> parameter, plus <code>fbclid</code>, <code>gclid</code>,
+          <code>dclid</code>, <code>gbraid</code>, <code>wbraid</code>, <code>msclkid</code>,
+          <code>yclid</code>, <code>ysclid</code>, <code>igshid</code>, <code>mc_cid</code>,
+          <code>mc_eid</code>, <code>_hsenc</code>, <code>_hsmi</code>, <code>mkt_tok</code>,
+          <code>twclid</code>, <code>ttclid</code>, <code>li_fat_id</code>, <code>srsltid</code>,
+          <code>_ga</code> and <code>_gl</code>.
+        </p>
+        <p>
+          The list is short on purpose. Parameters such as <code>ref</code>, <code>source</code> or
+          <code>id</code> stay, because some sites need them and removing them would give you a
+          broken link. The rest of the address is kept exactly as written: the order of the
+          parameters, their encoding and the part after <code>#</code>. Links that differed only by
+          tracking tags become one row.
+        </p>
+
+        <h3>Which redirect links are unwrapped</h3>
+        <p>
+          Google (<code>/url?q=</code>), Bing (<code>/ck/a</code>), DuckDuckGo, Facebook and
+          Instagram outbound links, YouTube, LinkedIn and Reddit redirects, Outlook Safe Links,
+          Slack, Steam and VK. The real address is read from the link itself: nothing is opened and
+          no request is made, so it is fast and private.
+        </p>
+        <p>
+          In the CSV the <code>url</code> column has the real address and
+          <code>original_url</code> keeps the wrapped one. To keep links exactly as they are on the
+          page, turn <b>Real URL instead of redirect</b> off.
+        </p>
+
+        <h2>What it does not do</h2>
+        <ul>
+          <li>
+            <b>Short links</b> such as bit.ly or t.co keep their target on their own server. Finding
+            it means opening the link, and Link Extractor makes no network requests, so they stay as
+            they are. Use a URL expander for those.
+          </li>
+          <li>
+            <b>Some Google results hide the real address.</b> Then the link carries only an opaque
+            Google code. The panel marks such a row <b>URL hidden by Google</b> and copies it as
+            Google gives it, rather than guessing. On a results page, <b>Results only</b> lists just
+            the results, in order, without ads.
+          </li>
+          <li>
+            A wrapper around a <code>javascript:</code> or <code>data:</code> address is never
+            turned into that address: it stays the wrapper.
+          </li>
+        </ul>
+
+        <h2>Questions</h2>
+        <h3>Does removing tags change the page?</h3>
+        <p>
+          No. Only the list, the copy and the file change. The page and its links stay as they are.
+        </p>
+        <h3>Why is tag removal off by default?</h3>
+        <p>
+          So that by default you get the links exactly as the page has them. Some people need the
+          tags, for example to check a campaign's links. One switch turns it on.
+        </p>
+        <h3>Can I see which links were redirects?</h3>
+        <p>
+          Yes. They carry the <b>from redirect</b> mark in the list, and in the CSV their original
+          address is in the <code>original_url</code> column.
+        </p>
+
+        <p class="more">
+          Next: <a href="../export-links-to-csv/">export the clean list to a CSV for Excel</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Home</a> · <a href="../../privacy/">Privacy policy</a> ·
+        <a href="../../feedback/">Contact</a>
+      </p>
+      <p>Links never leave your browser.</p>
+    </footer>
+  </body>
+</html>

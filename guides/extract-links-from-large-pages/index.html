@@ -1,0 +1,170 @@
+<!doctype html>
+<!--
+  Guide: huge pages. Facts: home FAQ (10,000 links in about a second in our tests; 200,000 per
+  page and per frame), linksTruncated, exportCut (32,767), virtualised list (ARCHITECTURE.md).
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How to extract all links from a large page (10,000+ links) — Link Extractor</title>
+    <meta
+      name="description"
+      content="Extract every link from a huge page — sitemaps, directories, long feeds — without freezing the tab or cutting the list. What the limits are and when to use another tool."
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/guides/extract-links-from-large-pages/"
+    />
+    <link rel="icon" href="../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../home.css" />
+    <link rel="stylesheet" href="../guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta
+      property="og:title"
+      content="How to extract all links from a large page (10,000+ links)"
+    />
+    <meta
+      property="og:description"
+      content="Every link of a huge page, copied or exported in full, without freezing the tab."
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/guides/extract-links-from-large-pages/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Guides</p>
+      <h1>How to extract all links from a large page with 10,000+ links</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Add to Chrome — it's free</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Short answer:</b> open the page, let it load all its content, click the Link Extractor
+          icon and use <b>Copy URLs</b> or <b>CSV</b>. Copying and the file include every link in
+          the list, with nothing cut off. In our tests a page with 10,000 links is listed in about a
+          second, and the list still scrolls and filters without freezing.
+        </p>
+
+        <h2>Who this is for</h2>
+        <p>
+          People who work with long pages: sitemaps and archive pages, directories and catalogs,
+          link lists, documentation indexes, long forum threads, feeds that keep loading as you
+          scroll. Many link extractors slow down, freeze the tab or quietly stop at a few hundred or
+          a few thousand links there.
+        </p>
+
+        <h2>What matters on a big page</h2>
+        <ul>
+          <li>
+            <b>A complete result.</b> If the tool stops early, it should say so, not hand you part
+            of the page as if it were all of it.
+          </li>
+          <li>
+            <b>The page loaded first.</b> Links that appear only after scrolling or “Show more” are
+            not in the page yet when you start.
+          </li>
+          <li><b>A responsive list</b>, so you can search and filter tens of thousands of rows.</li>
+          <li><b>Duplicates merged</b>: on big pages the same links repeat a lot.</li>
+        </ul>
+
+        <h2>Step by step</h2>
+        <ol>
+          <li>
+            Open the page. If it loads more as you scroll, scroll to the end, or click “Show more”
+            until everything you need is on the page.
+          </li>
+          <li>
+            Click the Link Extractor icon, or press Alt+Shift+L (on a Mac, Ctrl+Shift+L). The side
+            panel lists the links in page order; repeats are one row with a counter.
+          </li>
+          <li>
+            If you scrolled further after opening the panel, press <b>Refresh</b> in the panel to
+            add what has loaded since.
+          </li>
+          <li>
+            Optional: type in the search box or open <b>Filters &amp; settings</b> to keep only the
+            links you need, for example one domain or only external links.
+          </li>
+          <li>
+            Click <b>Copy URLs</b> to copy them, one per line, or <b>CSV</b> to download a file.
+          </li>
+        </ol>
+
+        <h2>Limits, said plainly</h2>
+        <ul>
+          <li>
+            The panel reads up to <b>200,000 links</b> from a page, and as many from each embedded
+            frame. If a page has more, the panel says
+            <b>Only the first 200,000 links are in the list</b>.
+          </li>
+          <li>
+            Links in closed menus and hidden blocks are left out by default, and the panel shows how
+            many there are. <b>+N hidden</b> adds them.
+          </li>
+          <li>
+            Excel holds at most 32,767 characters in a cell. If a URL or link text is longer, that
+            cell is cut in the CSV and the panel tells you how many cells were cut.
+          </li>
+          <li>
+            Links inside frames embedded from other sites need your permission; the panel says which
+            part of the page it could not read.
+          </li>
+        </ul>
+
+        <h2>When another tool is the better choice</h2>
+        <ul>
+          <li>
+            <b>Links from many pages of a site.</b> Link Extractor does not crawl: it reads the one
+            tab you have open. For a whole site, use a site audit tool such as Screaming Frog SEO
+            Spider.
+          </li>
+        </ul>
+
+        <h2>Questions</h2>
+        <h3>Will the tab freeze while it reads 10,000+ links?</h3>
+        <p>
+          No. The panel draws only the rows you can see, so scrolling and filtering stay fast even
+          with tens of thousands of links.
+        </p>
+        <h3>Is the copy cut off at some number of rows?</h3>
+        <p>
+          No. <b>Copy URLs</b> and <b>CSV</b> take every link in the list, after your search and
+          filters.
+        </p>
+        <h3>Does it get links that load with infinite scroll?</h3>
+        <p>
+          Yes, once they are on the page. Scroll until they have loaded, then press <b>Refresh</b>.
+          It does not scroll the page for you.
+        </p>
+
+        <p class="more">
+          Related:
+          <a href="../export-links-to-csv/">export the list to a CSV that opens in Excel</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Home</a> · <a href="../../privacy/">Privacy policy</a> ·
+        <a href="../../feedback/">Contact</a>
+      </p>
+      <p>Links never leave your browser.</p>
+    </footer>
+  </body>
+</html>

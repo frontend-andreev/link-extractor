@@ -1,0 +1,203 @@
+<!doctype html>
+<!--
+  Guide: export every link of a page to a CSV that opens in Excel without broken characters.
+  Every claim is about the store version (milestones 1–6, 11–18; CSV, separator and the
+  "one column" hint are milestone 4). Button names are the panel's (public/_locales/en).
+  No scripts, no requests to other hosts (tests/page/guides.spec.ts).
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How to export all links from a page to CSV for Excel — Link Extractor</title>
+    <meta
+      name="description"
+      content="Export every link of a web page to a CSV file with full URLs and link text, in page order, that opens in Excel with no broken characters. Step by step in Chrome."
+    />
+    <link rel="canonical" href="https://link-extractor.com/guides/export-links-to-csv/" />
+    <link rel="icon" href="../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../home.css" />
+    <link rel="stylesheet" href="../guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="How to export all links from a page to CSV for Excel" />
+    <meta
+      property="og:description"
+      content="Full URLs and link text, in page order, in a CSV that Excel opens without broken characters."
+    />
+    <meta property="og:url" content="https://link-extractor.com/guides/export-links-to-csv/" />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Guides</p>
+      <h1>How to export all links from a page to a CSV that opens in Excel</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Add to Chrome — it's free</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Short answer:</b> install Link Extractor, open the page, click the extension's icon and
+          click <b>CSV</b>. You get one row per link, in page order, with the full URL and the link
+          text. The file is UTF-8 with a byte order mark, so Excel shows Cyrillic, Arabic, Chinese
+          and accented text correctly.
+        </p>
+
+        <h2>Who this is for</h2>
+        <p>
+          SEO specialists checking the links of a page, marketers building outreach or competitor
+          lists, researchers saving sources, and anyone who needs the links of one page in a
+          spreadsheet instead of copying them by hand.
+        </p>
+
+        <h2>What a good export looks like</h2>
+        <ul>
+          <li>
+            <b>Full addresses.</b> <code>https://example.com/about</code>, not <code>/about</code>.
+          </li>
+          <li><b>The link text</b> in its own column, next to the URL.</li>
+          <li><b>Page order</b>, top to bottom, so the sheet matches what you see.</li>
+          <li><b>No duplicates</b>: a link repeated in the menu and the footer is one row.</li>
+          <li>
+            <b>Readable text in Excel.</b> Without a byte order mark, Excel often opens a UTF-8 file
+            as <code>Ð¿Ñ€Ð¸Ð²ÐµÑ‚</code> instead of the real letters.
+          </li>
+          <li>
+            <b>The right separator.</b> Excel in some countries expects a comma, in others a
+            semicolon; with the wrong one, everything lands in column A.
+          </li>
+          <li><b>Nothing cut off</b> on long pages.</li>
+        </ul>
+
+        <h2>Step by step</h2>
+        <ol>
+          <li>
+            Open the page in Chrome. If it loads more links as you scroll or after “Show more”,
+            scroll first.
+          </li>
+          <li>
+            Click the Link Extractor icon in the toolbar, or press Alt+Shift+L (on a Mac,
+            Ctrl+Shift+L). A side panel lists every link of the page.
+          </li>
+          <li>
+            Optional: narrow the list. Type in the search box, or open
+            <b>Filters &amp; settings</b> for domain, type, internal or external links and nofollow,
+            sponsored or ugc. The file contains the links now in the list.
+          </li>
+          <li>Click <b>CSV</b>. The file downloads at once.</li>
+          <li>Open it in Excel by double-clicking it.</li>
+        </ol>
+        <figure>
+          <picture>
+            <source
+              srcset="../../welcome/img/en/step-3-dark.webp"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img
+              src="../../welcome/img/en/step-3-light.webp"
+              width="360"
+              height="560"
+              alt="The Link Extractor panel with the Copy URLs and CSV buttons and the Copy as menu"
+            />
+          </picture>
+          <figcaption>The <b>CSV</b> button is next to <b>Copy URLs</b>.</figcaption>
+        </figure>
+
+        <h3>If Excel puts everything in one column</h3>
+        <p>
+          The separator does not match your Excel. After the download the panel asks
+          <b>Everything in one column in Excel?</b> and offers to download the file again with the
+          other separator. To change it for good, choose comma or semicolon under
+          <b>CSV separator</b> in Filters &amp; settings. By default (<b>Auto</b>) it follows the
+          language of Chrome.
+        </p>
+
+        <h3>What is in the file</h3>
+        <p>
+          One row per link, with a header row: <code>url</code>, <code>text</code>,
+          <code>domain</code>, <code>scope</code> (internal or external), <code>type</code> (page,
+          file, email, phone), <code>rel</code> (nofollow, sponsored, ugc), <code>count</code> (how
+          many times the link is on the page) and a few more. When a link went through a redirect
+          such as <code>google.com/url?q=…</code>, the <code>url</code> column has the real address
+          and <code>original_url</code> keeps the one from the page.
+        </p>
+        <p>
+          A value that starts with <code>=</code>, <code>+</code>, <code>-</code> or
+          <code>@</code> gets an apostrophe in front, so Excel keeps it as text and does not run it
+          as a formula. Excel may show that apostrophe in the cell.
+        </p>
+
+        <h3>Without a file: paste straight into a sheet</h3>
+        <p>
+          Open the menu next to <b>Copy URLs</b> and choose <b>Table for Excel</b>, then paste into
+          Excel or Google Sheets: URL, text, domain and type go into separate columns. For Google
+          Sheets you can also import the CSV with File → Import.
+        </p>
+
+        <h2>When another tool is the better choice</h2>
+        <ul>
+          <li>
+            <b>Links from every page of a website.</b> Link Extractor does not crawl: it reads the
+            one tab you have open. For a whole site, use a site audit tool such as Screaming Frog
+            SEO Spider.
+          </li>
+          <li>
+            <b>Checking which links are broken.</b> It does not check status codes; a link checker
+            does.
+          </li>
+          <li>
+            <b>Chrome Web Store and <code>chrome://</code> pages.</b> Chrome does not let any
+            extension read them.
+          </li>
+        </ul>
+
+        <h2>Questions</h2>
+        <h3>Are links added by JavaScript in the file?</h3>
+        <p>
+          Yes. The panel reads the page as it is in your tab, after its scripts have run, and pages
+          behind your login too. An online extractor that loads the page from its own server sees
+          neither.
+        </p>
+        <h3>Will a page with 10,000 links be exported in full?</h3>
+        <p>
+          Yes. The CSV includes every link in the list; nothing is cut off. The panel reads up to
+          200,000 links from a page and tells you if there are more.
+        </p>
+        <h3>Are links from hidden menus in the file?</h3>
+        <p>
+          Not by default: the list holds the links you can see, and the panel shows how many are
+          hidden. Click <b>+N hidden</b> to add them to the list and the file.
+        </p>
+        <h3>Do I need an account? Where do my links go?</h3>
+        <p>
+          No account, and it is free. The list is built in your browser; the links go only to the
+          file you download. See the <a href="../../privacy/">privacy policy</a>.
+        </p>
+
+        <p class="more">
+          Related:
+          <a href="../remove-tracking-and-redirects/">remove UTM tags and unwrap redirect links</a>
+          before you export.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Home</a> · <a href="../../privacy/">Privacy policy</a> ·
+        <a href="../../feedback/">Contact</a>
+      </p>
+      <p>Links never leave your browser.</p>
+    </footer>
+  </body>
+</html>

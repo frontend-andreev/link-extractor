@@ -1,0 +1,169 @@
+<!doctype html>
+<!--
+  Guide: anchor text + URL pairs. Facts: copy menu strings (URLs, Text — URL, Table for Excel),
+  link text rules ARCHITECTURE.md §6, dedupe.ts (row stays at first occurrence).
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How to copy link text and URL pairs into Excel — Link Extractor</title>
+    <meta
+      name="description"
+      content="Copy every link of a page with its anchor text into Excel or Google Sheets, one row per link, in page order. Table for Excel, Text — URL, or a CSV."
+    />
+    <link rel="canonical" href="https://link-extractor.com/guides/copy-link-text-and-url/" />
+    <link rel="icon" href="../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../home.css" />
+    <link rel="stylesheet" href="../guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="How to copy link text and URL pairs into Excel" />
+    <meta
+      property="og:description"
+      content="Anchor text and URL in separate columns, one row per link, in the order of the page."
+    />
+    <meta property="og:url" content="https://link-extractor.com/guides/copy-link-text-and-url/" />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Guides</p>
+      <h1>How to copy link text and URL pairs into Excel, in page order</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Add to Chrome — it's free</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Short answer:</b> open the page, click the Link Extractor icon, open the menu next to
+          <b>Copy URLs</b> and choose <b>Table for Excel</b>. Paste into Excel or Google Sheets: the
+          URL and the link text land in their own columns, one row per link, in the order of the
+          page.
+        </p>
+
+        <h2>Who this is for</h2>
+        <p>
+          SEO specialists checking anchor texts, editors building a list of sources, and anyone who
+          needs to know not only where a page links but what each link says.
+        </p>
+
+        <h2>Three ways to get text and URL together</h2>
+        <ul>
+          <li>
+            <b>Table for Excel</b> (in the menu next to <b>Copy URLs</b>): a table with a header row
+            — URL, text, domain, type and more. Paste it into a sheet and it splits into columns.
+          </li>
+          <li>
+            <b>Text — URL</b> (same menu): one “text — address” pair per line, for a document, an
+            email or a chat.
+          </li>
+          <li>
+            <b>CSV</b>: a file with the same columns, for when you want to keep it or open it later.
+            See <a href="../export-links-to-csv/">how to export links to a CSV for Excel</a>.
+          </li>
+        </ul>
+        <p><b>URLs</b> in the same menu copies only the addresses, one per line.</p>
+
+        <h2>Step by step</h2>
+        <ol>
+          <li>
+            Open the page and click the Link Extractor icon (Alt+Shift+L, on a Mac Ctrl+Shift+L).
+          </li>
+          <li>Optional: narrow the list with the search box or <b>Filters &amp; settings</b>.</li>
+          <li>
+            Open the menu next to <b>Copy URLs</b> and choose <b>Table for Excel</b> or
+            <b>Text — URL</b>.
+          </li>
+          <li>Paste into your sheet or document.</li>
+        </ol>
+        <figure>
+          <picture>
+            <source
+              srcset="../../welcome/img/en/step-3-dark.webp"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img
+              src="../../welcome/img/en/step-3-light.webp"
+              width="360"
+              height="560"
+              alt="The Copy as menu with URLs, Text — URL and Table for Excel"
+            />
+          </picture>
+          <figcaption>The <b>Copy as</b> menu: URLs, Text — URL, Table for Excel.</figcaption>
+        </figure>
+
+        <h2>How the text and the order are chosen</h2>
+        <ul>
+          <li>
+            <b>Text</b> is what you see on the link, with extra spaces and line breaks collapsed.
+            For an image link it is the image's alt text; if there is none, the link's label or
+            title. A link with no text at all is marked as having none.
+          </li>
+          <li>
+            <b>Order</b> is the order of the page, top to bottom, including links inside web
+            components.
+          </li>
+          <li>
+            <b>Repeats</b> are one row, placed where the link first appears, with a counter of how
+            many times it is on the page. If the first copy is an image with no text (a product
+            photo, a logo), the row takes the text of a later copy that has one.
+          </li>
+          <li>
+            <b>Full addresses</b>: relative links such as <code>/about</code> become full URLs,
+            resolved the way the browser resolves them.
+          </li>
+        </ul>
+
+        <h2>When another tool is the better choice</h2>
+        <ul>
+          <li>
+            <b>Anchor texts of links pointing to your site from other sites</b> (backlinks). That
+            data comes from backlink tools such as Ahrefs or Semrush; Link Extractor reads the page
+            you have open.
+          </li>
+          <li>
+            <b>Anchor texts across a whole site.</b> Link Extractor does not crawl; a site audit
+            tool does that.
+          </li>
+        </ul>
+
+        <h2>Questions</h2>
+        <h3>Can I keep every occurrence instead of merging repeats?</h3>
+        <p>
+          The same address is always one row, with a counter. Under <b>Duplicates</b> you can choose
+          to also merge links that differ only by the part after # or a slash at the end.
+        </p>
+        <h3>Does Table for Excel work in Google Sheets?</h3>
+        <p>Yes. Paste it into a cell and it fills the columns the same way.</p>
+        <h3>Can I get the pairs from only part of a page?</h3>
+        <p>
+          Yes. Select that part, right-click it and choose <b>Extract links from the selection</b>,
+          then copy as above.
+        </p>
+
+        <p class="more">
+          Related:
+          <a href="../extract-email-phone-and-file-links/">extract email, phone and file links</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Home</a> · <a href="../../privacy/">Privacy policy</a> ·
+        <a href="../../feedback/">Contact</a>
+      </p>
+      <p>Links never leave your browser.</p>
+    </footer>
+  </body>
+</html>

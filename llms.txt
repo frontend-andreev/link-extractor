@@ -7,5 +7,10 @@ It is not a crawler: it works with the one open tab, does not follow links and d
 ## Pages
 
 - [Home page and FAQ](https://link-extractor.com/): what it does, how to export links to CSV, mailto/tel links, single-page apps, large pages
+- [How to export all links from a page to a CSV that opens in Excel](https://link-extractor.com/guides/export-links-to-csv/): step by step; UTF-8 with a byte order mark, comma or semicolon separator, the columns of the file, when another tool is better
+- [How to remove UTM tags and unwrap redirect links](https://link-extractor.com/guides/remove-tracking-and-redirects/): which tracking tags are removed and which stay, which redirect wrappers are unwrapped, what is not (short links, URLs Google hides)
+- [How to extract all links from a large page with 10,000+ links](https://link-extractor.com/guides/extract-links-from-large-pages/): what happens on huge pages, the 200,000-link limit, infinite scroll, when another tool is better
+- [How to extract email, phone and PDF links from a page](https://link-extractor.com/guides/extract-email-phone-and-file-links/): which links count as email, phone and files, how to keep only them, what is not found (plain-text addresses)
+- [How to copy link text and URL pairs into Excel, in page order](https://link-extractor.com/guides/copy-link-text-and-url/): Table for Excel, Text — URL and CSV; how link text, order and repeats are chosen
 - [Privacy policy](https://link-extractor.com/privacy/)
 - [Chrome Web Store](https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg)

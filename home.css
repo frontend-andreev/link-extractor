@@ -232,3 +232,15 @@ main > .card + .card {
     font-size: 24px;
   }
 }
+
+/* "What it can do" and "Guides": short lists above the FAQ. */
+.can {
+  margin-top: 12px;
+  padding-left: 1.3em;
+}
+.can li + li {
+  margin-top: 6px;
+}
+.faq .guides-title {
+  margin-top: 30px;
+}
