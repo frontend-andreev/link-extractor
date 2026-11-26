@@ -15,6 +15,8 @@
   goes to the host, only when the extension opened the page; CSP connect-src allows that host
   alone. docs/PRIVACY.md, "Our website", says so — keep them in
   step.
+  noindex: the page is written for someone who has just installed the extension ("Link Extractor
+  is installed"); search visitors get the home page (tests/page/home.spec.ts).
 -->
 <html lang="en">
   <head>
@@ -24,6 +26,7 @@
       content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://us.i.posthog.com; base-uri 'none'; form-action 'none'"
     />
     <meta name="referrer" content="no-referrer" />
+    <meta name="robots" content="noindex" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Link Extractor is installed</title>
     <link rel="icon" href="img/icon-32.png" />

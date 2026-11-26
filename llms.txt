@@ -1,0 +1,11 @@
+# Link Extractor
+
+> A free Chrome extension that lists every link on the page you have open: full URLs with their link text, in page order, without duplicates. Filter the list, copy it, or export a CSV for Excel. It runs in the browser, needs no account and sends no links anywhere.
+
+It is not a crawler: it works with the one open tab, does not follow links and does not check status codes. Copying and the CSV file include every link in the list, nothing is cut off; the extension reads up to 200,000 links from the page and as many from each embedded frame.
+
+## Pages
+
+- [Home page and FAQ](https://link-extractor.com/): what it does, how to export links to CSV, mailto/tel links, single-page apps, large pages
+- [Privacy policy](https://link-extractor.com/privacy/)
+- [Chrome Web Store](https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg)

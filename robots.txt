@@ -1,0 +1,6 @@
+# link-extractor.com: every page may be crawled. /welcome/, /uninstall/ and /feedback/ say
+# noindex in their own markup; blocking them here would hide that tag from crawlers.
+User-agent: *
+Allow: /
+
+Sitemap: https://link-extractor.com/sitemap.xml

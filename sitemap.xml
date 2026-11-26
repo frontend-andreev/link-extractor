@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The pages a search engine should show. Not here: /welcome/, /uninstall/ and /feedback/ —
+  pages the extension opens, marked noindex.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://link-extractor.com/</loc>
+  </url>
+  <url>
+    <loc>https://link-extractor.com/privacy/</loc>
+  </url>
+</urlset>

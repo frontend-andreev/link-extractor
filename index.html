@@ -1,0 +1,272 @@
+<!doctype html>
+<!--
+  Home page, published at https://link-extractor.com/ (before it, the root answered 404:
+  QUESTIONS.md 2026-11-26). For people and AI assistants who find the site rather than the
+  store page: what the extension does, the store button, a few screenshots, an honest FAQ.
+
+  Every claim here is about the version in the Chrome Web Store (milestones 1–6 and 11–18).
+  Milestones 7–10 (Excel/Markdown/JSON files, several tabs, area selection, watching a feed)
+  are not released: do not mention them until they are. No crawling and no status codes, ever.
+
+  No executable scripts and no requests to other hosts. The PostHog counter of /welcome/,
+  /feedback/ and /uninstall/ is NOT here: docs/PRIVACY.md ("Our website") describes only those
+  three pages; adding it here needs the policy changed first.
+  The JSON-LD block is data, not a script: the CSP does not apply to it. No ratings, reviews or
+  user counts in it — only what is true without looking at the store.
+  Pictures are the welcome page's and the site README's, by relative paths (tests/page/home.spec.ts).
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Link Extractor — extract all links from a page (Chrome extension)</title>
+    <meta
+      name="description"
+      content="Free Chrome extension that lists every link on the page you have open: full URLs with link text, in page order, without duplicates. Filter, copy, or export a CSV that opens in Excel."
+    />
+    <link rel="canonical" href="https://link-extractor.com/" />
+    <link rel="icon" href="welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="home.css" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="Link Extractor — extract all links from a page" />
+    <meta
+      property="og:description"
+      content="Free Chrome extension: every link of the open page as a clean list — full URLs, link text, page order, no duplicates. Copy or export to CSV."
+    />
+    <meta property="og:url" content="https://link-extractor.com/" />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="800" />
+    <meta
+      property="og:image:alt"
+      content="The Link Extractor side panel listing the links of a Wikipedia article"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Link Extractor",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Google Chrome",
+        "url": "https://link-extractor.com/",
+        "installUrl": "https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg",
+        "description": "A Chrome extension that lists every link on the open page — full URLs with link text, in page order, without duplicates — and lets you filter them, copy them or export a CSV for Excel. It works inside the browser and sends no links anywhere.",
+        "screenshot": "https://link-extractor.com/shared/readme-screenshot.png",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="hero">
+      <img src="welcome/img/icon-128.png" width="64" height="64" alt="" />
+      <h1>Link Extractor</h1>
+      <p class="lead">
+        Every link on the page you have open, as a clean list: full URLs, link text, in page order,
+        without duplicates.
+      </p>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=home"
+        >Add to Chrome — it's free</a
+      >
+      <p class="facts">Chrome Web Store · No account · Links never leave your browser</p>
+    </header>
+
+    <main>
+      <section class="card" aria-labelledby="what-title">
+        <h2 id="what-title" class="sr-only">What it does</h2>
+        <img
+          class="hero-shot"
+          src="shared/readme-screenshot.png"
+          width="1280"
+          height="800"
+          alt="The Link Extractor side panel next to a Wikipedia article, listing the article's links with their text"
+        />
+        <p class="about">
+          Link Extractor is a free Chrome extension that lists the links of the page you are
+          viewing. Click its icon and a side panel shows every link in page order, as a full URL
+          with the link text next to it; repeats are merged into one row with a counter. Search the
+          list, or filter it by domain, type (pages, files, email, phone), internal or external
+          links, and nofollow, sponsored or ugc. Redirect links from Google, Bing or Facebook show
+          the address they lead to. Then copy the URLs or download a CSV for Excel; long lists are
+          not cut, so a page with tens of thousands of links is copied and exported in full. It
+          reads the page in your own browser, as you see it, so links added by JavaScript and pages
+          behind your login are included.
+        </p>
+
+        <div class="shots">
+          <figure>
+            <picture>
+              <source
+                srcset="welcome/img/en/step-2-dark.webp"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                src="welcome/img/en/step-2-light.webp"
+                width="360"
+                height="560"
+                alt="The list narrowed to one domain by typing in the search box"
+              />
+            </picture>
+            <figcaption>Type to narrow the list, or open Filters &amp; settings.</figcaption>
+          </figure>
+          <figure>
+            <picture>
+              <source
+                srcset="welcome/img/en/step-3-dark.webp"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                src="welcome/img/en/step-3-light.webp"
+                width="360"
+                height="560"
+                alt="The Copy as menu with URLs, Text — URL and Table for Excel, above the Copy URLs and CSV buttons"
+              />
+            </picture>
+            <figcaption>Copy the URLs, or download a CSV file.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="card faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Questions</h2>
+
+        <h3>How do I export all page links to CSV from my browser?</h3>
+        <p>
+          Open the page, click the Link Extractor icon (or press its shortcut, by default
+          Alt+Shift+L, on a Mac Ctrl+Shift+L) and click <b>CSV</b>. The file has one row per link,
+          in page order, with the full URL, the link text, the domain, the type and more.
+        </p>
+
+        <h3>Will Cyrillic, Arabic or Chinese link text open correctly in Excel?</h3>
+        <p>
+          Yes. The CSV is UTF-8 with a byte order mark, so Excel shows every script correctly; the
+          separator follows the language of Chrome, and if Excel puts everything in one column,
+          choose the other one under <b>CSV separator</b> in Filters &amp; settings. A value that
+          starts with =, +, - or @ gets an apostrophe in front, so that Excel keeps it as text
+          instead of running it as a formula; Excel may show that apostrophe in the cell.
+        </p>
+
+        <h3>Can it export 10,000+ links without truncation?</h3>
+        <p>
+          Yes. Copying and the CSV file include every link in the list; nothing is cut off. In our
+          tests a page with 10,000 links is listed in about a second, and the list still scrolls and
+          filters without freezing. The panel reads up to 200,000 links from the page and as many
+          from each embedded frame, and tells you if there are more.
+        </p>
+
+        <h3>How do I copy anchor text and URL pairs so they paste into Excel by columns?</h3>
+        <p>
+          Open the menu next to <b>Copy URLs</b> and choose <b>Table for Excel</b>: the URL, the
+          text, the domain and the type go into separate columns when you paste into Excel or Google
+          Sheets. <b>Text — URL</b> copies one “text — address” pair per line, and
+          <b>URLs</b> copies only the addresses, one per line.
+        </p>
+
+        <h3>Does it extract mailto and tel links?</h3>
+        <p>
+          Yes. Email (<code>mailto:</code>) and phone (<code>tel:</code>, <code>sms:</code>) links
+          are in the list with their text, copied as they are on the page. To get only them, choose
+          the type <b>Email</b> or <b>Phones</b> in Filters &amp; settings.
+        </p>
+
+        <h3>Does it work on single-page apps and dynamic sites?</h3>
+        <p>
+          Yes. It reads the page as it is in your tab after its scripts have run, including web
+          components (shadow DOM). If more links load as you scroll or after “Show more”, scroll and
+          press <b>Refresh</b> in the panel; when the app moves to another page of the same site,
+          the list updates by itself.
+        </p>
+
+        <h3>Does it give full absolute URLs instead of relative paths?</h3>
+        <p>
+          Yes. Every address in the list, the copy and the file is a full URL, resolved the way the
+          browser resolves it, including pages with a <code>&lt;base&gt;</code> tag.
+        </p>
+
+        <h3>How can I remove UTM and other tracking parameters from extracted URLs?</h3>
+        <p>
+          Turn on <b>Remove utm and other tracking tags</b> in Filters &amp; settings. It removes
+          utm_source, fbclid, gclid and other tracking tags from the list, the copy and the file,
+          and links that differed only by these tags become one.
+        </p>
+
+        <h3>Does it merge duplicate links?</h3>
+        <p>
+          Yes. The same address appears once, with a counter of how many times it is on the page.
+          Under <b>Duplicates</b> you can also merge links that differ only by the part after # or
+          by a slash at the end.
+        </p>
+
+        <h3>How do I keep only visible links?</h3>
+        <p>
+          That is the default: links in closed menus and hidden blocks are not in the list. The
+          panel shows how many there are, and <b>+N hidden</b> adds them back.
+        </p>
+
+        <h3>Can I filter internal and external links, or only PDFs and images?</h3>
+        <p>
+          Yes. Filters &amp; settings has internal or external links, types (pages, files, email,
+          phones), domains and nofollow, sponsored or ugc. The type <b>Files</b> covers PDF, ZIP,
+          images and other files; to narrow it to one kind, type <code>.pdf</code> in the search
+          box.
+        </p>
+
+        <h3>How do I get a clean list of search result addresses from Google?</h3>
+        <p>
+          On a Google or Bing results page the panel offers <b>Results only</b>: just the results,
+          in order, without ads and without the search engine's own links.
+        </p>
+
+        <h3>Can I get the links from only part of a page?</h3>
+        <p>
+          Yes. Select that part, right-click it and choose
+          <b>Extract links from the selection</b>: only the links inside the selection are listed.
+        </p>
+
+        <h3>Do I need to sign up? Does it send my links anywhere?</h3>
+        <p>
+          No account and no sign-in, and it is free, with no paid features and no ads. The list is
+          built in your browser and the extension makes no network requests: your links go only to
+          your clipboard or a file you download. Our website counts installs, low ratings and
+          removals of the extension; the <a href="privacy/">privacy policy</a> says exactly what.
+        </p>
+
+        <h3>What can't it do?</h3>
+        <p>
+          It works with the tab you have open: it does not crawl a website, follow links or check
+          whether they work (status codes). Chrome does not let extensions read Chrome Web Store
+          pages or <code>chrome://</code> pages, and links in embedded frames from other sites need
+          your permission; the panel says which part of the page it could not read.
+        </p>
+      </section>
+
+      <p class="again">
+        <a
+          class="cta"
+          href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=home"
+          >Add to Chrome — it's free</a
+        >
+      </p>
+    </main>
+
+    <footer class="foot">
+      <p><a href="privacy/">Privacy policy</a></p>
+      <p>Links never leave your browser.</p>
+    </footer>
+  </body>
+</html>
