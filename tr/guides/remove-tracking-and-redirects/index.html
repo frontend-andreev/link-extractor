@@ -1,0 +1,200 @@
+<!doctype html>
+<!-- Translation of site/guides/remove-tracking-and-redirects/index.html. Facts and button names must match it and public/_locales/tr/messages.json. -->
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Çıkarılan URL'lerden UTM etiketleri nasıl kaldırılır, yönlendirme linkleri nasıl çözülür —
+      Link Extractor
+    </title>
+    <meta
+      name="description"
+      content="Sayfadan temiz URL'ler alın: utm_source, fbclid, gclid ve diğer izleme etiketlerini silin, Google, Bing veya Facebook yönlendirme linklerini gittikleri adresle değiştirin."
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/tr/guides/remove-tracking-and-redirects/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta
+      property="og:title"
+      content="UTM etiketleri nasıl kaldırılır, yönlendirme linkleri nasıl çözülür"
+    />
+    <meta
+      property="og:description"
+      content="Her sayfadan temiz URL'ler: utm_source, fbclid ve gclid yok, google.com/url?q= sarmalayıcıları yerine gerçek adresler."
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/tr/guides/remove-tracking-and-redirects/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Rehberler</p>
+      <h1>UTM etiketleri nasıl kaldırılır, yönlendirme linkleri nasıl çözülür</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Chrome'a ekle — ücretsiz</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Kısa cevap:</b> Link Extractor'da <b>Filtreler ve ayarlar</b>'ı açın ve
+          <b>utm ve diğer izleme parametrelerini kaldır</b> seçeneğini işaretleyin. Yönlendirme
+          linkleri zaten gerçek adresleriyle gösterilir: <b>Yönlendirme yerine gerçek URL</b>
+          varsayılan olarak açıktır. İkisi de listeye, kopyaladığınıza ve CSV'ye uygulanır.
+        </p>
+
+        <h2>İki ayrı sorun</h2>
+        <p>
+          <b>İzleme etiketleri</b>, tıklamaları saymak için adrese eklenen parametrelerdir:
+          <code>https://shop.example/item?utm_source=newsletter&amp;fbclid=…</code>. Sayfa etiketli
+          de etiketsiz de aynıdır, ama tabloda etiketli kopyalar farklı linkler gibi görünür ve
+          listenizi uzatır.
+        </p>
+        <p>
+          <b>Yönlendirme linkleri</b> gerçek adresi başka bir adresin içine sarar:
+          <code>https://www.google.com/url?q=https://example.com/</code> veya
+          <code>https://l.facebook.com/l.php?u=…</code>. Bunları olduğu gibi kopyalarsanız her satır
+          google.com veya facebook.com ile başlar; gittikleri siteye göre sıralayamaz ya da
+          filtreleyemezsiniz.
+        </p>
+
+        <h2>Adım adım</h2>
+        <ol>
+          <li>
+            Sayfayı açın ve Link Extractor simgesine tıklayın (Alt+Shift+L, Mac'te Ctrl+Shift+L).
+          </li>
+          <li><b>Filtreler ve ayarlar</b>'ı açın.</li>
+          <li>
+            <b>Kopyalama ve dosyalar</b> bölümünde
+            <b>utm ve diğer izleme parametrelerini kaldır</b> seçeneğini açın.
+            <b>Yönlendirme yerine gerçek URL</b> açık kalsın.
+          </li>
+          <li>
+            Listeyi kontrol edin: panel
+            <b>utm ve diğer izleme parametreleri URL'lerden kaldırılır</b> der ve kaç yönlendirme
+            linkinin gerçek URL'yle gösterildiğini belirtir. Her biri
+            <b>yönlendirmeden</b> işaretiyle gelir; sayfadaki adresi görmek için işaretin üzerine
+            gelin.
+          </li>
+          <li><b>URL'leri kopyala</b>'ya veya <b>CSV</b>'ye tıklayın.</li>
+        </ol>
+        <!-- Screenshot wanted: Filters & settings → Copy & files with both options visible (en,
+             light and dark, 360×560 like welcome/img/en/step-*.webp). None exists yet. -->
+        <p>Ayarlar sonraki sayfalar için hatırlanır.</p>
+
+        <h3>Hangi etiketler kaldırılır?</h3>
+        <p>
+          Her <code>utm_…</code> parametresi; ayrıca <code>fbclid</code>, <code>gclid</code>,
+          <code>dclid</code>, <code>gbraid</code>, <code>wbraid</code>, <code>msclkid</code>,
+          <code>yclid</code>, <code>ysclid</code>, <code>igshid</code>, <code>mc_cid</code>,
+          <code>mc_eid</code>, <code>_hsenc</code>, <code>_hsmi</code>, <code>mkt_tok</code>,
+          <code>twclid</code>, <code>ttclid</code>, <code>li_fat_id</code>, <code>srsltid</code>,
+          <code>_ga</code> ve <code>_gl</code>.
+        </p>
+        <p>
+          Liste bilerek kısa tutulmuştur. <code>ref</code>, <code>source</code> veya
+          <code>id</code> gibi parametreler kalır; çünkü bazı siteler onlara ihtiyaç duyar ve
+          kaldırmak bozuk bir link verir. Adresin geri kalanı yazıldığı gibi korunur: parametrelerin
+          sırası, kodlaması ve <code>#</code> sonrasındaki kısım. Yalnızca izleme etiketleriyle
+          farklı olan linkler tek satır olur.
+        </p>
+
+        <h3>Hangi yönlendirme linkleri çözülür?</h3>
+        <p>
+          Google (<code>/url?q=</code>), Bing (<code>/ck/a</code>), DuckDuckGo, Facebook ve
+          Instagram'ın dışarı giden linkleri, YouTube, LinkedIn ve Reddit yönlendirmeleri, Outlook
+          Safe Links, Slack, Steam ve VK. Gerçek adres linkin kendisinden okunur: hiçbir şey açılmaz
+          ve ağ isteği yapılmaz; bu yüzden hızlı ve gizlidir.
+        </p>
+        <p>
+          CSV'de <code>url</code> sütununda gerçek adres olur, <code>original_url</code> ise
+          sarılmış olanı saklar. Linkleri sayfadakiyle birebir tutmak için
+          <b>Yönlendirme yerine gerçek URL</b> seçeneğini kapatın.
+        </p>
+
+        <h2>Neleri yapmaz?</h2>
+        <ul>
+          <li>
+            <b>Kısa linkler</b> (bit.ly veya t.co gibi) hedeflerini kendi sunucularında tutar.
+            Bulmak için linki açmak gerekir, Link Extractor ise ağ isteği yapmaz; bu yüzden olduğu
+            gibi kalırlar. Onlar için bir URL açıcı kullanın.
+          </li>
+          <li>
+            <b>Bazı Google sonuçları gerçek adresi gizler.</b> O zaman link yalnızca anlamsız bir
+            Google kodu taşır. Panel böyle bir satırı <b>URL'yi Google gizliyor</b> diye işaretler
+            ve tahmin etmek yerine Google'ın verdiği şekilde kopyalar. Sonuç sayfasında
+            <b>Yalnızca sonuçlar</b>, yalnızca sonuçları, sırasıyla, reklamsız listeler.
+          </li>
+          <li>
+            <code>javascript:</code> veya <code>data:</code> adresini saran bir sarmalayıcı hiçbir
+            zaman o adrese çevrilmez: sarmalayıcı olarak kalır.
+          </li>
+        </ul>
+
+        <h2>Sık sorulan sorular</h2>
+        <h3>Etiketleri kaldırmak sayfayı değiştirir mi?</h3>
+        <p>Hayır. Yalnızca liste, kopya ve dosya değişir. Sayfa ve linkleri olduğu gibi kalır.</p>
+        <h3>Etiket kaldırma neden varsayılan olarak kapalı?</h3>
+        <p>
+          Böylece varsayılan olarak linkleri sayfadakiyle birebir alırsınız. Bazı insanların
+          etiketlere ihtiyacı var, örneğin bir kampanyanın linklerini kontrol etmek için. Tek bir
+          anahtar onu açar.
+        </p>
+        <h3>Hangi linklerin yönlendirme olduğunu görebilir miyim?</h3>
+        <p>
+          Evet. Listede <b>yönlendirmeden</b> işaretini taşırlar; CSV'de ise özgün adresleri
+          <code>original_url</code> sütunundadır.
+        </p>
+
+        <p class="more">
+          Sonraki:
+          <a href="../export-links-to-csv/">temiz listeyi Excel için CSV'ye aktarın</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Ana sayfa</a> · <a href="../../../privacy/">Gizlilik politikası</a> ·
+        <a href="../../../feedback/">İletişim</a>
+      </p>
+      <p>Linkler tarayıcınızdan çıkmaz.</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/remove-tracking-and-redirects/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/remove-tracking-and-redirects/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/remove-tracking-and-redirects/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/remove-tracking-and-redirects/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/remove-tracking-and-redirects/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/remove-tracking-and-redirects/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/remove-tracking-and-redirects/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/remove-tracking-and-redirects/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/remove-tracking-and-redirects/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/remove-tracking-and-redirects/" hreflang="uk" lang="uk">Українська</a> · <span aria-current="page">Türkçe</span> · <a href="../../../ja/guides/remove-tracking-and-redirects/" hreflang="ja" lang="ja">日本語</a> · <a href="../../../zh-cn/guides/remove-tracking-and-redirects/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<!-- Translation of site/guides/extract-links-from-large-pages/index.html. Facts and button names must match it and public/_locales/ja/messages.json. -->
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      大きなページ（1 万件以上のリンク）からすべてのリンクを抽出する方法 — Link Extractor
+    </title>
+    <meta
+      name="description"
+      content="サイトマップ、ディレクトリ、長いフィードなど、巨大なページのリンクをすべて抽出。タブを固めず、一覧を途中で切りません。上限と、ほかのツールを選ぶべき場面も解説します。"
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/ja/guides/extract-links-from-large-pages/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/extract-links-from-large-pages/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta
+      property="og:title"
+      content="大きなページ（1 万件以上のリンク）からすべてのリンクを抽出する方法"
+    />
+    <meta
+      property="og:description"
+      content="巨大なページのリンクを、タブを固めずに、すべてコピー・出力。"
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/ja/guides/extract-links-from-large-pages/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · ガイド</p>
+      <h1>1 万件以上のリンクがある大きなページからすべてのリンクを抽出する方法</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Chrome に追加 — 無料</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>結論：</b>ページを開いて内容をすべて読み込み、Link Extractor
+          のアイコンをクリックして、<b>URL をコピー</b>または
+          <b>CSV</b>
+          を使います。コピーもファイルも、一覧にあるすべてのリンクが対象で、途中で切れることはありません。当社のテストでは、1
+          万件のリンクがあるページが約 1
+          秒で一覧になり、その後もスクロールや絞り込みで固まることはありませんでした。
+        </p>
+
+        <h2>こんな方に</h2>
+        <p>
+          長いページを扱う方に向いています。サイトマップやアーカイブのページ、ディレクトリやカタログ、リンク集、ドキュメントの目次、長いフォーラムのスレッド、スクロールするたびに読み込まれ続けるフィードなどです。多くのリンク抽出ツールは、こうしたページで動作が遅くなったり、タブが固まったり、数百件や数千件で黙って止まったりします。
+        </p>
+
+        <h2>大きなページで大切なこと</h2>
+        <ul>
+          <li>
+            <b>結果が完全であること。</b
+            >ツールが途中で止まるなら、ページの一部をすべてであるかのように渡すのではなく、そう伝えるべきです。
+          </li>
+          <li>
+            <b>先にページを読み込むこと。</b
+            >スクロールや「もっと見る」の後で初めて現れるリンクは、開始時点ではまだページにありません。
+          </li>
+          <li><b>一覧が軽く動くこと。</b>数万行でも検索や絞り込みができること。</li>
+          <li><b>重複がまとまること。</b>大きなページでは、同じリンクが何度も繰り返されます。</li>
+        </ul>
+
+        <h2>手順</h2>
+        <ol>
+          <li>
+            ページを開きます。スクロールするたびに読み込まれるページは、最後までスクロールするか、必要なものがすべてページに載るまで「もっと見る」をクリックします。
+          </li>
+          <li>
+            Link Extractor のアイコンをクリックするか、Alt+Shift+L（Mac では
+            Ctrl+Shift+L）を押します。サイドパネルにリンクがページの順序で並び、繰り返しは回数つきの
+            1 行になります。
+          </li>
+          <li>
+            パネルを開いた後でさらにスクロールした場合は、パネルの<b>更新</b>を押すと、その後に読み込まれた分が追加されます。
+          </li>
+          <li>
+            任意：検索ボックスに入力するか<b>フィルタと設定</b>を開いて、必要なリンクだけに絞ります。たとえば
+            1 つのドメイン、または外部リンクだけです。
+          </li>
+          <li>
+            <b>URL をコピー</b>で 1 行に 1 件ずつコピーするか、<b>CSV</b>
+            でファイルをダウンロードします。
+          </li>
+        </ol>
+
+        <h2>上限について、率直に</h2>
+        <ul>
+          <li>
+            パネルは、ページから最大
+            <b>200,000 件のリンク</b
+            >、埋め込まれたフレームごとにも同じ数まで読み取ります。それを超える場合、パネルには<b
+              >リストにあるのは、最初の 200,000 件のリンクだけです</b
+            >と表示されます。
+          </li>
+          <li>
+            閉じたメニューや非表示のブロックにあるリンクは、初期設定では除かれ、その件数がパネルに表示されます。<b
+              >+N 件非表示</b
+            >で追加できます。
+          </li>
+          <li>
+            Excel の 1 つのセルには、最大 32,767 文字までしか入りません。URL
+            やリンクテキストがそれより長い場合、CSV
+            ではそのセルが切り詰められ、切り詰められたセルの数がパネルに表示されます。
+          </li>
+          <li>
+            他のサイトから埋め込まれたフレームの中のリンクには、お客様の許可が必要です。ページのどの部分を読み取れなかったかは、パネルに表示されます。
+          </li>
+        </ul>
+
+        <h2>ほかのツールのほうが向いている場合</h2>
+        <ul>
+          <li>
+            <b>サイトの多くのページのリンク。</b>Link Extractor はクロールをせず、開いている 1
+            つのタブだけを読み取ります。サイト全体なら、Screaming Frog SEO Spider
+            のようなサイト監査ツールを使ってください。
+          </li>
+        </ul>
+
+        <h2>よくある質問</h2>
+        <h3>1 万件以上のリンクを読み取る間、タブは固まりますか？</h3>
+        <p>
+          いいえ。パネルは見えている行だけを描画するので、数万件のリンクがあっても、スクロールや絞り込みは速いままです。
+        </p>
+        <h3>コピーは、ある行数で切れますか？</h3>
+        <p>
+          いいえ。<b>URL をコピー</b>と
+          <b>CSV</b> は、検索と絞り込みを適用した後の、一覧にあるすべてのリンクが対象です。
+        </p>
+        <h3>無限スクロールで読み込まれるリンクも取得できますか？</h3>
+        <p>
+          はい、ページに読み込まれた後であれば。読み込まれるまでスクロールしてから、<b>更新</b>を押してください。ページを自動でスクロールすることはしません。
+        </p>
+
+        <p class="more">
+          関連：<a href="../export-links-to-csv/">一覧を Excel で開ける CSV に出力する</a>。
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">ホーム</a> · <a href="../../../privacy/">プライバシーポリシー</a> ·
+        <a href="../../../feedback/">お問い合わせ</a>
+      </p>
+      <p>リンクはブラウザの外に出ません。</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/extract-links-from-large-pages/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/extract-links-from-large-pages/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/extract-links-from-large-pages/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/extract-links-from-large-pages/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/extract-links-from-large-pages/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/extract-links-from-large-pages/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/extract-links-from-large-pages/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/extract-links-from-large-pages/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/extract-links-from-large-pages/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/extract-links-from-large-pages/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/extract-links-from-large-pages/" hreflang="tr" lang="tr">Türkçe</a> · <span aria-current="page">日本語</span> · <a href="../../../zh-cn/guides/extract-links-from-large-pages/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

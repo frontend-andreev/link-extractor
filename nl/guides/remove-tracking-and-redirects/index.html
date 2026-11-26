@@ -1,0 +1,203 @@
+<!doctype html>
+<!--
+  Translation of site/guides/remove-tracking-and-redirects/index.html. Facts and button names must match it and public/_locales/nl/messages.json.
+-->
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      UTM-tags verwijderen en redirectlinks omzetten in geëxtraheerde URL's — Link Extractor
+    </title>
+    <meta
+      name="description"
+      content="Krijg schone URL's van een pagina: haal utm_source, fbclid, gclid en andere trackingtags weg en vervang redirectlinks van Google, Bing of Facebook door het adres waar ze naartoe leiden."
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/nl/guides/remove-tracking-and-redirects/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta
+      property="og:title"
+      content="UTM-tags verwijderen en redirectlinks omzetten naar het echte adres"
+    />
+    <meta
+      property="og:description"
+      content="Schone URL's van elke pagina: geen utm_source, fbclid of gclid, en echte adressen in plaats van google.com/url?q=-omwikkelingen."
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/nl/guides/remove-tracking-and-redirects/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Handleidingen</p>
+      <h1>UTM-tags verwijderen en redirectlinks omzetten naar het echte adres</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Toevoegen aan Chrome — gratis</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Kort antwoord:</b> open in Link Extractor <b>Filters &amp; settings</b> en zet
+          <b>Remove utm and other tracking tags</b> aan. Redirectlinks worden al als hun echte adres
+          getoond: <b>Real URL instead of redirect</b> staat standaard aan. Beide gelden voor de
+          lijst, voor wat je kopieert en voor de CSV.
+        </p>
+
+        <h2>Twee verschillende problemen</h2>
+        <p>
+          <b>Trackingtags</b> zijn parameters die aan een adres worden toegevoegd om klikken te
+          tellen: <code>https://shop.example/item?utm_source=newsletter&amp;fbclid=…</code>. De
+          pagina is met of zonder deze tags dezelfde, maar in een spreadsheet lijken de kopieën met
+          tags op verschillende links en maken ze je lijst langer.
+        </p>
+        <p>
+          <b>Redirectlinks</b> wikkelen het echte adres in een ander adres:
+          <code>https://www.google.com/url?q=https://example.com/</code> of
+          <code>https://l.facebook.com/l.php?u=…</code>. Kopieer je ze zoals ze zijn, dan begint
+          elke rij met google.com of facebook.com, en kun je niet sorteren of filteren op de site
+          waar ze naartoe leiden.
+        </p>
+
+        <h2>Stap voor stap</h2>
+        <ol>
+          <li>
+            Open de pagina en klik op het pictogram van Link Extractor (Alt+Shift+L, op een Mac
+            Ctrl+Shift+L).
+          </li>
+          <li>Open <b>Filters &amp; settings</b>.</li>
+          <li>
+            Zet onder <b>Copy &amp; files</b> de optie
+            <b>Remove utm and other tracking tags</b> aan. Laat
+            <b>Real URL instead of redirect</b> aan staan.
+          </li>
+          <li>
+            Controleer de lijst: het paneel meldt
+            <b>utm and other tracking tags are removed from the URLs</b>, en hoeveel redirectlinks
+            hun echte URL tonen. Elk daarvan is gemarkeerd met <b>from redirect</b>; houd de muis
+            boven de markering om het adres van de pagina te zien.
+          </li>
+          <li>Klik op <b>Copy URLs</b> of <b>CSV</b>.</li>
+        </ol>
+        <p>De instellingen worden onthouden voor de volgende pagina's.</p>
+
+        <h3>Welke tags worden verwijderd</h3>
+        <p>
+          Elke <code>utm_…</code>-parameter, plus <code>fbclid</code>, <code>gclid</code>,
+          <code>dclid</code>, <code>gbraid</code>, <code>wbraid</code>, <code>msclkid</code>,
+          <code>yclid</code>, <code>ysclid</code>, <code>igshid</code>, <code>mc_cid</code>,
+          <code>mc_eid</code>, <code>_hsenc</code>, <code>_hsmi</code>, <code>mkt_tok</code>,
+          <code>twclid</code>, <code>ttclid</code>, <code>li_fat_id</code>, <code>srsltid</code>,
+          <code>_ga</code> en <code>_gl</code>.
+        </p>
+        <p>
+          De lijst is bewust kort. Parameters zoals <code>ref</code>, <code>source</code> of
+          <code>id</code> blijven staan, omdat sommige sites ze nodig hebben en je door ze te
+          verwijderen een kapotte link zou krijgen. De rest van het adres blijft precies zoals
+          geschreven: de volgorde van de parameters, hun codering en het deel na <code>#</code>.
+          Links die alleen door trackingtags verschilden, worden één rij.
+        </p>
+
+        <h3>Welke redirectlinks worden omgezet</h3>
+        <p>
+          Google (<code>/url?q=</code>), Bing (<code>/ck/a</code>), DuckDuckGo, uitgaande links van
+          Facebook en Instagram, redirects van YouTube, LinkedIn en Reddit, Outlook Safe Links,
+          Slack, Steam en VK. Het echte adres wordt uit de link zelf gelezen: er wordt niets geopend
+          en er wordt geen verzoek gedaan, dus het is snel en privé.
+        </p>
+        <p>
+          In de CSV staat in de kolom <code>url</code> het echte adres en bewaart
+          <code>original_url</code> het omwikkelde adres. Om links precies te houden zoals ze op de
+          pagina staan, zet je <b>Real URL instead of redirect</b> uit.
+        </p>
+
+        <h2>Wat hij niet doet</h2>
+        <ul>
+          <li>
+            <b>Verkorte links</b> zoals bit.ly of t.co bewaren hun doel op hun eigen server. Om dat
+            te vinden moet je de link openen, en Link Extractor doet geen netwerkverzoeken, dus ze
+            blijven zoals ze zijn. Gebruik daarvoor een URL-expander.
+          </li>
+          <li>
+            <b>Sommige Google-resultaten verbergen het echte adres.</b> Dan bevat de link alleen een
+            ondoorzichtige Google-code. Het paneel markeert zo'n rij met
+            <b>URL hidden by Google</b> en kopieert hem zoals Google hem geeft, in plaats van te
+            raden. Op een resultatenpagina toont <b>Results only</b> alleen de resultaten, op
+            volgorde, zonder advertenties.
+          </li>
+          <li>
+            Een omwikkeling om een <code>javascript:</code>- of <code>data:</code>-adres wordt nooit
+            in dat adres omgezet: het blijft de omwikkeling.
+          </li>
+        </ul>
+
+        <h2>Vragen</h2>
+        <h3>Verandert het verwijderen van tags de pagina?</h3>
+        <p>
+          Nee. Alleen de lijst, de kopie en het bestand veranderen. De pagina en haar links blijven
+          zoals ze zijn.
+        </p>
+        <h3>Waarom staat het verwijderen van tags standaard uit?</h3>
+        <p>
+          Zodat je standaard de links krijgt precies zoals de pagina ze heeft. Sommige mensen hebben
+          de tags nodig, bijvoorbeeld om de links van een campagne te controleren. Met één
+          schakelaar zet je het aan.
+        </p>
+        <h3>Kan ik zien welke links redirects waren?</h3>
+        <p>
+          Ja. Ze dragen de markering <b>from redirect</b> in de lijst, en in de CSV staat hun
+          oorspronkelijke adres in de kolom <code>original_url</code>.
+        </p>
+
+        <p class="more">
+          Volgende stap:
+          <a href="../export-links-to-csv/">de schone lijst exporteren naar een CSV voor Excel</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Home</a> · <a href="../../../privacy/">Privacybeleid</a> ·
+        <a href="../../../feedback/">Contact</a>
+      </p>
+      <p>Links verlaten je browser nooit.</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/remove-tracking-and-redirects/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/remove-tracking-and-redirects/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/remove-tracking-and-redirects/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/remove-tracking-and-redirects/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/remove-tracking-and-redirects/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/remove-tracking-and-redirects/" hreflang="it" lang="it">Italiano</a> · <span aria-current="page">Nederlands</span> · <a href="../../../pl/guides/remove-tracking-and-redirects/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/remove-tracking-and-redirects/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/remove-tracking-and-redirects/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/remove-tracking-and-redirects/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../../../ja/guides/remove-tracking-and-redirects/" hreflang="ja" lang="ja">日本語</a> · <a href="../../../zh-cn/guides/remove-tracking-and-redirects/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

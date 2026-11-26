@@ -244,3 +244,14 @@ main > .card + .card {
 .faq .guides-title {
   margin-top: 30px;
 }
+
+/* The footer's list of languages (scripts/site-languages.ts writes it). */
+.foot .langs {
+  max-width: 760px;
+  margin: 14px auto 0;
+  line-height: 1.9;
+}
+.foot .langs span {
+  color: var(--text);
+  font-weight: 600;
+}

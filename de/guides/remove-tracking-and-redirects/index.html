@@ -1,0 +1,204 @@
+<!doctype html>
+<!-- Translation of site/guides/remove-tracking-and-redirects/index.html. Facts and button names must match it and public/_locales/de/messages.json. -->
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      So entfernen Sie UTM-Tags und lösen Weiterleitungslinks in extrahierten URLs auf — Link
+      Extractor
+    </title>
+    <meta
+      name="description"
+      content="Saubere URLs von einer Seite: utm_source, fbclid, gclid und andere Tracking-Parameter entfernen und Weiterleitungslinks von Google, Bing oder Facebook durch die Adresse ersetzen, zu der sie führen."
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/de/guides/remove-tracking-and-redirects/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta
+      property="og:title"
+      content="So entfernen Sie UTM-Tags und lösen Weiterleitungslinks auf"
+    />
+    <meta
+      property="og:description"
+      content="Saubere URLs von jeder Seite: ohne utm_source, fbclid oder gclid und mit echten Adressen statt google.com/url?q=-Umleitungen."
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/de/guides/remove-tracking-and-redirects/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Anleitungen</p>
+      <h1>So entfernen Sie UTM-Tags und lösen Weiterleitungslinks auf</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Zu Chrome hinzufügen — kostenlos</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Kurz gesagt:</b> Öffnen Sie in Link Extractor <b>Filter &amp; Einstellungen</b> und
+          schalten Sie <b>utm und andere Tracking-Parameter entfernen</b> ein. Weiterleitungslinks
+          werden bereits mit ihrer echten Adresse angezeigt: <b>Echte URL statt Weiterleitung</b>
+          ist standardmäßig an. Beides gilt für die Liste, für das, was Sie kopieren, und für die
+          CSV.
+        </p>
+
+        <h2>Zwei verschiedene Probleme</h2>
+        <p>
+          <b>Tracking-Tags</b> sind Parameter, die an eine Adresse angehängt werden, um Klicks zu
+          zählen: <code>https://shop.example/item?utm_source=newsletter&amp;fbclid=…</code>. Die
+          Seite ist mit oder ohne sie dieselbe, aber in einer Tabelle sehen die getaggten Kopien wie
+          verschiedene Links aus und machen Ihre Liste länger.
+        </p>
+        <p>
+          <b>Weiterleitungslinks</b> verpacken die echte Adresse in eine andere:
+          <code>https://www.google.com/url?q=https://example.com/</code> oder
+          <code>https://l.facebook.com/l.php?u=…</code>. Kopieren Sie sie unverändert, beginnt jede
+          Zeile mit google.com oder facebook.com, und Sie können nicht nach der Website sortieren
+          oder filtern, zu der sie führen.
+        </p>
+
+        <h2>Schritt für Schritt</h2>
+        <ol>
+          <li>
+            Öffnen Sie die Seite und klicken Sie auf das Symbol von Link Extractor (Alt+Shift+L, auf
+            dem Mac Ctrl+Shift+L).
+          </li>
+          <li>Öffnen Sie <b>Filter &amp; Einstellungen</b>.</li>
+          <li>
+            Schalten Sie unter <b>Kopieren &amp; Dateien</b>
+            <b>utm und andere Tracking-Parameter entfernen</b> ein. Lassen Sie
+            <b>Echte URL statt Weiterleitung</b> an.
+          </li>
+          <li>
+            Prüfen Sie die Liste: Das Panel sagt
+            <b>utm und andere Tracking-Parameter werden aus den URLs entfernt</b> und zeigt, wie
+            viele Weiterleitungslinks ihre echte URL zeigen. Jeder davon trägt die Markierung
+            <b>aus Weiterleitung</b>; fahren Sie mit der Maus darüber, um die Adresse von der Seite
+            zu sehen.
+          </li>
+          <li>Klicken Sie auf <b>URLs kopieren</b> oder <b>CSV</b>.</li>
+        </ol>
+        <p>Die Einstellungen werden für die nächsten Seiten gespeichert.</p>
+
+        <h3>Welche Tags entfernt werden</h3>
+        <p>
+          Jeder <code>utm_…</code>-Parameter sowie <code>fbclid</code>, <code>gclid</code>,
+          <code>dclid</code>, <code>gbraid</code>, <code>wbraid</code>, <code>msclkid</code>,
+          <code>yclid</code>, <code>ysclid</code>, <code>igshid</code>, <code>mc_cid</code>,
+          <code>mc_eid</code>, <code>_hsenc</code>, <code>_hsmi</code>, <code>mkt_tok</code>,
+          <code>twclid</code>, <code>ttclid</code>, <code>li_fat_id</code>, <code>srsltid</code>,
+          <code>_ga</code> und <code>_gl</code>.
+        </p>
+        <p>
+          Die Liste ist absichtlich kurz. Parameter wie <code>ref</code>, <code>source</code> oder
+          <code>id</code> bleiben, weil manche Websites sie brauchen und ihr Entfernen einen
+          kaputten Link ergäbe. Der Rest der Adresse bleibt genau so, wie er geschrieben ist: die
+          Reihenfolge der Parameter, ihre Kodierung und der Teil nach <code>#</code>. Links, die
+          sich nur durch Tracking-Tags unterschieden, werden zu einer Zeile.
+        </p>
+
+        <h3>Welche Weiterleitungslinks aufgelöst werden</h3>
+        <p>
+          Google (<code>/url?q=</code>), Bing (<code>/ck/a</code>), DuckDuckGo, ausgehende Links von
+          Facebook und Instagram, Weiterleitungen von YouTube, LinkedIn und Reddit, Outlook Safe
+          Links, Slack, Steam und VK. Die echte Adresse wird aus dem Link selbst gelesen: Es wird
+          nichts geöffnet und keine Anfrage gestellt, es ist also schnell und privat.
+        </p>
+        <p>
+          In der CSV steht in der Spalte <code>url</code> die echte Adresse, und
+          <code>original_url</code> behält die verpackte. Um Links genau so zu behalten, wie sie auf
+          der Seite stehen, schalten Sie <b>Echte URL statt Weiterleitung</b> aus.
+        </p>
+
+        <h2>Was es nicht tut</h2>
+        <ul>
+          <li>
+            <b>Kurzlinks</b> wie bit.ly oder t.co behalten ihr Ziel auf ihrem eigenen Server. Um es
+            zu finden, müsste man den Link öffnen, und Link Extractor stellt keine Netzwerkanfragen,
+            daher bleiben sie unverändert. Nutzen Sie dafür einen URL-Expander.
+          </li>
+          <li>
+            <b>Manche Google-Ergebnisse verbergen die echte Adresse.</b> Dann enthält der Link nur
+            einen undurchsichtigen Google-Code. Das Panel markiert eine solche Zeile mit
+            <b>URL von Google verborgen</b> und kopiert sie so, wie Google sie liefert, statt zu
+            raten. Auf einer Ergebnisseite listet <b>Nur Ergebnisse</b> nur die Ergebnisse auf, in
+            Reihenfolge, ohne Anzeigen.
+          </li>
+          <li>
+            Eine Weiterleitung um eine <code>javascript:</code>- oder <code>data:</code>-Adresse
+            wird nie in diese Adresse umgewandelt: Sie bleibt die Weiterleitung.
+          </li>
+        </ul>
+
+        <h2>Fragen</h2>
+        <h3>Verändert das Entfernen der Tags die Seite?</h3>
+        <p>
+          Nein. Nur die Liste, die Kopie und die Datei ändern sich. Die Seite und ihre Links
+          bleiben, wie sie sind.
+        </p>
+        <h3>Warum ist das Entfernen der Tags standardmäßig aus?</h3>
+        <p>
+          Damit Sie standardmäßig die Links genau so bekommen, wie die Seite sie hat. Manche
+          brauchen die Tags, zum Beispiel um die Links einer Kampagne zu prüfen. Ein Schalter
+          aktiviert es.
+        </p>
+        <h3>Sehe ich, welche Links Weiterleitungen waren?</h3>
+        <p>
+          Ja. Sie tragen in der Liste die Markierung <b>aus Weiterleitung</b>, und in der CSV steht
+          ihre ursprüngliche Adresse in der Spalte <code>original_url</code>.
+        </p>
+
+        <p class="more">
+          Weiter:
+          <a href="../export-links-to-csv/">die saubere Liste in eine CSV für Excel exportieren</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Startseite</a> · <a href="../../../privacy/">Datenschutzerklärung</a> ·
+        <a href="../../../feedback/">Kontakt</a>
+      </p>
+      <p>Links verlassen Ihren Browser nie.</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/remove-tracking-and-redirects/" hreflang="en" lang="en">English</a> · <span aria-current="page">Deutsch</span> · <a href="../../../fr/guides/remove-tracking-and-redirects/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/remove-tracking-and-redirects/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/remove-tracking-and-redirects/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/remove-tracking-and-redirects/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/remove-tracking-and-redirects/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/remove-tracking-and-redirects/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/remove-tracking-and-redirects/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/remove-tracking-and-redirects/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/remove-tracking-and-redirects/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../../../ja/guides/remove-tracking-and-redirects/" hreflang="ja" lang="ja">日本語</a> · <a href="../../../zh-cn/guides/remove-tracking-and-redirects/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

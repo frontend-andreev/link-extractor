@@ -1,0 +1,185 @@
+<!doctype html>
+<!--
+  Translation of site/guides/remove-tracking-and-redirects/index.html. Facts and button names must match it and public/_locales/zh_CN/messages.json.
+-->
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>如何从提取的网址中移除 UTM 标签并还原重定向链接 — Link Extractor</title>
+    <meta
+      name="description"
+      content="得到干净的网址：去掉 utm_source、fbclid、gclid 等跟踪参数，并把 Google、Bing 或 Facebook 的重定向链接换成它们真正指向的地址。"
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/zh-cn/guides/remove-tracking-and-redirects/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="如何移除 UTM 标签并还原重定向链接" />
+    <meta
+      property="og:description"
+      content="任何网页都能得到干净的网址：没有 utm_source、fbclid 或 gclid，显示真实地址，而不是 google.com/url?q= 这样的包装链接。"
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/zh-cn/guides/remove-tracking-and-redirects/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · 使用指南</p>
+      <h1>如何移除 UTM 标签并还原重定向链接</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >添加到 Chrome——免费</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>简短回答：</b>在 Link Extractor 中打开 <b>过滤和设置</b>，再打开
+          <b>移除 utm 等跟踪参数</b>。重定向链接已经显示为它们的真实地址：<b
+            >显示真实网址而非重定向</b
+          >
+          默认就是开启的。两者都会作用于列表、你复制的内容和 CSV。
+        </p>
+
+        <h2>两个不同的问题</h2>
+        <p>
+          <b>跟踪标签</b>是加在地址后面用来统计点击的参数：
+          <code>https://shop.example/item?utm_source=newsletter&amp;fbclid=…</code
+          >。带不带这些参数，页面都是同一个，但在电子表格里，带标签的副本看起来像不同的链接，会让你的列表变长。
+        </p>
+        <p>
+          <b>重定向链接</b>把真实地址包在另一个地址里：
+          <code>https://www.google.com/url?q=https://example.com/</code> 或
+          <code>https://l.facebook.com/l.php?u=…</code>。原样复制的话，每一行都以 google.com 或
+          facebook.com 开头，你就没法按它们指向的网站来排序或过滤。
+        </p>
+
+        <h2>操作步骤</h2>
+        <ol>
+          <li>打开网页，点击 Link Extractor 图标（Alt+Shift+L，Mac 上是 Ctrl+Shift+L）。</li>
+          <li>打开 <b>过滤和设置</b>。</li>
+          <li>
+            在 <b>复制和文件</b> 下，打开 <b>移除 utm 等跟踪参数</b>。让
+            <b>显示真实网址而非重定向</b> 保持开启。
+          </li>
+          <li>
+            检查列表：侧边栏会提示
+            <b>已从网址中移除 utm 等跟踪参数</b
+            >，并显示有多少重定向链接展示的是真实网址。每个这样的链接都标有
+            <b>来自重定向</b>；把鼠标悬停在标记上，可以看到页面上的原始地址。
+          </li>
+          <li>点击 <b>复制网址</b> 或 <b>CSV</b>。</li>
+        </ol>
+        <!-- Screenshot wanted: Filters & settings → Copy & files with both options visible (en,
+             light and dark, 360×560 like welcome/img/en/step-*.webp). None exists yet. -->
+        <p>这些设置会被记住，用于之后的网页。</p>
+
+        <h3>会移除哪些标签</h3>
+        <p>
+          所有 <code>utm_…</code> 参数，以及 <code>fbclid</code>、<code>gclid</code>、
+          <code>dclid</code>、<code>gbraid</code>、<code>wbraid</code>、<code>msclkid</code>、
+          <code>yclid</code>、<code>ysclid</code>、<code>igshid</code>、<code>mc_cid</code>、
+          <code>mc_eid</code>、<code>_hsenc</code>、<code>_hsmi</code>、<code>mkt_tok</code>、
+          <code>twclid</code>、<code>ttclid</code>、<code>li_fat_id</code>、<code>srsltid</code>、
+          <code>_ga</code> 和 <code>_gl</code>。
+        </p>
+        <p>
+          这个列表是有意设得很短的。<code>ref</code>、<code>source</code> 或
+          <code>id</code>
+          这样的参数会保留，因为有些网站需要它们，移除后链接会失效。地址的其余部分原样保留：参数的顺序、编码，以及
+          <code>#</code> 之后的部分。仅因跟踪标签而不同的链接会合并为一行。
+        </p>
+
+        <h3>会还原哪些重定向链接</h3>
+        <p>
+          Google（<code>/url?q=</code>）、Bing（<code>/ck/a</code>）、DuckDuckGo、Facebook 和
+          Instagram 的外链、YouTube、LinkedIn 和 Reddit 的重定向、Outlook 安全链接、Slack、Steam 和
+          VK。真实地址是直接从链接本身读出来的：不会打开任何页面，也不会发出任何请求，所以既快又保护隐私。
+        </p>
+        <p>
+          在 CSV 中，<code>url</code> 列是真实地址，<code>original_url</code>
+          保留被包装的地址。如果想让链接保持页面上的原样，请关闭 <b>显示真实网址而非重定向</b>。
+        </p>
+
+        <h2>它做不到什么</h2>
+        <ul>
+          <li>
+            bit.ly 或 t.co
+            这样的<b>短链接</b>，目标地址存放在它们自己的服务器上。要找到它就得打开链接，而 Link
+            Extractor 不发出任何网络请求，所以它们保持原样。这类链接请使用网址展开工具。
+          </li>
+          <li>
+            <b>有些 Google 搜索结果隐藏了真实地址。</b>这时链接里只有一个看不出含义的 Google
+            代码。侧边栏会把这样的行标为 <b>Google 隐藏了网址</b>，并按 Google
+            给出的样子复制，而不是去猜。在结果页上，<b>只看结果</b>
+            只列出搜索结果，按顺序排列，不含广告。
+          </li>
+          <li>
+            包装着 <code>javascript:</code> 或
+            <code>data:</code> 地址的链接，绝不会被还原成那个地址：它保持包装链接的样子。
+          </li>
+        </ul>
+
+        <h2>常见问题</h2>
+        <h3>移除标签会改变网页吗？</h3>
+        <p>不会。改变的只有列表、复制内容和文件。网页及其链接保持原样。</p>
+        <h3>为什么移除标签默认是关闭的？</h3>
+        <p>
+          这样默认得到的就是页面上原原本本的链接。有些人需要这些标签，例如检查某个推广活动的链接。一个开关就能打开它。
+        </p>
+        <h3>能看出哪些链接是重定向吗？</h3>
+        <p>
+          能。它们在列表中带有 <b>来自重定向</b> 标记，在 CSV 中，它们的原始地址在
+          <code>original_url</code> 列里。
+        </p>
+
+        <p class="more">
+          下一步：<a href="../export-links-to-csv/">把干净的列表导出为能在 Excel 中打开的 CSV</a>。
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">首页</a> · <a href="../../../privacy/">隐私政策</a> ·
+        <a href="../../../feedback/">联系我们</a>
+      </p>
+      <p>链接不会离开你的浏览器。</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/remove-tracking-and-redirects/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/remove-tracking-and-redirects/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/remove-tracking-and-redirects/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/remove-tracking-and-redirects/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/remove-tracking-and-redirects/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/remove-tracking-and-redirects/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/remove-tracking-and-redirects/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/remove-tracking-and-redirects/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/remove-tracking-and-redirects/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/remove-tracking-and-redirects/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/remove-tracking-and-redirects/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../../../ja/guides/remove-tracking-and-redirects/" hreflang="ja" lang="ja">日本語</a> · <span aria-current="page">简体中文</span></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

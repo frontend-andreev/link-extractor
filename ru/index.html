@@ -1,0 +1,341 @@
+<!doctype html>
+<!--
+  Translation of site/index.html. Facts and button names must match it and public/_locales/ru/messages.json.
+-->
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Link Extractor — собрать все ссылки со страницы (расширение для Chrome)</title>
+    <meta
+      name="description"
+      content="Бесплатное расширение для Chrome: список всех ссылок открытой страницы — полные адреса с текстом ссылки, в порядке страницы, без дублей. Фильтры, копирование и CSV для Excel."
+    />
+    <link rel="canonical" href="https://link-extractor.com/ru/" />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../home.css" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="Link Extractor — собрать все ссылки со страницы" />
+    <meta
+      property="og:description"
+      content="Бесплатное расширение для Chrome: все ссылки открытой страницы чистым списком — полные адреса, текст ссылки, порядок страницы, без дублей. Копирование и выгрузка в CSV."
+    />
+    <meta property="og:url" content="https://link-extractor.com/ru/" />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="800" />
+    <meta
+      property="og:image:alt"
+      content="Боковая панель Link Extractor со списком ссылок статьи «Википедии»"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Link Extractor",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Google Chrome",
+        "url": "https://link-extractor.com/",
+        "installUrl": "https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg",
+        "description": "Расширение для Chrome со списком всех ссылок открытой страницы — полные адреса с текстом ссылки, в порядке страницы, без дублей. Список можно отфильтровать, скопировать или выгрузить в CSV для Excel. Работает внутри браузера и никуда не отправляет ссылки.",
+        "screenshot": "https://link-extractor.com/shared/readme-screenshot.png",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="hero">
+      <img src="../welcome/img/icon-128.png" width="64" height="64" alt="" />
+      <h1>Link Extractor</h1>
+      <p class="lead">
+        Все ссылки открытой страницы чистым списком: полные адреса, текст ссылки, в порядке
+        страницы, без дублей.
+      </p>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=home"
+        >Добавить в Chrome — это бесплатно</a
+      >
+      <p class="facts">Chrome Web Store · Без аккаунта · Ссылки не покидают ваш браузер</p>
+    </header>
+
+    <main>
+      <section class="card" aria-labelledby="what-title">
+        <h2 id="what-title" class="sr-only">Что умеет расширение</h2>
+        <img
+          class="hero-shot"
+          src="../shared/readme-screenshot.png"
+          width="1280"
+          height="800"
+          alt="Боковая панель Link Extractor рядом со статьёй «Википедии»: список ссылок статьи с их текстом"
+        />
+        <p class="about">
+          Link Extractor — бесплатное расширение для Chrome: оно показывает список ссылок страницы,
+          которую вы смотрите. Нажмите на значок, и в боковой панели появятся все ссылки в порядке
+          страницы — полный адрес и рядом текст ссылки; повторы объединяются в одну строку со
+          счётчиком. Список можно искать и фильтровать: по домену, типу (страницы, файлы, почта,
+          телефоны), внутренним и внешним ссылкам, nofollow, sponsored и ugc. Ссылки-редиректы
+          Google, Bing и Facebook показывают тот адрес, куда они ведут. Затем скопируйте адреса или
+          скачайте CSV для Excel; длинные списки не обрезаются, так что страница с десятками тысяч
+          ссылок копируется и выгружается целиком. Расширение читает страницу в вашем браузере
+          такой, какой вы её видите, поэтому ссылки, добавленные скриптами, и страницы за вашим
+          логином попадают в список.
+        </p>
+
+        <div class="shots">
+          <figure>
+            <picture>
+              <source
+                srcset="../welcome/img/ru/step-2-dark.webp"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                src="../welcome/img/ru/step-2-light.webp"
+                width="360"
+                height="560"
+                alt="Список, суженный до одного домена вводом в строке поиска"
+              />
+            </picture>
+            <figcaption>
+              Введите запрос, чтобы сузить список, или откройте «Фильтры и настройки».
+            </figcaption>
+          </figure>
+          <figure>
+            <picture>
+              <source
+                srcset="../welcome/img/ru/step-3-dark.webp"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                src="../welcome/img/ru/step-3-light.webp"
+                width="360"
+                height="560"
+                alt="Меню «Копировать как» с пунктами «Адреса», «Текст — адрес» и «Таблица для Excel» над кнопками «Копировать адреса» и CSV"
+              />
+            </picture>
+            <figcaption>Скопируйте адреса или скачайте файл CSV.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="card faq" aria-labelledby="can-title">
+        <h2 id="can-title">Что он умеет</h2>
+        <ul class="can">
+          <li>Все ссылки открытой вкладки в порядке страницы: полные адреса и текст ссылок</li>
+          <li>Дубли объединяются в одну строку со счётчиком</li>
+          <li>Поиск и фильтры: домен, тип, внутренние и внешние, nofollow, sponsored, ugc</li>
+          <li>
+            Копирование адресов или таблицы, которая вставляется в Excel и Google Sheets по колонкам
+          </li>
+          <li>Файл CSV, который открывается в Excel без кракозябр</li>
+          <li>
+            Настоящие адреса вместо ссылок-редиректов Google, Bing и Facebook; метки utm убираются
+            по желанию
+          </li>
+          <li>Ссылки из выделенной части страницы и только результаты поиска Google или Bing</li>
+          <li>Бесплатно, без аккаунта; ссылки не покидают ваш браузер</li>
+        </ul>
+
+        <h2 id="guides-title" class="guides-title">Инструкции</h2>
+        <ul class="can">
+          <li>
+            <a href="guides/export-links-to-csv/"
+              >Как выгрузить все ссылки страницы в CSV, который открывается в Excel</a
+            >
+          </li>
+          <li>
+            <a href="guides/remove-tracking-and-redirects/"
+              >Как убрать метки UTM и получить настоящие адреса вместо редиректов</a
+            >
+          </li>
+          <li>
+            <a href="guides/extract-links-from-large-pages/"
+              >Как собрать все ссылки с большой страницы, где больше 10 000 ссылок</a
+            >
+          </li>
+          <li>
+            <a href="guides/extract-email-phone-and-file-links/"
+              >Как собрать со страницы email, телефоны и ссылки на PDF</a
+            >
+          </li>
+          <li>
+            <a href="guides/copy-link-text-and-url/"
+              >Как скопировать пары «текст ссылки — адрес» в Excel в порядке страницы</a
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section class="card faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Вопросы</h2>
+
+        <h3>Как выгрузить все ссылки страницы в CSV прямо из браузера?</h3>
+        <p>
+          Откройте страницу, нажмите на значок Link Extractor (или сочетание клавиш — по умолчанию
+          Alt+Shift+L, на Mac Ctrl+Shift+L) и нажмите <b>CSV</b>. В файле одна строка на ссылку, в
+          порядке страницы: полный адрес, текст ссылки, домен, тип и другое.
+        </p>
+
+        <h3>Откроется ли в Excel русский, арабский или китайский текст ссылок?</h3>
+        <p>
+          Да. CSV сохраняется в UTF-8 с BOM (меткой порядка байтов), поэтому Excel правильно
+          показывает любые алфавиты; разделитель зависит от языка Chrome, а если Excel сложил всё в
+          одну колонку, выберите другой в пункте <b>Разделитель в CSV</b> в «Фильтры и настройки».
+          Значение, которое начинается с =, +, - или @, получает впереди апостроф, чтобы Excel
+          оставил его текстом и не выполнял как формулу; в ячейке Excel может показать этот
+          апостроф.
+        </p>
+
+        <h3>Можно ли выгрузить больше 10 000 ссылок без обрезания?</h3>
+        <p>
+          Да. Копирование и файл CSV включают все ссылки списка, ничего не обрезается. В наших
+          проверках страница с 10 000 ссылок попадает в список примерно за секунду, а список
+          по-прежнему прокручивается и фильтруется без подвисаний. Панель читает до 200 000 ссылок
+          со страницы и столько же из каждого встроенного фрейма, а если ссылок больше, сообщает об
+          этом.
+        </p>
+
+        <h3>
+          Как скопировать пары «текст ссылки — адрес», чтобы они вставились в Excel по колонкам?
+        </h3>
+        <p>
+          Откройте меню рядом с кнопкой <b>Копировать адреса</b> и выберите
+          <b>Таблица для Excel</b>: адрес, текст, домен и тип попадут в отдельные колонки при
+          вставке в Excel или Google Sheets. Пункт <b>Текст — адрес</b> копирует по одной паре
+          «текст — адрес» на строку, а <b>Адреса</b> — только адреса, по одному на строку.
+        </p>
+
+        <h3>Собирает ли он ссылки mailto и tel?</h3>
+        <p>
+          Да. Ссылки на почту (<code>mailto:</code>) и телефоны (<code>tel:</code>,
+          <code>sms:</code>) есть в списке вместе с текстом и копируются в том виде, как записаны на
+          странице. Чтобы оставить только их, выберите тип <b>Почта</b> или <b>Телефоны</b> в
+          «Фильтры и настройки».
+        </p>
+
+        <h3>Работает ли он на одностраничных приложениях и динамических сайтах?</h3>
+        <p>
+          Да. Он читает страницу такой, какая она во вкладке после выполнения скриптов, включая
+          веб-компоненты (shadow DOM). Если новые ссылки подгружаются при прокрутке или после
+          «Показать ещё», прокрутите страницу и нажмите <b>Обновить</b> в панели; когда приложение
+          переходит на другую страницу того же сайта, список обновляется сам.
+        </p>
+
+        <h3>Выдаёт ли он полные абсолютные адреса вместо относительных путей?</h3>
+        <p>
+          Да. Каждый адрес в списке, в копии и в файле — полный, он разбирается так же, как это
+          делает браузер, в том числе на страницах с тегом <code>&lt;base&gt;</code>.
+        </p>
+
+        <h3>Как убрать UTM и другие метки отслеживания из собранных адресов?</h3>
+        <p>
+          Включите <b>Убирать utm и другие метки</b> в «Фильтры и настройки». Он убирает utm_source,
+          fbclid, gclid и другие метки из списка, копии и файла, а ссылки, которые отличались только
+          метками, сливаются в одну.
+        </p>
+
+        <h3>Объединяет ли он повторяющиеся ссылки?</h3>
+        <p>
+          Да. Один и тот же адрес показан один раз, со счётчиком, сколько раз он встречается на
+          странице. В разделе <b>Дубли</b> можно также объединять ссылки, которые различаются только
+          частью после # или слэшем в конце.
+        </p>
+
+        <h3>Как оставить только видимые ссылки?</h3>
+        <p>
+          Так и работает по умолчанию: ссылки из закрытых меню и скрытых блоков в список не
+          попадают. Панель показывает, сколько их, а <b>+N скрытых</b> возвращает их в список.
+        </p>
+
+        <h3>Можно ли отфильтровать внутренние и внешние ссылки или только PDF и картинки?</h3>
+        <p>
+          Да. В «Фильтры и настройки» есть внутренние и внешние ссылки, типы (страницы, файлы,
+          почта, телефоны), домены и nofollow, sponsored или ugc. Тип <b>Файлы</b> включает PDF,
+          ZIP, картинки и другие файлы; чтобы оставить один вид, введите <code>.pdf</code> в строке
+          поиска.
+        </p>
+
+        <h3>Как получить чистый список адресов из поисковой выдачи Google?</h3>
+        <p>
+          На странице результатов Google или Bing в панели есть кнопка <b>Только результаты</b>:
+          только результаты поиска, по порядку, без рекламы и без собственных ссылок поисковика.
+        </p>
+
+        <h3>Можно ли собрать ссылки только с части страницы?</h3>
+        <p>
+          Да. Выделите нужную часть, нажмите правой кнопкой мыши и выберите
+          <b>Собрать ссылки из выделенного</b>: в списке будут только ссылки внутри выделения.
+        </p>
+
+        <h3>Нужна ли регистрация? Отправляет ли он мои ссылки куда-нибудь?</h3>
+        <p>
+          Аккаунт и вход не нужны, расширение бесплатное, без платных функций и рекламы. Список
+          собирается в вашем браузере, и расширение не делает сетевых запросов: ссылки попадают
+          только в буфер обмена или в файл, который вы скачиваете. Наш сайт считает установки,
+          низкие оценки и удаления расширения; в
+          <a href="../privacy/">политике конфиденциальности</a>
+          написано, что именно.
+        </p>
+
+        <h3>Чего он не умеет?</h3>
+        <p>
+          Он работает с открытой вкладкой: не обходит сайт, не переходит по ссылкам и не проверяет,
+          работают ли они (коды ответа). Chrome не разрешает расширениям читать страницы Chrome Web
+          Store и <code>chrome://</code>, а для ссылок во встроенных фреймах с других сайтов нужно
+          ваше разрешение; панель сообщает, какую часть страницы не удалось прочитать.
+        </p>
+      </section>
+
+      <p class="again">
+        <a
+          class="cta"
+          href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=home"
+          >Добавить в Chrome — это бесплатно</a
+        >
+      </p>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="guides/export-links-to-csv/">Выгрузка ссылок в CSV</a> ·
+        <a href="guides/remove-tracking-and-redirects/">Как убрать метки UTM</a> ·
+        <a href="../privacy/">Политика конфиденциальности</a> ·
+        <a href="../feedback/">Связаться с нами</a>
+      </p>
+      <p>Ссылки не покидают ваш браузер.</p>
+      <!-- languages -->
+      <p class="langs"><a href="../" hreflang="en" lang="en">English</a> · <a href="../de/" hreflang="de" lang="de">Deutsch</a> · <a href="../fr/" hreflang="fr" lang="fr">Français</a> · <a href="../es/" hreflang="es" lang="es">Español</a> · <a href="../pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../it/" hreflang="it" lang="it">Italiano</a> · <a href="../nl/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../pl/" hreflang="pl" lang="pl">Polski</a> · <span aria-current="page">Русский</span> · <a href="../uk/" hreflang="uk" lang="uk">Українська</a> · <a href="../tr/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../ja/" hreflang="ja" lang="ja">日本語</a> · <a href="../zh-cn/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

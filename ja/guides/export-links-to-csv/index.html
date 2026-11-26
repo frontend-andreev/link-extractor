@@ -1,0 +1,226 @@
+<!doctype html>
+<!-- Translation of site/guides/export-links-to-csv/index.html. Facts and button names must match it and public/_locales/ja/messages.json. -->
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ページのすべてのリンクを Excel 用の CSV に出力する方法 — Link Extractor</title>
+    <meta
+      name="description"
+      content="Web ページのすべてのリンクを、完全な URL とリンクテキストつきで、ページの順序のまま CSV ファイルに出力。Excel で文字化けせずに開けます。Chrome での手順を順番に解説します。"
+    />
+    <link rel="canonical" href="https://link-extractor.com/ja/guides/export-links-to-csv/" />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/export-links-to-csv/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="ページのすべてのリンクを Excel 用の CSV に出力する方法" />
+    <meta
+      property="og:description"
+      content="完全な URL とリンクテキストを、ページの順序のまま、Excel で文字化けせずに開ける CSV に。"
+    />
+    <meta property="og:url" content="https://link-extractor.com/ja/guides/export-links-to-csv/" />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · ガイド</p>
+      <h1>ページのすべてのリンクを、Excel で開ける CSV に出力する方法</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Chrome に追加 — 無料</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>結論：</b>Link Extractor
+          をインストールし、ページを開いて拡張機能のアイコンをクリックし、<b>CSV</b>
+          をクリックします。リンク 1 件につき 1 行、ページの順序で、完全な URL
+          とリンクテキストが入ったファイルができます。ファイルは BOM 付きの UTF-8 なので、Excel
+          でキリル文字、アラビア文字、中国語、アクセント付きの文字も正しく表示されます。
+        </p>
+
+        <h2>こんな方に</h2>
+        <p>
+          ページのリンクを確認する SEO
+          担当者、アウトリーチ先や競合のリストを作るマーケター、情報源を保存する研究者、そして 1
+          ページのリンクを手作業でコピーせず、スプレッドシートにまとめたい方すべてに向いています。
+        </p>
+
+        <h2>よい出力とは</h2>
+        <ul>
+          <li>
+            <b>完全なアドレス。</b><code>/about</code> ではなく
+            <code>https://example.com/about</code>。
+          </li>
+          <li><b>リンクテキスト</b>が、URL の隣の専用の列に入る。</li>
+          <li><b>ページの順序</b>で上から下へ並び、見たままのシートになる。</li>
+          <li><b>重複なし</b>：メニューとフッターに繰り返し出てくるリンクも 1 行になる。</li>
+          <li>
+            <b>Excel で読める文字。</b>BOM がないと、Excel は UTF-8 のファイルを本来の文字ではなく
+            <code>Ð¿Ñ€Ð¸Ð²ÐµÑ‚</code> のような文字列として開くことがよくあります。
+          </li>
+          <li>
+            <b>正しい区切り文字。</b>Excel
+            は、国によってカンマを期待する場合とセミコロンを期待する場合があり、合っていないとすべてが
+            A 列に入ってしまいます。
+          </li>
+          <li>長いページでも<b>途中で切れない</b>。</li>
+        </ul>
+
+        <h2>手順</h2>
+        <ol>
+          <li>
+            Chrome
+            でページを開きます。スクロールや「もっと見る」で後からリンクが読み込まれるページは、先にスクロールしておきます。
+          </li>
+          <li>
+            ツールバーの Link Extractor のアイコンをクリックするか、Alt+Shift+L（Mac では
+            Ctrl+Shift+L）を押します。ページのすべてのリンクがサイドパネルに一覧で表示されます。
+          </li>
+          <li>
+            任意：一覧を絞り込みます。検索ボックスに入力するか、<b>フィルタと設定</b>でドメイン、種類、内部／外部リンク、nofollow、sponsored、ugc
+            を指定します。ファイルには、そのときの一覧にあるリンクが入ります。
+          </li>
+          <li><b>CSV</b> をクリックします。ファイルがすぐにダウンロードされます。</li>
+          <li>ダブルクリックして Excel で開きます。</li>
+        </ol>
+        <figure>
+          <picture>
+            <source
+              srcset="../../../welcome/img/en/step-3-dark.webp"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img
+              src="../../../welcome/img/en/step-3-light.webp"
+              width="360"
+              height="560"
+              alt="URL をコピーと CSV のボタン、コピー形式メニューが表示された Link Extractor のパネル"
+            />
+          </picture>
+          <figcaption><b>CSV</b> ボタンは <b>URL をコピー</b>の隣にあります。</figcaption>
+        </figure>
+
+        <h3>Excel ですべてが 1 列に入ってしまうとき</h3>
+        <p>
+          区切り文字がお使いの Excel と合っていません。ダウンロード後、パネルに
+          <b>Excel ですべてが 1 列に表示されますか？</b
+          >と表示され、もう一方の区切り文字でファイルをダウンロードし直せます。恒久的に変えるには、フィルタと設定の
+          <b>CSV の区切り文字</b
+          >で、カンマかセミコロンを選びます。初期設定（<b>自動</b>）では、Chrome
+          の言語に合わせて決まります。
+        </p>
+
+        <h3>ファイルの中身</h3>
+        <p>
+          リンク 1 件につき 1 行で、先頭に見出し行があります。列は
+          <code>url</code>、<code>text</code>、
+          <code>domain</code
+          >、<code>scope</code>（内部か外部か）、<code>type</code>（ページ、ファイル、メール、電話）、<code>rel</code>（nofollow、sponsored、ugc）、<code>count</code>（そのリンクがページに何回あるか）などです。リンクが
+          <code>google.com/url?q=…</code>
+          のようなリダイレクトを経由していた場合、<code>url</code> 列には実際のアドレスが入り、<code
+            >original_url</code
+          >
+          にはページにあったアドレスが残ります。
+        </p>
+        <p>
+          <code>=</code>、<code>+</code>、<code>-</code>、<code>@</code>
+          で始まる値は、Excel
+          が数式として実行せず文字列のまま扱えるよう、先頭にアポストロフィが付きます。Excel
+          のセルにそのアポストロフィが表示されることがあります。
+        </p>
+
+        <h3>ファイルなしで、スプレッドシートに直接貼り付ける</h3>
+        <p>
+          <b>URL をコピー</b>の横のメニューを開いて <b>Excel 用の表</b>を選び、Excel や Google
+          スプレッドシートに貼り付けます。URL、テキスト、ドメイン、種類がそれぞれ別の列に入ります。Google
+          スプレッドシートでは、ファイル → インポートで CSV を取り込むこともできます。
+        </p>
+
+        <h2>ほかのツールのほうが向いている場合</h2>
+        <ul>
+          <li>
+            <b>サイトのすべてのページのリンク。</b>Link Extractor はクロールをせず、開いている 1
+            つのタブだけを読み取ります。サイト全体なら、Screaming Frog SEO Spider
+            のようなサイト監査ツールを使ってください。
+          </li>
+          <li>
+            <b>リンク切れの確認。</b
+            >ステータスコードの確認は行いません。それはリンクチェッカーの役目です。
+          </li>
+          <li>
+            <b>Chrome ウェブストアと <code>chrome://</code> ページ。</b>Chrome
+            は、どの拡張機能にもこれらの読み取りを許可していません。
+          </li>
+        </ul>
+
+        <h2>よくある質問</h2>
+        <h3>JavaScript で追加されたリンクもファイルに入りますか？</h3>
+        <p>
+          はい。パネルは、スクリプトの実行後にタブにある状態のページを読み取るので、ログインが必要なページも対象です。自社のサーバーからページを読み込むオンラインの抽出ツールには、どちらも見えません。
+        </p>
+        <h3>1 万件のリンクがあるページも、すべて出力されますか？</h3>
+        <p>
+          はい。CSV
+          には一覧にあるすべてのリンクが入り、途中で切れることはありません。パネルはページから最大
+          200,000 件のリンクを読み取り、それを超える場合はお知らせします。
+        </p>
+        <h3>非表示のメニューにあるリンクもファイルに入りますか？</h3>
+        <p>
+          初期設定では入りません。一覧には見えているリンクが入り、非表示の件数はパネルに表示されます。<b
+            >+N 件非表示</b
+          >をクリックすると、一覧とファイルに追加されます。
+        </p>
+        <h3>アカウントは必要ですか？ リンクはどこに送られますか？</h3>
+        <p>
+          アカウントは不要で、無料です。一覧はブラウザの中で作られ、リンクはダウンロードするファイルにだけ渡されます。<a
+            href="../../../privacy/"
+            >プライバシーポリシー</a
+          >をご覧ください。
+        </p>
+
+        <p class="more">
+          関連：エクスポートの前に、<a href="../remove-tracking-and-redirects/"
+            >UTM タグを削除し、リダイレクトリンクを実際の URL に戻す</a
+          >。
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">ホーム</a> · <a href="../../../privacy/">プライバシーポリシー</a> ·
+        <a href="../../../feedback/">お問い合わせ</a>
+      </p>
+      <p>リンクはブラウザの外に出ません。</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/export-links-to-csv/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/export-links-to-csv/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/export-links-to-csv/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/export-links-to-csv/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/export-links-to-csv/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/export-links-to-csv/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/export-links-to-csv/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/export-links-to-csv/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/export-links-to-csv/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/export-links-to-csv/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/export-links-to-csv/" hreflang="tr" lang="tr">Türkçe</a> · <span aria-current="page">日本語</span> · <a href="../../../zh-cn/guides/export-links-to-csv/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,193 @@
+<!doctype html>
+<!--
+  Translation of site/guides/extract-links-from-large-pages/index.html. Facts and button names must match it and public/_locales/ru/messages.json.
+-->
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Как собрать все ссылки с большой страницы (10 000+ ссылок) — Link Extractor</title>
+    <meta
+      name="description"
+      content="Соберите все ссылки с огромной страницы — карты сайта, каталоги, длинные ленты — без зависания вкладки и без обрезания списка. Какие бывают пределы и когда нужен другой инструмент."
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/ru/guides/extract-links-from-large-pages/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/extract-links-from-large-pages/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta
+      property="og:title"
+      content="Как собрать все ссылки с большой страницы (10 000+ ссылок)"
+    />
+    <meta
+      property="og:description"
+      content="Все ссылки огромной страницы, скопированные или выгруженные целиком, без зависания вкладки."
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/ru/guides/extract-links-from-large-pages/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Инструкции</p>
+      <h1>Как собрать все ссылки с большой страницы, где больше 10 000 ссылок</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Добавить в Chrome — это бесплатно</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Коротко:</b> откройте страницу, дождитесь, пока загрузится всё содержимое, нажмите на
+          значок Link Extractor и используйте <b>Копировать адреса</b> или <b>CSV</b>. Копирование и
+          файл включают все ссылки списка, ничего не обрезается. В наших проверках страница с 10 000
+          ссылок попадает в список примерно за секунду, а список по-прежнему прокручивается и
+          фильтруется без подвисаний.
+        </p>
+
+        <h2>Для кого это</h2>
+        <p>
+          Для тех, кто работает с длинными страницами: карты сайта и архивы, каталоги и справочники,
+          списки ссылок, оглавления документации, длинные ветки форумов, ленты, которые подгружаются
+          при прокрутке. Многие сборщики ссылок на таких страницах тормозят, вешают вкладку или тихо
+          останавливаются на нескольких сотнях или тысячах ссылок.
+        </p>
+
+        <h2>Что важно на большой странице</h2>
+        <ul>
+          <li>
+            <b>Полный результат.</b> Если инструмент остановился раньше, он должен об этом сказать,
+            а не выдавать часть страницы за целую.
+          </li>
+          <li>
+            <b>Сначала загрузить страницу.</b> Ссылки, которые появляются только после прокрутки или
+            «Показать ещё», в момент запуска ещё не на странице.
+          </li>
+          <li><b>Отзывчивый список</b>, чтобы искать и фильтровать десятки тысяч строк.</li>
+          <li>
+            <b>Объединённые дубли</b>: на больших страницах одни и те же ссылки сильно повторяются.
+          </li>
+        </ul>
+
+        <h2>Пошагово</h2>
+        <ol>
+          <li>
+            Откройте страницу. Если она подгружает содержимое при прокрутке, прокрутите до конца или
+            нажимайте «Показать ещё», пока на странице не будет всё нужное.
+          </li>
+          <li>
+            Нажмите на значок Link Extractor или сочетание Alt+Shift+L (на Mac — Ctrl+Shift+L). В
+            боковой панели ссылки идут в порядке страницы; повторы — одна строка со счётчиком.
+          </li>
+          <li>
+            Если после открытия панели вы прокрутили страницу дальше, нажмите <b>Обновить</b> в
+            панели, чтобы добавить то, что загрузилось с тех пор.
+          </li>
+          <li>
+            По желанию введите запрос в строку поиска или откройте <b>Фильтры и настройки</b>, чтобы
+            оставить только нужные ссылки, например один домен или только внешние.
+          </li>
+          <li>
+            Нажмите <b>Копировать адреса</b>, чтобы скопировать их по одному на строку, или
+            <b>CSV</b>, чтобы скачать файл.
+          </li>
+        </ol>
+
+        <h2>Пределы — честно</h2>
+        <ul>
+          <li>
+            Панель читает до <b>200 000 ссылок</b> со страницы и столько же из каждого встроенного
+            фрейма. Если на странице их больше, панель пишет
+            <b>В списке только первые 200 000 ссылок</b>.
+          </li>
+          <li>
+            Ссылки из закрытых меню и скрытых блоков по умолчанию не попадают в список, а панель
+            показывает, сколько их. <b>+N скрытых</b> добавляет их.
+          </li>
+          <li>
+            В ячейке Excel помещается не больше 32 767 символов. Если адрес или текст ссылки
+            длиннее, ячейка в CSV обрезается, и панель сообщает, сколько ячеек обрезано.
+          </li>
+          <li>
+            Для ссылок во фреймах, встроенных с других сайтов, нужно ваше разрешение; панель
+            сообщает, какую часть страницы не удалось прочитать.
+          </li>
+        </ul>
+
+        <h2>Когда лучше другой инструмент</h2>
+        <ul>
+          <li>
+            <b>Ссылки со многих страниц сайта.</b> Link Extractor не обходит сайт: он читает одну
+            открытую вкладку. Для всего сайта возьмите инструмент для аудита, например Screaming
+            Frog SEO Spider.
+          </li>
+        </ul>
+
+        <h2>Вопросы</h2>
+        <h3>Зависнет ли вкладка, пока читаются 10 000+ ссылок?</h3>
+        <p>
+          Нет. Панель рисует только те строки, которые вы видите, поэтому прокрутка и фильтры
+          остаются быстрыми даже при десятках тысяч ссылок.
+        </p>
+        <h3>Обрезается ли копия на каком-то количестве строк?</h3>
+        <p>
+          Нет. <b>Копировать адреса</b> и <b>CSV</b> берут все ссылки списка — после вашего поиска и
+          фильтров.
+        </p>
+        <h3>Собирает ли он ссылки, которые подгружаются бесконечной прокруткой?</h3>
+        <p>
+          Да, когда они уже на странице. Прокручивайте, пока они не загрузятся, затем нажмите
+          <b>Обновить</b>. Сам он страницу не прокручивает.
+        </p>
+
+        <p class="more">
+          Смотрите также:
+          <a href="../export-links-to-csv/">выгрузка списка в CSV, который открывается в Excel</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">На главную</a> ·
+        <a href="../../../privacy/">Политика конфиденциальности</a> ·
+        <a href="../../../feedback/">Связаться с нами</a>
+      </p>
+      <p>Ссылки не покидают ваш браузер.</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/extract-links-from-large-pages/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/extract-links-from-large-pages/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/extract-links-from-large-pages/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/extract-links-from-large-pages/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/extract-links-from-large-pages/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/extract-links-from-large-pages/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/extract-links-from-large-pages/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/extract-links-from-large-pages/" hreflang="pl" lang="pl">Polski</a> · <span aria-current="page">Русский</span> · <a href="../../../uk/guides/extract-links-from-large-pages/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/extract-links-from-large-pages/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../../../ja/guides/extract-links-from-large-pages/" hreflang="ja" lang="ja">日本語</a> · <a href="../../../zh-cn/guides/extract-links-from-large-pages/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

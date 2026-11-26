@@ -1,0 +1,189 @@
+<!doctype html>
+<!-- Translation of site/guides/extract-email-phone-and-file-links/index.html. Facts and button names must match it and public/_locales/ja/messages.json. -->
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ページからメール、電話、ファイルのリンクを抽出する方法 — Link Extractor</title>
+    <meta
+      name="description"
+      content="Web ページの mailto、tel、ファイル（PDF、文書、アーカイブ）のリンクだけを、リンクテキストつきで取得。コピーも、Excel 用の CSV 出力もできます。"
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/ja/guides/extract-email-phone-and-file-links/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/extract-email-phone-and-file-links/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="ページからメール、電話、ファイルのリンクを抽出する方法" />
+    <meta
+      property="og:description"
+      content="ページの mailto、tel、ファイルのリンクだけを、テキストつきで、すぐコピーできる形に。"
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/ja/guides/extract-email-phone-and-file-links/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · ガイド</p>
+      <h1>ページからメール、電話、PDF のリンクを抽出する方法</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Chrome に追加 — 無料</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>結論：</b>ページを開いて Link Extractor
+          のアイコンをクリックし、<b>フィルタと設定</b>を開いて、<b>種類</b>の中で<b>メール</b>、<b>電話</b>、<b>ファイル</b>のいずれかを選びます。一覧にはそのリンクだけが残り、<b
+            >URL をコピー</b
+          >または <b>CSV</b> で、それだけを取得できます。
+        </p>
+
+        <h2>こんな方に</h2>
+        <p>
+          チームの紹介ページ、ディレクトリ、仕入れ先の一覧から連絡先を集める方、そしてページからリンクされているすべての
+          PDF、文書、アーカイブ（報告書、価格表、講座の資料、ダウンロードなど）が必要な方に向いています。
+        </p>
+
+        <h2>どのリンクがどの種類になるか</h2>
+        <ul>
+          <li><b>メール</b>：<code>mailto:</code> のリンク。</li>
+          <li><b>電話</b>：<code>tel:</code> と <code>sms:</code> のリンク。</li>
+          <li>
+            <b>ファイル</b
+            >：アドレスの末尾がファイルの拡張子になっているリンク（PDF、Word、Excel、PowerPoint
+            の文書、OpenDocument、RTF、TXT、CSV、EPUB、ZIP、RAR、7z
+            などのアーカイブ、画像、音声と動画、インストーラーとディスクイメージ）と、ページ上でダウンロード用と指定されているすべてのリンク。
+          </li>
+          <li><b>ページ</b>：それ以外のすべての Web リンク。</li>
+        </ul>
+        <p><b>種類</b>で何も選ばない場合は、すべての種類が対象です。</p>
+
+        <h2>手順</h2>
+        <ol>
+          <li>
+            ページを開き、Link Extractor のアイコンをクリックします（Alt+Shift+L、Mac では
+            Ctrl+Shift+L）。
+          </li>
+          <li><b>フィルタと設定</b>を開きます。</li>
+          <li>
+            <b>種類</b
+            >の中で<b>メール</b>、<b>電話</b>、<b>ファイル</b>を選びます。複数選ぶこともできます。
+          </li>
+          <li>
+            特定の種類のファイルだけにするには、検索ボックスにも入力します。<code>.pdf</code> なら
+            PDF だけ、<code>.docx</code> なら Word の文書だけが残ります。
+          </li>
+          <li>
+            <b>URL をコピー</b
+            >をクリックするか、各リンクのリンクテキストと種類も入ったファイルが必要なら
+            <b>CSV</b> をクリックします。
+          </li>
+        </ol>
+
+        <h3>得られるもの</h3>
+        <p>
+          メールと電話のリンクは、たとえば <code>mailto:sales@example.com</code> や
+          <code>tel:+15551234567</code>
+          のように、ページにあるとおりにコピーされ、一覧とファイルではリンクテキストが隣に付きます。重複はまとめられるので、ヘッダーとフッターの両方にあるアドレスも
+          1 行になります。ファイルのリンクは、開いたりダウンロードしたりできる完全な URL です。
+        </p>
+
+        <h2>上限について、率直に</h2>
+        <ul>
+          <li>
+            <b>対象はリンクだけです。</b
+            >リンクではなく通常のテキストとして書かれたメールアドレスや電話番号は、一覧に入りません。Link
+            Extractor はリンクを一覧にするもので、ページ内のテキストは検索しません。
+          </li>
+          <li>
+            <b>ファイルはアドレスで判定します。</b><code>/download?id=42</code>
+            のような形で終わるダウンロードリンクには拡張子がないため、ページがダウンロード用と指定していない限り、ページとして扱われます。
+          </li>
+          <li>
+            <b>ファイルそのものはダウンロードしません。</b
+            >取得できるのはファイルのアドレスで、ネットワークリクエストは行いません。
+          </li>
+          <li>
+            <b>内部</b
+            >と<b>外部</b>のフィルタでは、メールと電話のリンクは表示されません。サイトを持たないためです。
+          </li>
+        </ul>
+
+        <h2>ほかのツールのほうが向いている場合</h2>
+        <ul>
+          <li>
+            <b>Web サイト全体の連絡先。</b>Link Extractor はクロールをせず、開いている 1
+            つのページだけを読み取ります。
+          </li>
+          <li>
+            <b>すべてのファイルを一度にダウンロードする。</b>コピーした URL
+            を、ダウンロードマネージャーに貼り付けてください。
+          </li>
+        </ul>
+
+        <h2>よくある質問</h2>
+        <h3>メールアドレスは「mailto:」つきでコピーされますか？</h3>
+        <p>
+          はい。リンクはページにあるとおりに、<code>?subject=</code>
+          の部分も含めてコピーされます。アドレスだけが必要なら、スプレッドシートの検索と置換で
+          <code>mailto:</code> を削除してください。
+        </p>
+        <h3>フレームの中にあるページからリンクされた PDF も取得できますか？</h3>
+        <p>
+          はい。同じサイトのフレームは、ページと一緒に読み取られます。他のサイトのフレームにはお客様の許可が必要で、読み取れなかったときはパネルに表示されます。
+        </p>
+        <h3>無料ですか？</h3>
+        <p>はい。アカウント不要で、有料機能はなく、リンクはブラウザの中にとどまります。</p>
+
+        <p class="more">
+          関連：<a href="../copy-link-text-and-url/"
+            >リンクテキストと URL の組を Excel にコピーする</a
+          >。
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">ホーム</a> · <a href="../../../privacy/">プライバシーポリシー</a> ·
+        <a href="../../../feedback/">お問い合わせ</a>
+      </p>
+      <p>リンクはブラウザの外に出ません。</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/extract-email-phone-and-file-links/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/extract-email-phone-and-file-links/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/extract-email-phone-and-file-links/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/extract-email-phone-and-file-links/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/extract-email-phone-and-file-links/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/extract-email-phone-and-file-links/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/extract-email-phone-and-file-links/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/extract-email-phone-and-file-links/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/extract-email-phone-and-file-links/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/extract-email-phone-and-file-links/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/extract-email-phone-and-file-links/" hreflang="tr" lang="tr">Türkçe</a> · <span aria-current="page">日本語</span> · <a href="../../../zh-cn/guides/extract-email-phone-and-file-links/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

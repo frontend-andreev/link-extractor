@@ -1,0 +1,195 @@
+<!doctype html>
+<!--
+  Translation of site/guides/extract-links-from-large-pages/index.html. Facts and button names must match it and public/_locales/nl/messages.json.
+-->
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alle links van een grote pagina extraheren (10.000+ links) — Link Extractor</title>
+    <meta
+      name="description"
+      content="Extraheer alle links van een enorme pagina — sitemaps, overzichten, lange feeds — zonder dat het tabblad vastloopt of de lijst wordt afgekapt. De grenzen en alternatieven."
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/nl/guides/extract-links-from-large-pages/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/extract-links-from-large-pages/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta
+      property="og:title"
+      content="Alle links van een grote pagina extraheren (10.000+ links)"
+    />
+    <meta
+      property="og:description"
+      content="Alle links van een enorme pagina, volledig gekopieerd of geëxporteerd, zonder dat het tabblad vastloopt."
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/nl/guides/extract-links-from-large-pages/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Handleidingen</p>
+      <h1>Alle links extraheren van een grote pagina met meer dan 10.000 links</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Toevoegen aan Chrome — gratis</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Kort antwoord:</b> open de pagina, laat alle inhoud laden, klik op het pictogram van
+          Link Extractor en gebruik <b>Copy URLs</b> of <b>CSV</b>. Kopiëren en het bestand bevatten
+          elke link uit de lijst, zonder iets af te kappen. In onze tests wordt een pagina met
+          10.000 links in ongeveer een seconde getoond, en de lijst blijft scrollen en filteren
+          zonder te hangen.
+        </p>
+
+        <h2>Voor wie dit is</h2>
+        <p>
+          Mensen die met lange pagina's werken: sitemaps en archiefpagina's, overzichten en
+          catalogi, linklijsten, documentatie-indexen, lange forumdraden, feeds die blijven laden
+          tijdens het scrollen. Veel linkextractors worden hier traag, laten het tabblad vastlopen
+          of stoppen stilletjes na een paar honderd of een paar duizend links.
+        </p>
+
+        <h2>Wat telt op een grote pagina</h2>
+        <ul>
+          <li>
+            <b>Een volledig resultaat.</b> Als het hulpmiddel eerder stopt, moet het dat zeggen, en
+            je niet een deel van de pagina geven alsof het alles is.
+          </li>
+          <li>
+            <b>De pagina eerst geladen.</b> Links die pas verschijnen na scrollen of “Meer tonen”
+            staan nog niet op de pagina als je begint.
+          </li>
+          <li>
+            <b>Een vlotte lijst</b>, zodat je tienduizenden rijen kunt doorzoeken en filteren.
+          </li>
+          <li>
+            <b>Duplicaten samengevoegd</b>: op grote pagina's herhalen dezelfde links zich vaak.
+          </li>
+        </ul>
+
+        <h2>Stap voor stap</h2>
+        <ol>
+          <li>
+            Open de pagina. Als er meer laadt tijdens het scrollen, scrol dan naar het einde, of
+            klik op “Meer tonen” totdat alles wat je nodig hebt op de pagina staat.
+          </li>
+          <li>
+            Klik op het pictogram van Link Extractor, of druk op Alt+Shift+L (op een Mac
+            Ctrl+Shift+L). Het zijpaneel toont de links in paginavolgorde; herhalingen zijn één rij
+            met een teller.
+          </li>
+          <li>
+            Als je verder hebt gescrold nadat je het paneel opende, druk dan op <b>Refresh</b> in
+            het paneel om toe te voegen wat sindsdien is geladen.
+          </li>
+          <li>
+            Optioneel: typ in het zoekveld of open <b>Filters &amp; settings</b> om alleen de links
+            te houden die je nodig hebt, bijvoorbeeld één domein of alleen externe links.
+          </li>
+          <li>
+            Klik op <b>Copy URLs</b> om ze te kopiëren, één per regel, of op <b>CSV</b> om een
+            bestand te downloaden.
+          </li>
+        </ol>
+
+        <h2>De grenzen, eerlijk gezegd</h2>
+        <ul>
+          <li>
+            Het paneel leest tot <b>200.000 links</b> van een pagina, en evenveel uit elk ingesloten
+            frame. Als een pagina er meer heeft, meldt het paneel
+            <b>Only the first 200,000 links are in the list</b>.
+          </li>
+          <li>
+            Links in gesloten menu's en verborgen blokken worden standaard weggelaten, en het paneel
+            toont hoeveel het er zijn. <b>+N hidden</b> voegt ze toe.
+          </li>
+          <li>
+            Excel bevat maximaal 32.767 tekens in een cel. Als een URL of linktekst langer is, wordt
+            die cel in de CSV afgekapt en meldt het paneel hoeveel cellen zijn afgekapt.
+          </li>
+          <li>
+            Links in frames die van andere sites zijn ingesloten, hebben jouw toestemming nodig; het
+            paneel zegt welk deel van de pagina het niet kon lezen.
+          </li>
+        </ul>
+
+        <h2>Wanneer een ander hulpmiddel beter is</h2>
+        <ul>
+          <li>
+            <b>Links van veel pagina's van een site.</b> Link Extractor crawlt niet: hij leest het
+            ene tabblad dat je geopend hebt. Gebruik voor een hele site een site-auditprogramma
+            zoals Screaming Frog SEO Spider.
+          </li>
+        </ul>
+
+        <h2>Vragen</h2>
+        <h3>Loopt het tabblad vast terwijl hij 10.000+ links leest?</h3>
+        <p>
+          Nee. Het paneel tekent alleen de rijen die je kunt zien, dus scrollen en filteren blijven
+          snel, zelfs met tienduizenden links.
+        </p>
+        <h3>Wordt de kopie bij een bepaald aantal rijen afgekapt?</h3>
+        <p>
+          Nee. <b>Copy URLs</b> en <b>CSV</b> nemen elke link uit de lijst, na je zoekopdracht en
+          filters.
+        </p>
+        <h3>Haalt hij links op die met oneindig scrollen laden?</h3>
+        <p>
+          Ja, zodra ze op de pagina staan. Scrol totdat ze geladen zijn en druk dan op
+          <b>Refresh</b>. Hij scrolt de pagina niet voor je.
+        </p>
+
+        <p class="more">
+          Gerelateerd:
+          <a href="../export-links-to-csv/">de lijst exporteren naar een CSV die in Excel opent</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Home</a> · <a href="../../../privacy/">Privacybeleid</a> ·
+        <a href="../../../feedback/">Contact</a>
+      </p>
+      <p>Links verlaten je browser nooit.</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/extract-links-from-large-pages/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/extract-links-from-large-pages/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/extract-links-from-large-pages/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/extract-links-from-large-pages/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/extract-links-from-large-pages/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/extract-links-from-large-pages/" hreflang="it" lang="it">Italiano</a> · <span aria-current="page">Nederlands</span> · <a href="../../../pl/guides/extract-links-from-large-pages/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/extract-links-from-large-pages/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/extract-links-from-large-pages/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/extract-links-from-large-pages/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../../../ja/guides/extract-links-from-large-pages/" hreflang="ja" lang="ja">日本語</a> · <a href="../../../zh-cn/guides/extract-links-from-large-pages/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

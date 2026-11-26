@@ -14,3 +14,7 @@ It is not a crawler: it works with the one open tab, does not follow links and d
 - [How to copy link text and URL pairs into Excel, in page order](https://link-extractor.com/guides/copy-link-text-and-url/): Table for Excel, Text — URL and CSV; how link text, order and repeats are chosen
 - [Privacy policy](https://link-extractor.com/privacy/)
 - [Chrome Web Store](https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg)
+
+## Other languages
+
+The home page and every guide also exist in German, French, Spanish, Portuguese (Brazil), Italian, Dutch, Polish, Russian, Ukrainian, Turkish, Japanese and Simplified Chinese, under the same paths with a language folder, for example [Deutsch](https://link-extractor.com/de/), [Русский](https://link-extractor.com/ru/), [日本語](https://link-extractor.com/ja/).

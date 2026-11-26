@@ -1,0 +1,204 @@
+<!doctype html>
+<!-- Translation of site/guides/remove-tracking-and-redirects/index.html. Facts and button names must match it and public/_locales/fr/messages.json. -->
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Comment supprimer les balises UTM et afficher la vraie URL des liens de redirection — Link
+      Extractor
+    </title>
+    <meta
+      name="description"
+      content="Obtenez des URL propres : supprimez utm_source, fbclid, gclid et autres paramètres de suivi, et remplacez les liens de redirection Google, Bing ou Facebook par l'adresse vers laquelle ils mènent."
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/fr/guides/remove-tracking-and-redirects/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta
+      property="og:title"
+      content="Comment supprimer les balises UTM et afficher la vraie URL des redirections"
+    />
+    <meta
+      property="og:description"
+      content="Des URL propres depuis n'importe quelle page : sans utm_source, fbclid ni gclid, et avec les vraies adresses à la place des liens google.com/url?q=."
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/fr/guides/remove-tracking-and-redirects/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Guides</p>
+      <h1>Comment supprimer les balises UTM et afficher la vraie URL des liens de redirection</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Ajouter à Chrome — gratuit</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>En bref :</b> dans Link Extractor, ouvrez <b>Filtres et paramètres</b> et activez
+          <b>Supprimer utm et autres paramètres de suivi</b>. Les liens de redirection sont déjà
+          affichés avec leur vraie adresse : <b>URL réelle au lieu de la redirection</b> est activé
+          par défaut. Les deux s'appliquent à la liste, à ce que vous copiez et au CSV.
+        </p>
+
+        <h2>Deux problèmes différents</h2>
+        <p>
+          Les <b>paramètres de suivi</b> sont ajoutés à une adresse pour compter les clics :
+          <code>https://shop.example/item?utm_source=newsletter&amp;fbclid=…</code>. La page est la
+          même avec ou sans eux, mais dans un tableur, les copies avec paramètres ressemblent à des
+          liens différents et allongent votre liste.
+        </p>
+        <p>
+          Les <b>liens de redirection</b> enveloppent la vraie adresse dans une autre :
+          <code>https://www.google.com/url?q=https://example.com/</code> ou
+          <code>https://l.facebook.com/l.php?u=…</code>. Copiés tels quels, toutes les lignes
+          commencent par google.com ou facebook.com, et vous ne pouvez plus trier ni filtrer selon
+          le site vers lequel ils mènent.
+        </p>
+
+        <h2>Pas à pas</h2>
+        <ol>
+          <li>
+            Ouvrez la page et cliquez sur l'icône de Link Extractor (Alt+Shift+L, sur Mac
+            Ctrl+Shift+L).
+          </li>
+          <li>Ouvrez <b>Filtres et paramètres</b>.</li>
+          <li>
+            Sous <b>Copie et fichiers</b>, activez
+            <b>Supprimer utm et autres paramètres de suivi</b>. Laissez
+            <b>URL réelle au lieu de la redirection</b> activé.
+          </li>
+          <li>
+            Vérifiez la liste : le panneau indique
+            <b>utm et les autres paramètres de suivi sont retirés des URL</b>, ainsi que le nombre
+            de liens de redirection qui affichent leur vraie URL. Chacun porte la mention
+            <b>via redirection</b> ; survolez-la pour voir l'adresse présente sur la page.
+          </li>
+          <li>Cliquez sur <b>Copier les URL</b> ou sur <b>CSV</b>.</li>
+        </ol>
+        <!-- Screenshot wanted: Filters & settings → Copy & files with both options visible (en,
+             light and dark, 360×560 like welcome/img/en/step-*.webp). None exists yet. -->
+        <p>Les paramètres sont conservés pour les pages suivantes.</p>
+
+        <h3>Quels paramètres sont supprimés</h3>
+        <p>
+          Tous les paramètres <code>utm_…</code>, plus <code>fbclid</code>, <code>gclid</code>,
+          <code>dclid</code>, <code>gbraid</code>, <code>wbraid</code>, <code>msclkid</code>,
+          <code>yclid</code>, <code>ysclid</code>, <code>igshid</code>, <code>mc_cid</code>,
+          <code>mc_eid</code>, <code>_hsenc</code>, <code>_hsmi</code>, <code>mkt_tok</code>,
+          <code>twclid</code>, <code>ttclid</code>, <code>li_fat_id</code>, <code>srsltid</code>,
+          <code>_ga</code> et <code>_gl</code>.
+        </p>
+        <p>
+          La liste est courte volontairement. Des paramètres comme <code>ref</code>,
+          <code>source</code> ou <code>id</code> restent, car certains sites en ont besoin et les
+          supprimer vous donnerait un lien cassé. Le reste de l'adresse est conservé tel qu'il est
+          écrit : l'ordre des paramètres, leur encodage et la partie après <code>#</code>. Les liens
+          qui ne différaient que par les paramètres de suivi n'en font plus qu'une ligne.
+        </p>
+
+        <h3>Quels liens de redirection sont déroulés</h3>
+        <p>
+          Google (<code>/url?q=</code>), Bing (<code>/ck/a</code>), DuckDuckGo, les liens sortants
+          de Facebook et d'Instagram, les redirections de YouTube, LinkedIn et Reddit, Outlook Safe
+          Links, Slack, Steam et VK. La vraie adresse est lue dans le lien lui-même : rien n'est
+          ouvert et aucune requête n'est faite, c'est donc rapide et privé.
+        </p>
+        <p>
+          Dans le CSV, la colonne <code>url</code> contient la vraie adresse et
+          <code>original_url</code> garde l'adresse enveloppée. Pour garder les liens exactement
+          comme sur la page, désactivez <b>URL réelle au lieu de la redirection</b>.
+        </p>
+
+        <h2>Ce qu'elle ne fait pas</h2>
+        <ul>
+          <li>
+            <b>Les liens courts</b> comme bit.ly ou t.co gardent leur destination sur leur propre
+            serveur. La trouver suppose d'ouvrir le lien, et Link Extractor ne fait aucune requête
+            réseau : ils restent donc tels quels. Utilisez pour cela un outil de dépliage d'URL.
+          </li>
+          <li>
+            <b>Certains résultats Google masquent la vraie adresse.</b> Le lien ne contient alors
+            qu'un code Google opaque. Le panneau marque cette ligne <b>URL masquée par Google</b> et
+            la copie telle que Google la fournit, plutôt que de deviner. Sur une page de résultats,
+            <b>Résultats uniquement</b> liste seulement les résultats, dans l'ordre, sans annonces.
+          </li>
+          <li>
+            Une redirection qui enveloppe une adresse <code>javascript:</code> ou
+            <code>data:</code> n'est jamais transformée en cette adresse : elle reste telle quelle.
+          </li>
+        </ul>
+
+        <h2>Questions</h2>
+        <h3>Supprimer les paramètres modifie-t-il la page ?</h3>
+        <p>
+          Non. Seuls la liste, la copie et le fichier changent. La page et ses liens restent tels
+          quels.
+        </p>
+        <h3>Pourquoi la suppression des paramètres est-elle désactivée par défaut ?</h3>
+        <p>
+          Pour que vous obteniez par défaut les liens exactement comme la page les contient.
+          Certaines personnes ont besoin des paramètres, par exemple pour vérifier les liens d'une
+          campagne. Un seul interrupteur suffit pour l'activer.
+        </p>
+        <h3>Puis-je voir quels liens étaient des redirections ?</h3>
+        <p>
+          Oui. Ils portent la mention <b>via redirection</b> dans la liste, et dans le CSV leur
+          adresse d'origine est dans la colonne <code>original_url</code>.
+        </p>
+
+        <p class="more">
+          Ensuite :
+          <a href="../export-links-to-csv/">exportez la liste propre en CSV pour Excel</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Accueil</a> ·
+        <a href="../../../privacy/">Politique de confidentialité</a> ·
+        <a href="../../../feedback/">Contact</a>
+      </p>
+      <p>Les liens ne quittent jamais votre navigateur.</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/remove-tracking-and-redirects/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/remove-tracking-and-redirects/" hreflang="de" lang="de">Deutsch</a> · <span aria-current="page">Français</span> · <a href="../../../es/guides/remove-tracking-and-redirects/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/remove-tracking-and-redirects/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/remove-tracking-and-redirects/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/remove-tracking-and-redirects/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/remove-tracking-and-redirects/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/remove-tracking-and-redirects/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/remove-tracking-and-redirects/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/remove-tracking-and-redirects/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../../../ja/guides/remove-tracking-and-redirects/" hreflang="ja" lang="ja">日本語</a> · <a href="../../../zh-cn/guides/remove-tracking-and-redirects/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

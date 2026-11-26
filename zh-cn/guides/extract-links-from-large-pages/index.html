@@ -1,0 +1,167 @@
+<!doctype html>
+<!--
+  Translation of site/guides/extract-links-from-large-pages/index.html. Facts and button names must match it and public/_locales/zh_CN/messages.json.
+-->
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>如何提取大型网页（10,000 多个链接）上的所有链接 — Link Extractor</title>
+    <meta
+      name="description"
+      content="提取超大网页上的所有链接——站点地图、目录、长信息流——不卡住标签页，也不截断列表。了解限制，以及什么时候该换别的工具。"
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/zh-cn/guides/extract-links-from-large-pages/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/extract-links-from-large-pages/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="如何提取大型网页（10,000 多个链接）上的所有链接" />
+    <meta
+      property="og:description"
+      content="超大网页上的每一个链接都能完整复制或导出，标签页不卡顿。"
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/zh-cn/guides/extract-links-from-large-pages/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · 使用指南</p>
+      <h1>如何提取有 10,000 多个链接的大型网页上的所有链接</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >添加到 Chrome——免费</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>简短回答：</b>打开网页，等它把内容全部加载完，点击 Link Extractor 图标，使用
+          <b>复制网址</b> 或
+          <b>CSV</b>。复制和文件包含列表中的每一个链接，不会有任何截断。在我们的测试中，有 10,000
+          个链接的页面大约一秒就能列出，列表依然可以流畅滚动和过滤，不会卡住。
+        </p>
+
+        <h2>适合哪些人</h2>
+        <p>
+          经常处理长页面的人：站点地图和归档页、目录和分类列表、链接清单、文档索引、很长的论坛帖子，以及一边滚动一边不断加载的信息流。许多链接提取工具在这类页面上会变慢、卡住标签页，或者在几百个、几千个链接处悄悄停下。
+        </p>
+
+        <h2>大型网页上要注意什么</h2>
+        <ul>
+          <li>
+            <b>结果完整。</b>如果工具提前停下，它应该告诉你，而不是把页面的一部分当成全部交给你。
+          </li>
+          <li>
+            <b>先把页面加载完。</b>只有滚动或点击“显示更多”后才出现的链接，在你开始时还不在页面上。
+          </li>
+          <li><b>列表响应流畅</b>，这样你才能在几万行中搜索和过滤。</li>
+          <li><b>合并重复项</b>：大型网页上同样的链接会大量重复。</li>
+        </ul>
+
+        <h2>操作步骤</h2>
+        <ol>
+          <li>
+            打开网页。如果它在滚动时加载更多内容，就滚到底，或者不断点击“显示更多”，直到你需要的内容都在页面上。
+          </li>
+          <li>
+            点击 Link Extractor 图标，或按 Alt+Shift+L（Mac 上是
+            Ctrl+Shift+L）。侧边栏会按页面顺序列出链接；重复的链接合并为一行，并带有计数。
+          </li>
+          <li>
+            如果打开侧边栏之后你又往下滚动了，请在侧边栏中点击 <b>刷新</b>，把之后加载的内容加进来。
+          </li>
+          <li>
+            可选：在搜索框中输入，或打开
+            <b>过滤和设置</b>，只保留你需要的链接，例如某一个域名或只看站外链接。
+          </li>
+          <li>点击 <b>复制网址</b> 复制它们，每行一个；或点击 <b>CSV</b> 下载文件。</li>
+        </ol>
+
+        <h2>限制，直说</h2>
+        <ul>
+          <li>
+            侧边栏最多从一个页面读取
+            <b>200,000 个链接</b>，每个嵌入框架也是如此。如果页面链接更多，侧边栏会提示
+            <b>列表中只有前 200,000 个链接</b>。
+          </li>
+          <li>
+            默认不包括已收起菜单和隐藏区块中的链接，侧边栏会显示它们的数量。<b>+N 个已隐藏</b>
+            可以把它们加进来。
+          </li>
+          <li>
+            Excel 的一个单元格最多容纳 32,767 个字符。如果某个网址或链接文字更长，CSV
+            中该单元格会被截断，侧边栏会告诉你有多少个单元格被截断。
+          </li>
+          <li>
+            来自其他网站的嵌入框架中的链接需要你的授权；侧边栏会告诉你页面的哪一部分没能读取。
+          </li>
+        </ul>
+
+        <h2>什么时候换别的工具更合适</h2>
+        <ul>
+          <li>
+            <b>一个网站上许多页面的链接。</b>Link Extractor
+            不会抓取网站：它只读取你打开的这一个标签页。要处理整个网站，请使用网站审计工具，例如
+            Screaming Frog SEO Spider。
+          </li>
+        </ul>
+
+        <h2>常见问题</h2>
+        <h3>读取 10,000 多个链接时标签页会卡住吗？</h3>
+        <p>不会。侧边栏只绘制你能看到的行，所以即使有几万个链接，滚动和过滤依然很快。</p>
+        <h3>复制时会在某个行数处被截断吗？</h3>
+        <p>不会。<b>复制网址</b> 和 <b>CSV</b> 会取走列表中的每一个链接，按你的搜索和过滤结果。</p>
+        <h3>能获取无限滚动加载出来的链接吗？</h3>
+        <p>
+          能，只要它们已经在页面上。滚动到它们加载完，然后点击 <b>刷新</b>。它不会替你滚动页面。
+        </p>
+
+        <p class="more">
+          相关阅读：<a href="../export-links-to-csv/">把列表导出为能在 Excel 中打开的 CSV</a>。
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">首页</a> · <a href="../../../privacy/">隐私政策</a> ·
+        <a href="../../../feedback/">联系我们</a>
+      </p>
+      <p>链接不会离开你的浏览器。</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/extract-links-from-large-pages/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/extract-links-from-large-pages/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/extract-links-from-large-pages/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/extract-links-from-large-pages/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/extract-links-from-large-pages/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/extract-links-from-large-pages/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/extract-links-from-large-pages/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/extract-links-from-large-pages/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/extract-links-from-large-pages/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/extract-links-from-large-pages/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/extract-links-from-large-pages/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../../../ja/guides/extract-links-from-large-pages/" hreflang="ja" lang="ja">日本語</a> · <span aria-current="page">简体中文</span></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<!-- Translation of site/guides/remove-tracking-and-redirects/index.html. Facts and button names must match it and public/_locales/uk/messages.json. -->
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Як прибрати теги UTM і розгорнути посилання-перенаправлення у витягнутих URL — Link Extractor
+    </title>
+    <meta
+      name="description"
+      content="Отримайте чисті URL зі сторінки: приберіть utm_source, fbclid, gclid та інші теги відстеження і замініть посилання-перенаправлення Google, Bing чи Facebook адресою, куди вони ведуть."
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/uk/guides/remove-tracking-and-redirects/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta
+      property="og:title"
+      content="Як прибрати теги UTM і розгорнути посилання-перенаправлення"
+    />
+    <meta
+      property="og:description"
+      content="Чисті URL з будь-якої сторінки: без utm_source, fbclid і gclid та зі справжніми адресами замість обгорток google.com/url?q=."
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/uk/guides/remove-tracking-and-redirects/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Інструкції</p>
+      <h1>Як прибрати теги UTM і розгорнути посилання-перенаправлення</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Додати в Chrome — це безкоштовно</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Коротко:</b> у Link Extractor відкрийте <b>Filters &amp; settings</b> і ввімкніть
+          <b>Remove utm and other tracking tags</b>. Посилання-перенаправлення вже показані зі
+          справжньою адресою: <b>Real URL instead of redirect</b> увімкнено типово. Обидва
+          налаштування діють на список, на скопійоване і на CSV.
+        </p>
+
+        <h2>Дві різні проблеми</h2>
+        <p>
+          <b>Теги відстеження</b> — це параметри, які додають до адреси, щоб рахувати кліки:
+          <code>https://shop.example/item?utm_source=newsletter&amp;fbclid=…</code>. Сторінка з ними
+          і без них та сама, але в таблиці копії з тегами здаються різними посиланнями й подовжують
+          ваш список.
+        </p>
+        <p>
+          <b>Посилання-перенаправлення</b> обгортають справжню адресу в іншу:
+          <code>https://www.google.com/url?q=https://example.com/</code> або
+          <code>https://l.facebook.com/l.php?u=…</code>. Скопіюйте їх як є — і кожен рядок
+          починатиметься з google.com чи facebook.com, тож відсортувати чи відфільтрувати за сайтом,
+          куди вони ведуть, неможливо.
+        </p>
+
+        <h2>Покроково</h2>
+        <ol>
+          <li>
+            Відкрийте сторінку й натисніть значок Link Extractor (Alt+Shift+L, на Mac Ctrl+Shift+L).
+          </li>
+          <li>Відкрийте <b>Filters &amp; settings</b>.</li>
+          <li>
+            У розділі <b>Copy &amp; files</b> ввімкніть <b>Remove utm and other tracking tags</b>.
+            Залиште <b>Real URL instead of redirect</b>
+            увімкненим.
+          </li>
+          <li>
+            Перевірте список: панель повідомляє, що
+            <b>utm and other tracking tags are removed from the URLs</b>, і скільки
+            посилань-перенаправлень показують справжній URL. Кожне з них позначене
+            <b>from redirect</b>; наведіть на позначку курсор, щоб побачити адресу зі сторінки.
+          </li>
+          <li>Натисніть <b>Copy URLs</b> або <b>CSV</b>.</li>
+        </ol>
+        <p>Налаштування запам’ятовуються для наступних сторінок.</p>
+
+        <h3>Які теги прибираються</h3>
+        <p>
+          Кожен параметр <code>utm_…</code>, а також <code>fbclid</code>, <code>gclid</code>,
+          <code>dclid</code>, <code>gbraid</code>, <code>wbraid</code>, <code>msclkid</code>,
+          <code>yclid</code>, <code>ysclid</code>, <code>igshid</code>, <code>mc_cid</code>,
+          <code>mc_eid</code>, <code>_hsenc</code>, <code>_hsmi</code>, <code>mkt_tok</code>,
+          <code>twclid</code>, <code>ttclid</code>, <code>li_fat_id</code>, <code>srsltid</code>,
+          <code>_ga</code> і <code>_gl</code>.
+        </p>
+        <p>
+          Список навмисно короткий. Параметри на кшталт <code>ref</code>, <code>source</code> чи
+          <code>id</code> лишаються, бо деяким сайтам вони потрібні, і без них посилання зламалося
+          б. Решта адреси зберігається точно як написано: порядок параметрів, їхнє кодування і
+          частина після <code>#</code>. Посилання, що відрізнялися лише тегами відстеження, стають
+          одним рядком.
+        </p>
+
+        <h3>Які посилання-перенаправлення розгортаються</h3>
+        <p>
+          Google (<code>/url?q=</code>), Bing (<code>/ck/a</code>), DuckDuckGo, вихідні посилання
+          Facebook та Instagram, перенаправлення YouTube, LinkedIn і Reddit, Outlook Safe Links,
+          Slack, Steam і VK. Справжня адреса береться з самого посилання: нічого не відкривається і
+          жодних запитів не робиться, тож це швидко й приватно.
+        </p>
+        <p>
+          У CSV у стовпці <code>url</code> стоїть справжня адреса, а <code>original_url</code>
+          зберігає обгорнуту. Щоб лишити посилання точно такими, як на сторінці, вимкніть
+          <b>Real URL instead of redirect</b>.
+        </p>
+
+        <h2>Чого він не робить</h2>
+        <ul>
+          <li>
+            <b>Короткі посилання</b> на кшталт bit.ly чи t.co зберігають свою ціль на власному
+            сервері. Щоб її дізнатися, треба відкрити посилання, а Link Extractor не робить
+            мережевих запитів, тому вони лишаються як є. Для них скористайтеся розгортачем коротких
+            URL.
+          </li>
+          <li>
+            <b>Деякі результати Google ховають справжню адресу.</b> Тоді посилання містить лише
+            непрозорий код Google. Панель позначає такий рядок <b>URL hidden by Google</b> і копіює
+            його так, як його віддає Google, а не вгадує. На сторінці результатів
+            <b>Results only</b> залишає тільки результати, по порядку, без реклами.
+          </li>
+          <li>
+            Обгортка навколо адреси <code>javascript:</code> чи <code>data:</code> ніколи не
+            перетворюється на цю адресу: вона лишається обгорткою.
+          </li>
+        </ul>
+
+        <h2>Питання</h2>
+        <h3>Чи змінює прибирання тегів саму сторінку?</h3>
+        <p>
+          Ні. Змінюються лише список, копія й файл. Сама сторінка та її посилання лишаються як є.
+        </p>
+        <h3>Чому прибирання тегів типово вимкнено?</h3>
+        <p>
+          Щоб типово ви отримували посилання точно такими, як на сторінці. Деяким людям теги
+          потрібні, наприклад, щоб перевірити посилання кампанії. Вмикається одним перемикачем.
+        </p>
+        <h3>Чи можна побачити, які посилання були перенаправленнями?</h3>
+        <p>
+          Так. У списку вони мають позначку <b>from redirect</b>, а в CSV їхня початкова адреса — у
+          стовпці <code>original_url</code>.
+        </p>
+
+        <p class="more">
+          Далі: <a href="../export-links-to-csv/">експортуйте чистий список у CSV для Excel</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Головна</a> · <a href="../../../privacy/">Політика конфіденційності</a> ·
+        <a href="../../../feedback/">Контакти</a>
+      </p>
+      <p>Посилання не залишають ваш браузер.</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/remove-tracking-and-redirects/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/remove-tracking-and-redirects/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/remove-tracking-and-redirects/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/remove-tracking-and-redirects/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/remove-tracking-and-redirects/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/remove-tracking-and-redirects/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/remove-tracking-and-redirects/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/remove-tracking-and-redirects/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/remove-tracking-and-redirects/" hreflang="ru" lang="ru">Русский</a> · <span aria-current="page">Українська</span> · <a href="../../../tr/guides/remove-tracking-and-redirects/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../../../ja/guides/remove-tracking-and-redirects/" hreflang="ja" lang="ja">日本語</a> · <a href="../../../zh-cn/guides/remove-tracking-and-redirects/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

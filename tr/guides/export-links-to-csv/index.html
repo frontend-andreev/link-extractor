@@ -1,0 +1,220 @@
+<!doctype html>
+<!-- Translation of site/guides/export-links-to-csv/index.html. Facts and button names must match it and public/_locales/tr/messages.json. -->
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sayfadaki tüm linkleri Excel için CSV'ye aktarma — Link Extractor</title>
+    <meta
+      name="description"
+      content="Bir web sayfasındaki tüm linkleri tam URL ve link metniyle, sayfa sırasında, Excel'de bozuk karakter olmadan açılan bir CSV dosyasına aktarın. Chrome'da adım adım."
+    />
+    <link rel="canonical" href="https://link-extractor.com/tr/guides/export-links-to-csv/" />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/export-links-to-csv/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="Sayfadaki tüm linkleri Excel için CSV'ye aktarma" />
+    <meta
+      property="og:description"
+      content="Tam URL'ler ve link metni, sayfa sırasında, Excel'in bozuk karakter olmadan açtığı bir CSV'de."
+    />
+    <meta property="og:url" content="https://link-extractor.com/tr/guides/export-links-to-csv/" />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Rehberler</p>
+      <h1>Sayfadaki tüm linkler Excel'de açılan CSV'ye nasıl aktarılır</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Chrome'a ekle — ücretsiz</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Kısa cevap:</b> Link Extractor'ı kurun, sayfayı açın, uzantı simgesine tıklayın ve
+          <b>CSV</b>'ye basın. Her link için bir satır elde edersiniz: sayfa sırasında, tam URL ve
+          link metniyle. Dosya bayt sırası işaretli (BOM) UTF-8'dir; bu yüzden Excel Kiril, Arapça,
+          Çince ve aksanlı metni doğru gösterir.
+        </p>
+
+        <h2>Kimler için?</h2>
+        <p>
+          Bir sayfanın linklerini inceleyen SEO uzmanları, iletişim veya rakip listesi hazırlayan
+          pazarlamacılar, kaynak kaydeden araştırmacılar ve bir sayfanın linklerini elle kopyalamak
+          yerine tabloda görmek isteyen herkes.
+        </p>
+
+        <h2>İyi bir dışa aktarma nasıl olmalı?</h2>
+        <ul>
+          <li>
+            <b>Tam adresler.</b> <code>/about</code> değil, <code>https://example.com/about</code>.
+          </li>
+          <li><b>Link metni</b> URL'nin yanında kendi sütununda.</li>
+          <li><b>Sayfa sırası</b>, yukarıdan aşağıya; tablo gördüğünüzle aynı olur.</li>
+          <li><b>Tekrar yok</b>: menüde ve altbilgide geçen link tek satırdır.</li>
+          <li>
+            <b>Excel'de okunur metin.</b> Bayt sırası işareti olmayınca Excel, UTF-8 dosyayı çoğu
+            zaman gerçek harfler yerine <code>Ð¿Ñ€Ð¸Ð²ÐµÑ‚</code> gibi açar.
+          </li>
+          <li>
+            <b>Doğru ayırıcı.</b> Bazı ülkelerde Excel virgül, bazılarında noktalı virgül bekler;
+            yanlışı seçilince her şey A sütununa yığılır.
+          </li>
+          <li><b>Uzun sayfalarda hiçbir şey kesilmez.</b></li>
+        </ul>
+
+        <h2>Adım adım</h2>
+        <ol>
+          <li>
+            Sayfayı Chrome'da açın. Kaydırdıkça veya “Daha fazla göster”den sonra yeni linkler
+            yükleniyorsa önce kaydırın.
+          </li>
+          <li>
+            Araç çubuğundaki Link Extractor simgesine tıklayın ya da Alt+Shift+L'ye basın (Mac'te
+            Ctrl+Shift+L). Yan panel sayfanın tüm linklerini listeler.
+          </li>
+          <li>
+            İsteğe bağlı: listeyi daraltın. Arama kutusuna yazın ya da alan adı, tür, iç veya dış
+            linkler ve nofollow, sponsored veya ugc için <b>Filtreler ve ayarlar</b>'ı açın. Dosyaya
+            şu anda listede olan linkler girer.
+          </li>
+          <li><b>CSV</b>'ye tıklayın. Dosya hemen iner.</li>
+          <li>Dosyayı çift tıklayarak Excel'de açın.</li>
+        </ol>
+        <figure>
+          <picture>
+            <source
+              srcset="../../../welcome/img/en/step-3-dark.webp"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img
+              src="../../../welcome/img/en/step-3-light.webp"
+              width="360"
+              height="560"
+              alt="Link Extractor paneli: URL'leri kopyala ve CSV düğmeleri ile Kopyalama biçimi menüsü"
+            />
+          </picture>
+          <figcaption><b>CSV</b> düğmesi <b>URL'leri kopyala</b>'nın yanında.</figcaption>
+        </figure>
+
+        <h3>Excel her şeyi tek sütuna koyarsa</h3>
+        <p>
+          Ayırıcı sizin Excel'inizle uyuşmuyor demektir. İndirmeden sonra panel
+          <b>Excel'de her şey tek sütunda mı?</b> diye sorar ve dosyayı diğer ayırıcıyla yeniden
+          indirmeyi önerir. Kalıcı olarak değiştirmek için Filtreler ve ayarlar'daki
+          <b>CSV ayırıcısı</b> bölümünden virgülü veya noktalı virgülü seçin. Varsayılan
+          (<b>Otomatik</b>) Chrome'un diline göre seçer.
+        </p>
+
+        <h3>Dosyada ne var?</h3>
+        <p>
+          Her link için bir satır ve bir başlık satırı: <code>url</code>, <code>text</code>,
+          <code>domain</code>, <code>scope</code> (iç veya dış), <code>type</code> (sayfa, dosya,
+          e-posta, telefon), <code>rel</code> (nofollow, sponsored, ugc), <code>count</code> (linkin
+          sayfada kaç kez geçtiği) ve birkaç sütun daha. Bir link
+          <code>google.com/url?q=…</code> gibi bir yönlendirmeden geçiyorsa
+          <code>url</code> sütununda gerçek adres olur, <code>original_url</code> ise sayfadaki
+          adresi saklar.
+        </p>
+        <p>
+          <code>=</code>, <code>+</code>, <code>-</code> veya <code>@</code> ile başlayan bir
+          değerin önüne kesme işareti konur; böylece Excel onu formül gibi çalıştırmaz, metin olarak
+          tutar. Excel hücrede bu işareti gösterebilir.
+        </p>
+
+        <h3>Dosyasız: doğrudan tabloya yapıştırın</h3>
+        <p>
+          <b>URL'leri kopyala</b> düğmesinin yanındaki menüyü açıp <b>Excel için tablo</b>'yu seçin,
+          sonra Excel'e veya Google E-Tablolar'a yapıştırın: URL, metin, alan adı ve tür ayrı
+          sütunlara gider. Google E-Tablolar'a CSV'yi Dosya → İçe aktar ile de alabilirsiniz.
+        </p>
+
+        <h2>Başka bir araç ne zaman daha iyi?</h2>
+        <ul>
+          <li>
+            <b>Bir sitenin tüm sayfalarındaki linkler.</b> Link Extractor site taramaz: yalnızca
+            açık olan sekmeyi okur. Tüm site için Screaming Frog SEO Spider gibi bir site denetim
+            aracı kullanın.
+          </li>
+          <li>
+            <b>Hangi linklerin bozuk olduğunu kontrol etmek.</b> Durum kodlarını kontrol etmez; bunu
+            link denetleyici yapar.
+          </li>
+          <li>
+            <b>Chrome Web Mağazası ve <code>chrome://</code> sayfaları.</b> Chrome hiçbir uzantının
+            bunları okumasına izin vermez.
+          </li>
+        </ul>
+
+        <h2>Sık sorulan sorular</h2>
+        <h3>JavaScript'in eklediği linkler dosyada olur mu?</h3>
+        <p>
+          Evet. Panel sayfayı, komut dosyaları çalıştıktan sonra sekmenizde göründüğü haliyle okur;
+          giriş yaptığınız sayfaları da. Sayfayı kendi sunucusundan yükleyen bir çevrimiçi çıkarıcı
+          ikisini de görmez.
+        </p>
+        <h3>10.000 linkli bir sayfa eksiksiz aktarılır mı?</h3>
+        <p>
+          Evet. CSV listedeki her linki içerir; hiçbir şey kesilmez. Panel bir sayfadan en fazla
+          200.000 link okur; daha fazlası varsa bunu size söyler.
+        </p>
+        <h3>Gizli menülerdeki linkler dosyada olur mu?</h3>
+        <p>
+          Varsayılan olarak hayır: liste görebildiğiniz linkleri içerir ve panel kaç tanesinin gizli
+          olduğunu gösterir. <b>+N gizli</b>'ya tıklayarak bunları listeye ve dosyaya
+          ekleyebilirsiniz.
+        </p>
+        <h3>Hesap gerekiyor mu? Linklerim nereye gidiyor?</h3>
+        <p>
+          Hesap gerekmez ve ücretsizdir. Liste tarayıcınızda oluşturulur; linkler yalnızca
+          indirdiğiniz dosyaya gider. <a href="../../../privacy/">Gizlilik politikasına</a> bakın.
+        </p>
+
+        <p class="more">
+          İlgili:
+          <a href="../remove-tracking-and-redirects/"
+            >dışa aktarmadan önce UTM etiketlerini kaldırın ve yönlendirme linklerini çözün</a
+          >.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Ana sayfa</a> · <a href="../../../privacy/">Gizlilik politikası</a> ·
+        <a href="../../../feedback/">İletişim</a>
+      </p>
+      <p>Linkler tarayıcınızdan çıkmaz.</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/export-links-to-csv/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/export-links-to-csv/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/export-links-to-csv/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/export-links-to-csv/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/export-links-to-csv/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/export-links-to-csv/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/export-links-to-csv/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/export-links-to-csv/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/export-links-to-csv/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/export-links-to-csv/" hreflang="uk" lang="uk">Українська</a> · <span aria-current="page">Türkçe</span> · <a href="../../../ja/guides/export-links-to-csv/" hreflang="ja" lang="ja">日本語</a> · <a href="../../../zh-cn/guides/export-links-to-csv/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

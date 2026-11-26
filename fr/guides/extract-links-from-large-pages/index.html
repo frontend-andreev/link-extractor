@@ -1,0 +1,202 @@
+<!doctype html>
+<!-- Translation of site/guides/extract-links-from-large-pages/index.html. Facts and button names must match it and public/_locales/fr/messages.json. -->
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Comment extraire tous les liens d'une grande page (plus de 10 000 liens) — Link Extractor
+    </title>
+    <meta
+      name="description"
+      content="Extrayez tous les liens d'une page énorme — plans de site, annuaires, longs flux — sans figer l'onglet ni couper la liste. Quelles sont les limites, et quand choisir un autre outil."
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/fr/guides/extract-links-from-large-pages/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/extract-links-from-large-pages/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/extract-links-from-large-pages/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta
+      property="og:title"
+      content="Comment extraire tous les liens d'une grande page (plus de 10 000 liens)"
+    />
+    <meta
+      property="og:description"
+      content="Tous les liens d'une page énorme, copiés ou exportés en entier, sans figer l'onglet."
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/fr/guides/extract-links-from-large-pages/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Guides</p>
+      <h1>Comment extraire tous les liens d'une grande page de plus de 10 000 liens</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Ajouter à Chrome — gratuit</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>En bref :</b> ouvrez la page, laissez-la charger tout son contenu, cliquez sur l'icône
+          de Link Extractor et utilisez <b>Copier les URL</b> ou <b>CSV</b>. La copie et le fichier
+          contiennent tous les liens de la liste, sans rien couper. Lors de nos tests, une page de
+          10 000 liens est listée en une seconde environ, et la liste continue de défiler et de se
+          filtrer sans se figer.
+        </p>
+
+        <h2>À qui s'adresse ce guide</h2>
+        <p>
+          Aux personnes qui travaillent avec de longues pages : plans de site et pages d'archives,
+          annuaires et catalogues, listes de liens, index de documentation, longs fils de forum,
+          flux qui continuent de se charger pendant le défilement. Beaucoup d'extracteurs de liens
+          ralentissent, figent l'onglet ou s'arrêtent sans le dire à quelques centaines ou quelques
+          milliers de liens.
+        </p>
+
+        <h2>Ce qui compte sur une grande page</h2>
+        <ul>
+          <li>
+            <b>Un résultat complet.</b> Si l'outil s'arrête avant la fin, il doit le dire, et non
+            vous remettre une partie de la page comme si c'était le tout.
+          </li>
+          <li>
+            <b>La page chargée d'abord.</b> Les liens qui n'apparaissent qu'après le défilement ou «
+            Afficher plus » ne sont pas encore dans la page quand vous commencez.
+          </li>
+          <li>
+            <b>Une liste réactive</b>, pour pouvoir chercher et filtrer des dizaines de milliers de
+            lignes.
+          </li>
+          <li>
+            <b>Des doublons fusionnés</b> : sur les grandes pages, les mêmes liens reviennent très
+            souvent.
+          </li>
+        </ul>
+
+        <h2>Pas à pas</h2>
+        <ol>
+          <li>
+            Ouvrez la page. Si elle en charge davantage pendant le défilement, allez jusqu'à la fin,
+            ou cliquez sur « Afficher plus » jusqu'à ce que tout ce qu'il vous faut soit sur la
+            page.
+          </li>
+          <li>
+            Cliquez sur l'icône de Link Extractor, ou appuyez sur Alt+Shift+L (sur Mac,
+            Ctrl+Shift+L). Le panneau latéral liste les liens dans l'ordre de la page ; les
+            répétitions forment une seule ligne avec un compteur.
+          </li>
+          <li>
+            Si vous avez encore fait défiler la page après avoir ouvert le panneau, appuyez sur
+            <b>Actualiser</b> dans le panneau pour ajouter ce qui s'est chargé depuis.
+          </li>
+          <li>
+            Facultatif : tapez dans le champ de recherche ou ouvrez
+            <b>Filtres et paramètres</b> pour ne garder que les liens dont vous avez besoin, par
+            exemple un seul domaine ou seulement les liens externes.
+          </li>
+          <li>
+            Cliquez sur <b>Copier les URL</b> pour les copier, une par ligne, ou sur <b>CSV</b> pour
+            télécharger un fichier.
+          </li>
+        </ol>
+
+        <h2>Les limites, en toute franchise</h2>
+        <ul>
+          <li>
+            Le panneau lit jusqu'à <b>200 000 liens</b> sur une page, et autant dans chaque cadre
+            intégré. Si une page en contient davantage, le panneau indique
+            <b>Seuls les 200 000 premiers liens sont dans la liste</b>.
+          </li>
+          <li>
+            Les liens des menus fermés et des blocs masqués sont laissés de côté par défaut, et le
+            panneau indique combien il y en a. <b>+N masqués</b> les ajoute.
+          </li>
+          <li>
+            Excel accepte au plus 32 767 caractères dans une cellule. Si une URL ou un texte de lien
+            est plus long, la cellule est tronquée dans le CSV et le panneau indique combien de
+            cellules l'ont été.
+          </li>
+          <li>
+            Les liens des cadres intégrés provenant d'autres sites demandent votre autorisation ; le
+            panneau indique quelle partie de la page il n'a pas pu lire.
+          </li>
+        </ul>
+
+        <h2>Quand un autre outil est plus adapté</h2>
+        <ul>
+          <li>
+            <b>Les liens de nombreuses pages d'un site.</b> Link Extractor n'explore pas : il lit
+            l'unique onglet que vous avez ouvert. Pour un site entier, utilisez un outil d'audit de
+            site comme Screaming Frog SEO Spider.
+          </li>
+        </ul>
+
+        <h2>Questions</h2>
+        <h3>L'onglet va-t-il se figer pendant la lecture de plus de 10 000 liens ?</h3>
+        <p>
+          Non. Le panneau ne dessine que les lignes visibles : le défilement et le filtrage restent
+          rapides, même avec des dizaines de milliers de liens.
+        </p>
+        <h3>La copie est-elle coupée à un certain nombre de lignes ?</h3>
+        <p>
+          Non. <b>Copier les URL</b> et <b>CSV</b> prennent tous les liens de la liste, après votre
+          recherche et vos filtres.
+        </p>
+        <h3>Récupère-t-elle les liens chargés par défilement infini ?</h3>
+        <p>
+          Oui, une fois qu'ils sont dans la page. Faites défiler jusqu'à leur chargement, puis
+          appuyez sur <b>Actualiser</b>. Elle ne fait pas défiler la page à votre place.
+        </p>
+
+        <p class="more">
+          À lire aussi :
+          <a href="../export-links-to-csv/">exportez la liste en CSV lisible dans Excel</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Accueil</a> ·
+        <a href="../../../privacy/">Politique de confidentialité</a> ·
+        <a href="../../../feedback/">Contact</a>
+      </p>
+      <p>Les liens ne quittent jamais votre navigateur.</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/extract-links-from-large-pages/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/extract-links-from-large-pages/" hreflang="de" lang="de">Deutsch</a> · <span aria-current="page">Français</span> · <a href="../../../es/guides/extract-links-from-large-pages/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/extract-links-from-large-pages/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/extract-links-from-large-pages/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/extract-links-from-large-pages/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/extract-links-from-large-pages/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/extract-links-from-large-pages/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/extract-links-from-large-pages/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/extract-links-from-large-pages/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../../../ja/guides/extract-links-from-large-pages/" hreflang="ja" lang="ja">日本語</a> · <a href="../../../zh-cn/guides/extract-links-from-large-pages/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

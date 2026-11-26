@@ -1,0 +1,201 @@
+<!doctype html>
+<!-- Translation of site/guides/remove-tracking-and-redirects/index.html. Facts and button names must match it and public/_locales/ja/messages.json. -->
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      抽出した URL から UTM タグを削除し、リダイレクトリンクを実際の URL に戻す方法 — Link Extractor
+    </title>
+    <meta
+      name="description"
+      content="ページからきれいな URL を取得。utm_source、fbclid、gclid などのトラッキング用タグを削除し、Google、Bing、Facebook のリダイレクトリンクを飛び先のアドレスに置き換えます。"
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/ja/guides/remove-tracking-and-redirects/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/remove-tracking-and-redirects/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/remove-tracking-and-redirects/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta
+      property="og:title"
+      content="UTM タグを削除し、リダイレクトリンクを実際の URL に戻す方法"
+    />
+    <meta
+      property="og:description"
+      content="どのページからもきれいな URL を。utm_source、fbclid、gclid なしで、google.com/url?q= のようなラッパーではなく実際のアドレスを。"
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/ja/guides/remove-tracking-and-redirects/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · ガイド</p>
+      <h1>UTM タグを削除し、リダイレクトリンクを実際の URL に戻す方法</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Chrome に追加 — 無料</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>結論：</b>Link Extractor で<b>フィルタと設定</b>を開き、<b
+            >utm などのトラッキング パラメータを削除</b
+          >をオンにします。リダイレクトリンクは、すでに実際のアドレスで表示されます。<b
+            >リダイレクトではなく実際の URL</b
+          >
+          が初期設定でオンだからです。どちらも、一覧、コピーした内容、CSV に反映されます。
+        </p>
+
+        <h2>2 つの別の問題</h2>
+        <p>
+          <b>トラッキングタグ</b>は、クリック数を数えるためにアドレスに付け足されるパラメータです：
+          <code>https://shop.example/item?utm_source=newsletter&amp;fbclid=…</code
+          >。タグがあってもなくてもページは同じですが、スプレッドシートではタグ付きのものが別のリンクに見えてしまい、一覧が長くなります。
+        </p>
+        <p>
+          <b>リダイレクトリンク</b>は、実際のアドレスを別のアドレスで包んだものです：
+          <code>https://www.google.com/url?q=https://example.com/</code> や
+          <code>https://l.facebook.com/l.php?u=…</code>。そのままコピーすると、どの行も google.com
+          や facebook.com で始まり、飛び先のサイトで並べ替えや絞り込みができません。
+        </p>
+
+        <h2>手順</h2>
+        <ol>
+          <li>
+            ページを開き、Link Extractor のアイコンをクリックします（Alt+Shift+L、Mac では
+            Ctrl+Shift+L）。
+          </li>
+          <li><b>フィルタと設定</b>を開きます。</li>
+          <li>
+            <b>コピーとファイル</b>の中で、<b>utm などのトラッキング パラメータを削除</b
+            >をオンにします。<b>リダイレクトではなく実際の URL</b>
+            はオンのままにします。
+          </li>
+          <li>
+            一覧を確認します。パネルには<b
+              >URL から utm などのトラッキング パラメータを削除しています</b
+            >と表示され、リダイレクトリンクのうち何件が実際の URL
+            で表示されているかも分かります。それぞれに<b>リダイレクト経由</b>の印が付き、印にカーソルを合わせると、ページにあったアドレスが表示されます。
+          </li>
+          <li><b>URL をコピー</b>または <b>CSV</b> をクリックします。</li>
+        </ol>
+        <!-- Screenshot wanted: Filters & settings → Copy & files with both options visible (en,
+             light and dark, 360×560 like welcome/img/en/step-*.webp). None exists yet. -->
+        <p>設定は記憶され、次に開くページでも使われます。</p>
+
+        <h3>削除されるタグ</h3>
+        <p>
+          すべての <code>utm_…</code> パラメータのほか、<code>fbclid</code>、<code>gclid</code>、
+          <code>dclid</code>、<code>gbraid</code>、<code>wbraid</code>、<code>msclkid</code>、
+          <code>yclid</code>、<code>ysclid</code>、<code>igshid</code>、<code>mc_cid</code>、
+          <code>mc_eid</code>、<code>_hsenc</code>、<code>_hsmi</code>、<code>mkt_tok</code>、
+          <code>twclid</code>、<code>ttclid</code>、<code>li_fat_id</code>、<code>srsltid</code>、
+          <code>_ga</code>、<code>_gl</code> です。
+        </p>
+        <p>
+          一覧は意図的に短くしています。<code>ref</code>、<code>source</code>、<code>id</code>
+          のようなパラメータは、必要としているサイトがあり、削除するとリンクが壊れるため、残します。アドレスのそれ以外の部分は、パラメータの順序、エンコード、<code
+            >#</code
+          >
+          より後ろの部分も含め、書かれているとおりに保たれます。トラッキングタグだけが違っていたリンクは
+          1 行にまとまります。
+        </p>
+
+        <h3>実際の URL に戻せるリダイレクトリンク</h3>
+        <p>
+          Google（<code>/url?q=</code>）、Bing（<code>/ck/a</code>）、DuckDuckGo、Facebook と
+          Instagram の外部リンク、YouTube、LinkedIn、Reddit のリダイレクト、Outlook Safe
+          Links、Slack、Steam、VK
+          に対応しています。実際のアドレスはリンクそのものから読み取るため、何も開かず、リクエストも行いません。だから速く、プライバシーも守られます。
+        </p>
+        <p>
+          CSV では、<code>url</code> 列に実際のアドレスが入り、<code>original_url</code>
+          に包まれたままのアドレスが残ります。ページにあるとおりのリンクを残したいときは、<b
+            >リダイレクトではなく実際の URL</b
+          >をオフにします。
+        </p>
+
+        <h2>できないこと</h2>
+        <ul>
+          <li>
+            bit.ly や t.co
+            のような<b>短縮リンク</b>は、飛び先を自社のサーバーに保持しています。それを知るにはリンクを開く必要があり、Link
+            Extractor はネットワークリクエストを行わないため、そのままになります。それには URL
+            展開ツールを使ってください。
+          </li>
+          <li>
+            <b>Google の検索結果には、実際のアドレスを隠しているものがあります。</b
+            >その場合、リンクには Google の意味のないコードしかありません。パネルはその行に<b
+              >Google が URL を非表示</b
+            >と表示し、推測せずに Google
+            が渡したとおりにコピーします。検索結果のページでは、<b>結果のみ</b>で、広告を除いた検索結果だけが順番に並びます。
+          </li>
+          <li>
+            <code>javascript:</code> や <code>data:</code>
+            のアドレスを包んだリンクは、そのアドレスには変換されず、包まれたままになります。
+          </li>
+        </ul>
+
+        <h2>よくある質問</h2>
+        <h3>タグを削除すると、ページが変わりますか？</h3>
+        <p>いいえ。変わるのは一覧、コピー、ファイルだけです。ページとそのリンクはそのままです。</p>
+        <h3>タグの削除が初期設定でオフなのはなぜですか？</h3>
+        <p>
+          初期設定では、ページにあるとおりのリンクを取得できるようにするためです。キャンペーンのリンクを確認するなど、タグが必要な方もいます。スイッチ
+          1 つでオンにできます。
+        </p>
+        <h3>どのリンクがリダイレクトだったか分かりますか？</h3>
+        <p>
+          はい。一覧では<b>リダイレクト経由</b>の印が付き、CSV では元のアドレスが
+          <code>original_url</code> 列に入ります。
+        </p>
+
+        <p class="more">
+          次は：<a href="../export-links-to-csv/">きれいな一覧を Excel 用の CSV に出力する</a>。
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">ホーム</a> · <a href="../../../privacy/">プライバシーポリシー</a> ·
+        <a href="../../../feedback/">お問い合わせ</a>
+      </p>
+      <p>リンクはブラウザの外に出ません。</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/remove-tracking-and-redirects/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/remove-tracking-and-redirects/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/remove-tracking-and-redirects/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/remove-tracking-and-redirects/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/remove-tracking-and-redirects/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/remove-tracking-and-redirects/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/remove-tracking-and-redirects/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/remove-tracking-and-redirects/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/remove-tracking-and-redirects/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/remove-tracking-and-redirects/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/remove-tracking-and-redirects/" hreflang="tr" lang="tr">Türkçe</a> · <span aria-current="page">日本語</span> · <a href="../../../zh-cn/guides/remove-tracking-and-redirects/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

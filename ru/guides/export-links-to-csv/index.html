@@ -1,0 +1,227 @@
+<!doctype html>
+<!--
+  Translation of site/guides/export-links-to-csv/index.html. Facts and button names must match it and public/_locales/ru/messages.json.
+-->
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Как выгрузить все ссылки страницы в CSV для Excel — Link Extractor</title>
+    <meta
+      name="description"
+      content="Выгрузите все ссылки веб-страницы в файл CSV с полными адресами и текстом ссылок, в порядке страницы, который открывается в Excel без кракозябр. Пошагово в Chrome."
+    />
+    <link rel="canonical" href="https://link-extractor.com/ru/guides/export-links-to-csv/" />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/export-links-to-csv/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="Как выгрузить все ссылки страницы в CSV для Excel" />
+    <meta
+      property="og:description"
+      content="Полные адреса и текст ссылок в порядке страницы — в CSV, который Excel открывает без кракозябр."
+    />
+    <meta property="og:url" content="https://link-extractor.com/ru/guides/export-links-to-csv/" />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Инструкции</p>
+      <h1>Как выгрузить все ссылки страницы в CSV, который открывается в Excel</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Добавить в Chrome — это бесплатно</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Коротко:</b> установите Link Extractor, откройте страницу, нажмите на значок расширения
+          и нажмите <b>CSV</b>. Получите по строке на ссылку, в порядке страницы, с полным адресом и
+          текстом ссылки. Файл сохраняется в UTF-8 с BOM (меткой порядка байтов), поэтому Excel
+          правильно показывает кириллицу, арабский, китайский и буквы с диакритикой.
+        </p>
+
+        <h2>Для кого это</h2>
+        <p>
+          Для SEO-специалистов, которые проверяют ссылки страницы, маркетологов, которые собирают
+          списки для рассылки или конкурентов, исследователей, которые сохраняют источники, и всех,
+          кому нужны ссылки одной страницы в таблице, а не в ручном копировании.
+        </p>
+
+        <h2>Каким должен быть хороший экспорт</h2>
+        <ul>
+          <li>
+            <b>Полные адреса.</b> <code>https://example.com/about</code>, а не <code>/about</code>.
+          </li>
+          <li><b>Текст ссылки</b> в отдельной колонке, рядом с адресом.</li>
+          <li>
+            <b>Порядок страницы</b>, сверху вниз, чтобы таблица совпадала с тем, что вы видите.
+          </li>
+          <li><b>Без дублей</b>: ссылка, повторенная в меню и в подвале, — одна строка.</li>
+          <li>
+            <b>Читаемый текст в Excel.</b> Без BOM Excel часто открывает файл в UTF-8 как
+            <code>Ð¿Ñ€Ð¸Ð²ÐµÑ‚</code> вместо настоящих букв.
+          </li>
+          <li>
+            <b>Правильный разделитель.</b> Excel в одних странах ждёт запятую, в других — точку с
+            запятой; при неверном всё окажется в колонке A.
+          </li>
+          <li><b>Ничего не обрезается</b> на длинных страницах.</li>
+        </ul>
+
+        <h2>Пошагово</h2>
+        <ol>
+          <li>
+            Откройте страницу в Chrome. Если ссылки подгружаются при прокрутке или после «Показать
+            ещё», сначала прокрутите страницу.
+          </li>
+          <li>
+            Нажмите на значок Link Extractor на панели инструментов или сочетание Alt+Shift+L (на
+            Mac — Ctrl+Shift+L). В боковой панели появится список всех ссылок страницы.
+          </li>
+          <li>
+            По желанию сузьте список. Введите запрос в строку поиска или откройте
+            <b>Фильтры и настройки</b>: домен, тип, внутренние и внешние ссылки, nofollow,
+            sponsored, ugc. В файл попадут ссылки, которые сейчас в списке.
+          </li>
+          <li>Нажмите <b>CSV</b>. Файл сразу скачается.</li>
+          <li>Откройте его в Excel двойным щелчком.</li>
+        </ol>
+        <figure>
+          <picture>
+            <source
+              srcset="../../../welcome/img/ru/step-3-dark.webp"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img
+              src="../../../welcome/img/ru/step-3-light.webp"
+              width="360"
+              height="560"
+              alt="Панель Link Extractor с кнопками «Копировать адреса» и CSV и меню «Копировать как»"
+            />
+          </picture>
+          <figcaption>Кнопка <b>CSV</b> стоит рядом с кнопкой <b>Копировать адреса</b>.</figcaption>
+        </figure>
+
+        <h3>Если Excel сложил всё в одну колонку</h3>
+        <p>
+          Разделитель не подходит вашему Excel. После скачивания панель спрашивает
+          <b>Всё в одной колонке?</b> и предлагает скачать файл заново с другим разделителем. Чтобы
+          изменить его насовсем, выберите запятую или точку с запятой в пункте
+          <b>Разделитель в CSV</b> в «Фильтры и настройки». По умолчанию (<b>Авто</b>) он зависит от
+          языка Chrome.
+        </p>
+
+        <h3>Что в файле</h3>
+        <p>
+          По строке на ссылку и строка заголовков: <code>url</code>, <code>text</code>,
+          <code>domain</code>, <code>scope</code> (внутренняя или внешняя),
+          <code>type</code> (страница, файл, почта, телефон), <code>rel</code> (nofollow, sponsored,
+          ugc), <code>count</code> (сколько раз ссылка встречается на странице) и ещё несколько
+          колонок. Если ссылка вела через редирект вроде <code>google.com/url?q=…</code>, в колонке
+          <code>url</code> стоит настоящий адрес, а <code>original_url</code> хранит тот, что был на
+          странице.
+        </p>
+        <p>
+          Значение, которое начинается с <code>=</code>, <code>+</code>, <code>-</code> или
+          <code>@</code>, получает впереди апостроф, чтобы Excel оставил его текстом и не выполнял
+          как формулу. В ячейке Excel может показать этот апостроф.
+        </p>
+
+        <h3>Без файла: вставка сразу в таблицу</h3>
+        <p>
+          Откройте меню рядом с кнопкой <b>Копировать адреса</b>, выберите
+          <b>Таблица для Excel</b> и вставьте в Excel или Google Sheets: адрес, текст, домен и тип
+          попадут в отдельные колонки. В Google Sheets можно также импортировать CSV через «Файл» →
+          «Импортировать».
+        </p>
+
+        <h2>Когда лучше другой инструмент</h2>
+        <ul>
+          <li>
+            <b>Ссылки со всех страниц сайта.</b> Link Extractor не обходит сайт: он читает одну
+            открытую вкладку. Для всего сайта возьмите инструмент для аудита, например Screaming
+            Frog SEO Spider.
+          </li>
+          <li>
+            <b>Проверка, какие ссылки битые.</b> Коды ответа он не проверяет; это делает проверщик
+            ссылок.
+          </li>
+          <li>
+            <b>Страницы Chrome Web Store и <code>chrome://</code>.</b> Chrome не разрешает ни одному
+            расширению их читать.
+          </li>
+        </ul>
+
+        <h2>Вопросы</h2>
+        <h3>Попадают ли в файл ссылки, добавленные скриптами?</h3>
+        <p>
+          Да. Панель читает страницу такой, какая она во вкладке после выполнения скриптов, в том
+          числе страницы за вашим логином. Онлайн-сборщик, который загружает страницу со своего
+          сервера, не увидит ни того, ни другого.
+        </p>
+        <h3>Выгрузится ли страница с 10 000 ссылок целиком?</h3>
+        <p>
+          Да. В CSV попадают все ссылки списка, ничего не обрезается. Панель читает до 200 000
+          ссылок со страницы и сообщает, если их больше.
+        </p>
+        <h3>Есть ли в файле ссылки из скрытых меню?</h3>
+        <p>
+          По умолчанию нет: в списке ссылки, которые вы видите, а панель показывает, сколько скрыто.
+          Нажмите <b>+N скрытых</b>, чтобы добавить их в список и в файл.
+        </p>
+        <h3>Нужен ли аккаунт? Куда уходят мои ссылки?</h3>
+        <p>
+          Аккаунт не нужен, расширение бесплатное. Список собирается в вашем браузере; ссылки
+          попадают только в файл, который вы скачиваете. Читайте
+          <a href="../../../privacy/">политику конфиденциальности</a>.
+        </p>
+
+        <p class="more">
+          Смотрите также:
+          <a href="../remove-tracking-and-redirects/"
+            >как убрать метки UTM и получить настоящие адреса вместо редиректов</a
+          >
+          перед выгрузкой.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">На главную</a> ·
+        <a href="../../../privacy/">Политика конфиденциальности</a> ·
+        <a href="../../../feedback/">Связаться с нами</a>
+      </p>
+      <p>Ссылки не покидают ваш браузер.</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/export-links-to-csv/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/export-links-to-csv/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/export-links-to-csv/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/export-links-to-csv/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/export-links-to-csv/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/export-links-to-csv/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/export-links-to-csv/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/export-links-to-csv/" hreflang="pl" lang="pl">Polski</a> · <span aria-current="page">Русский</span> · <a href="../../../uk/guides/export-links-to-csv/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/export-links-to-csv/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../../../ja/guides/export-links-to-csv/" hreflang="ja" lang="ja">日本語</a> · <a href="../../../zh-cn/guides/export-links-to-csv/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

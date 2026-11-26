@@ -1,0 +1,215 @@
+<!doctype html>
+<!--
+  Translation of site/guides/export-links-to-csv/index.html. Facts and button names must match it and public/_locales/zh_CN/messages.json.
+-->
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>如何把网页上的所有链接导出为 CSV 并在 Excel 中打开 — Link Extractor</title>
+    <meta
+      name="description"
+      content="把网页上的所有链接导出为 CSV 文件：完整网址加链接文字，按页面顺序排列，在 Excel 中打开不乱码。在 Chrome 中的详细步骤。"
+    />
+    <link rel="canonical" href="https://link-extractor.com/zh-cn/guides/export-links-to-csv/" />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/export-links-to-csv/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/export-links-to-csv/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="如何把网页上的所有链接导出为 CSV 并在 Excel 中打开" />
+    <meta
+      property="og:description"
+      content="完整网址和链接文字，按页面顺序排列，导出为 Excel 打开不乱码的 CSV。"
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/zh-cn/guides/export-links-to-csv/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · 使用指南</p>
+      <h1>如何把网页上的所有链接导出为能在 Excel 中打开的 CSV</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >添加到 Chrome——免费</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>简短回答：</b>安装 Link Extractor，打开网页，点击扩展图标，再点击
+          <b>CSV</b
+          >。你会得到一个文件，每个链接一行，按页面顺序排列，包含完整网址和链接文字。文件采用带字节顺序标记（BOM）的
+          UTF-8 编码，所以 Excel 能正确显示中文、西里尔文、阿拉伯文和带重音符号的文字。
+        </p>
+
+        <h2>适合哪些人</h2>
+        <p>
+          检查网页链接的 SEO
+          人员，整理外联或竞品名单的营销人员，保存资料来源的研究者，以及所有想把某个网页的链接放进电子表格、而不想手动逐个复制的人。
+        </p>
+
+        <h2>好的导出应该是什么样</h2>
+        <ul>
+          <li>
+            <b>完整地址。</b>是 <code>https://example.com/about</code>，而不是 <code>/about</code>。
+          </li>
+          <li><b>链接文字</b>单独一列，紧挨着网址。</li>
+          <li><b>页面顺序</b>，自上而下，表格和你看到的页面一致。</li>
+          <li><b>无重复</b>：同一个链接在菜单和页脚各出现一次，也只算一行。</li>
+          <li>
+            <b>在 Excel 中文字可读。</b>没有字节顺序标记时，Excel 常常把 UTF-8 文件打开成
+            <code>Ð¿Ñ€Ð¸Ð²ÐµÑ‚</code> 这样的乱码，而不是真正的文字。
+          </li>
+          <li>
+            <b>正确的分隔符。</b>有些国家的 Excel 期望逗号，有些期望分号；用错了，所有内容都会挤在 A
+            列。
+          </li>
+          <li>长页面<b>不被截断</b>。</li>
+        </ul>
+
+        <h2>操作步骤</h2>
+        <ol>
+          <li>在 Chrome 中打开网页。如果它需要滚动或点击“显示更多”才加载更多链接，请先滚动。</li>
+          <li>
+            点击工具栏中的 Link Extractor 图标，或按 Alt+Shift+L（Mac 上是
+            Ctrl+Shift+L）。侧边栏会列出页面上的所有链接。
+          </li>
+          <li>
+            可选：缩小列表。在搜索框中输入，或打开
+            <b>过滤和设置</b>，按域名、类型、站内或站外链接，以及 nofollow、sponsored、ugc
+            筛选。文件中包含的就是此刻列表里的链接。
+          </li>
+          <li>点击 <b>CSV</b>，文件会立即下载。</li>
+          <li>双击文件，用 Excel 打开。</li>
+        </ol>
+        <figure>
+          <picture>
+            <source
+              srcset="../../../welcome/img/en/step-3-dark.webp"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img
+              src="../../../welcome/img/en/step-3-light.webp"
+              width="360"
+              height="560"
+              alt="Link Extractor 侧边栏，显示“复制网址”和 CSV 按钮以及“复制为”菜单"
+            />
+          </picture>
+          <figcaption><b>CSV</b> 按钮就在 <b>复制网址</b> 旁边。</figcaption>
+        </figure>
+
+        <h3>如果 Excel 把所有内容放进了一列</h3>
+        <p>
+          这是分隔符与你的 Excel 不匹配。下载完成后，侧边栏会询问
+          <b>Excel 中所有内容都在一列？</b
+          >，并提供用另一种分隔符重新下载文件的选项。想永久更改，请在“过滤和设置”的
+          <b>CSV 分隔符</b> 中选择 <b>逗号</b> 或 <b>分号</b>。默认情况下（<b>自动</b>）会跟随
+          Chrome 的语言。
+        </p>
+
+        <h3>文件里有什么</h3>
+        <p>
+          每个链接一行，另有一行表头：<code>url</code>、<code>text</code>、
+          <code>domain</code>、<code>scope</code>（站内或站外）、<code>type</code>（网页、
+          文件、邮箱、电话）、<code>rel</code>（nofollow、sponsored、ugc）、<code>count</code>（该链接在页面上出现的次数）以及其他几列。当链接经过
+          <code>google.com/url?q=…</code> 这样的重定向时，<code>url</code> 列是真实地址，<code
+            >original_url</code
+          >
+          保留页面上的原始地址。
+        </p>
+        <p>
+          以 <code>=</code>、<code>+</code>、<code>-</code> 或 <code>@</code>
+          开头的值，前面会加一个撇号，这样 Excel 会把它当作文本，不会当作公式运行。Excel
+          可能会在单元格里显示这个撇号。
+        </p>
+
+        <h3>不用文件：直接粘贴到表格</h3>
+        <p>
+          打开 <b>复制网址</b> 旁边的菜单，选择 <b>Excel 表格</b>，然后粘贴到 Excel 或 Google
+          表格：网址、文字、域名和类型会进入不同的列。在 Google 表格中，也可以通过“文件 → 导入”导入
+          CSV。
+        </p>
+
+        <h2>什么时候换别的工具更合适</h2>
+        <ul>
+          <li>
+            <b>整个网站所有页面的链接。</b>Link Extractor
+            不会抓取网站：它只读取你打开的这一个标签页。要处理整个网站，请使用网站审计工具，例如
+            Screaming Frog SEO Spider。
+          </li>
+          <li><b>检查哪些链接已失效。</b>它不检查状态码；这是链接检查工具的工作。</li>
+          <li>
+            <b>Chrome 应用商店和 <code>chrome://</code> 页面。</b>Chrome 不允许任何扩展读取它们。
+          </li>
+        </ul>
+
+        <h2>常见问题</h2>
+        <h3>由 JavaScript 添加的链接会出现在文件里吗？</h3>
+        <p>
+          会。侧边栏读取的是标签页中脚本运行之后的页面，需要登录才能看到的页面也一样。而在自己的服务器上加载网页的在线提取工具，这两种都看不到。
+        </p>
+        <h3>有 10,000 个链接的页面能完整导出吗？</h3>
+        <p>
+          能。CSV 包含列表中的每一个链接，不会被截断。侧边栏最多从一个页面读取 200,000
+          个链接，超出时会提示你。
+        </p>
+        <h3>隐藏菜单里的链接会出现在文件里吗？</h3>
+        <p>
+          默认不会：列表只包含你能看到的链接，侧边栏会显示有多少被隐藏。点击 <b>+N 个已隐藏</b>
+          可把它们加入列表和文件。
+        </p>
+        <h3>需要账号吗？我的链接会去哪里？</h3>
+        <p>
+          无需账号，完全免费。列表在你的浏览器中生成；链接只会进入你下载的文件。详见<a
+            href="../../../privacy/"
+            >隐私政策</a
+          >。
+        </p>
+
+        <p class="more">
+          相关阅读：导出之前，先<a href="../remove-tracking-and-redirects/"
+            >移除 UTM 标签并还原重定向链接</a
+          >。
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">首页</a> · <a href="../../../privacy/">隐私政策</a> ·
+        <a href="../../../feedback/">联系我们</a>
+      </p>
+      <p>链接不会离开你的浏览器。</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/export-links-to-csv/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/export-links-to-csv/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/export-links-to-csv/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/export-links-to-csv/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/export-links-to-csv/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../../it/guides/export-links-to-csv/" hreflang="it" lang="it">Italiano</a> · <a href="../../../nl/guides/export-links-to-csv/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/export-links-to-csv/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/export-links-to-csv/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/export-links-to-csv/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/export-links-to-csv/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../../../ja/guides/export-links-to-csv/" hreflang="ja" lang="ja">日本語</a> · <span aria-current="page">简体中文</span></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

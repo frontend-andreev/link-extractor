@@ -1,0 +1,364 @@
+<!doctype html>
+<!-- Translation of site/index.html. Facts and button names must match it and public/_locales/fr/messages.json. -->
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Link Extractor — extraire tous les liens d'une page (extension Chrome)</title>
+    <meta
+      name="description"
+      content="Extension Chrome gratuite qui liste tous les liens de la page ouverte : URL complètes avec leur texte, dans l'ordre de la page, sans doublons. Filtrez, copiez ou exportez un CSV lisible dans Excel."
+    />
+    <link rel="canonical" href="https://link-extractor.com/fr/" />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../home.css" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta property="og:title" content="Link Extractor — extraire tous les liens d'une page" />
+    <meta
+      property="og:description"
+      content="Extension Chrome gratuite : tous les liens de la page ouverte en une liste propre — URL complètes, texte des liens, ordre de la page, sans doublons. Copiez ou exportez en CSV."
+    />
+    <meta property="og:url" content="https://link-extractor.com/fr/" />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="800" />
+    <meta
+      property="og:image:alt"
+      content="Le panneau latéral de Link Extractor listant les liens d'un article de Wikipédia"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Link Extractor",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Google Chrome",
+        "url": "https://link-extractor.com/",
+        "installUrl": "https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg",
+        "description": "Une extension Chrome qui liste tous les liens de la page ouverte — URL complètes avec le texte du lien, dans l'ordre de la page, sans doublons — pour les filtrer, les copier ou les exporter en CSV pour Excel. Elle travaille dans le navigateur et n'envoie aucun lien nulle part.",
+        "screenshot": "https://link-extractor.com/shared/readme-screenshot.png",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="hero">
+      <img src="../welcome/img/icon-128.png" width="64" height="64" alt="" />
+      <h1>Link Extractor</h1>
+      <p class="lead">
+        Tous les liens de la page ouverte en une liste propre : URL complètes, texte des liens, dans
+        l'ordre de la page, sans doublons.
+      </p>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=home"
+        >Ajouter à Chrome — gratuit</a
+      >
+      <p class="facts">
+        Chrome Web Store · Sans compte · Les liens ne quittent jamais votre navigateur
+      </p>
+    </header>
+
+    <main>
+      <section class="card" aria-labelledby="what-title">
+        <h2 id="what-title" class="sr-only">Ce que fait l'extension</h2>
+        <img
+          class="hero-shot"
+          src="../shared/readme-screenshot.png"
+          width="1280"
+          height="800"
+          alt="Le panneau latéral de Link Extractor à côté d'un article de Wikipédia, avec les liens de l'article et leur texte"
+        />
+        <p class="about">
+          Link Extractor est une extension Chrome gratuite qui liste les liens de la page que vous
+          consultez. Cliquez sur son icône : un panneau latéral affiche chaque lien dans l'ordre de
+          la page, sous forme d'URL complète avec le texte du lien à côté ; les répétitions sont
+          regroupées en une seule ligne avec un compteur. Cherchez dans la liste, ou filtrez-la par
+          domaine, par type (pages, fichiers, e-mail, téléphone), par liens internes ou externes, et
+          par nofollow, sponsored ou ugc. Les liens de redirection de Google, Bing ou Facebook
+          affichent l'adresse vers laquelle ils mènent. Copiez ensuite les URL ou téléchargez un CSV
+          pour Excel ; les longues listes ne sont pas coupées : une page de plusieurs dizaines de
+          milliers de liens est copiée et exportée en entier. L'extension lit la page dans votre
+          propre navigateur, telle que vous la voyez : les liens ajoutés par JavaScript et les pages
+          derrière votre connexion sont donc inclus.
+        </p>
+
+        <div class="shots">
+          <figure>
+            <picture>
+              <source
+                srcset="../welcome/img/en/step-2-dark.webp"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                src="../welcome/img/en/step-2-light.webp"
+                width="360"
+                height="560"
+                alt="La liste réduite à un seul domaine en tapant dans le champ de recherche"
+              />
+            </picture>
+            <figcaption>Tapez pour réduire la liste, ou ouvrez Filtres et paramètres.</figcaption>
+          </figure>
+          <figure>
+            <picture>
+              <source
+                srcset="../welcome/img/en/step-3-dark.webp"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                src="../welcome/img/en/step-3-light.webp"
+                width="360"
+                height="560"
+                alt="Le menu Format de copie avec URL, Texte — URL et Tableau pour Excel, au-dessus des boutons Copier les URL et CSV"
+              />
+            </picture>
+            <figcaption>Copiez les URL, ou téléchargez un fichier CSV.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="card faq" aria-labelledby="can-title">
+        <h2 id="can-title">Ce qu'elle sait faire</h2>
+        <ul class="can">
+          <li>
+            Tous les liens de l'onglet ouvert, dans l'ordre de la page, en URL complètes avec leur
+            texte
+          </li>
+          <li>Les doublons regroupés en une ligne avec un compteur</li>
+          <li>
+            Recherche et filtres : domaine, type, internes ou externes, nofollow, sponsored, ugc
+          </li>
+          <li>
+            Copie des URL, ou d'un tableau qui se colle dans Excel ou Google Sheets, colonne par
+            colonne
+          </li>
+          <li>Un fichier CSV qui s'ouvre dans Excel sans caractères illisibles</li>
+          <li>
+            Les vraies adresses à la place des liens de redirection de Google, Bing ou Facebook ;
+            balises utm supprimées sur demande
+          </li>
+          <li>
+            Les liens d'une partie sélectionnée de la page, et uniquement les résultats sur Google
+            ou Bing
+          </li>
+          <li>Gratuite, sans compte ; les liens ne quittent jamais votre navigateur</li>
+        </ul>
+
+        <h2 id="guides-title" class="guides-title">Guides</h2>
+        <ul class="can">
+          <li>
+            <a href="guides/export-links-to-csv/"
+              >Comment exporter tous les liens d'une page en CSV lisible dans Excel</a
+            >
+          </li>
+          <li>
+            <a href="guides/remove-tracking-and-redirects/"
+              >Comment supprimer les balises UTM et afficher la vraie URL des liens de
+              redirection</a
+            >
+          </li>
+          <li>
+            <a href="guides/extract-links-from-large-pages/"
+              >Comment extraire tous les liens d'une grande page de plus de 10 000 liens</a
+            >
+          </li>
+          <li>
+            <a href="guides/extract-email-phone-and-file-links/"
+              >Comment extraire les liens e-mail, téléphone et PDF d'une page</a
+            >
+          </li>
+          <li>
+            <a href="guides/copy-link-text-and-url/"
+              >Comment copier le texte et l'URL des liens dans Excel, dans l'ordre de la page</a
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section class="card faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Questions</h2>
+
+        <h3>Comment exporter tous les liens d'une page en CSV depuis mon navigateur ?</h3>
+        <p>
+          Ouvrez la page, cliquez sur l'icône de Link Extractor (ou utilisez son raccourci, par
+          défaut Alt+Shift+L, sur Mac Ctrl+Shift+L) puis sur <b>CSV</b>. Le fichier contient une
+          ligne par lien, dans l'ordre de la page, avec l'URL complète, le texte du lien, le
+          domaine, le type et d'autres informations.
+        </p>
+
+        <h3>
+          Le texte des liens en cyrillique, en arabe ou en chinois s'affiche-t-il correctement dans
+          Excel ?
+        </h3>
+        <p>
+          Oui. Le CSV est en UTF-8 avec une marque d'ordre des octets (BOM), donc Excel affiche
+          correctement tous les alphabets ; le séparateur suit la langue de Chrome, et si Excel met
+          tout dans une seule colonne, choisissez l'autre sous <b>Séparateur CSV</b> dans Filtres et
+          paramètres. Une valeur qui commence par =, +, - ou @ reçoit une apostrophe devant, pour
+          qu'Excel la garde comme du texte au lieu de l'exécuter comme une formule ; Excel peut
+          afficher cette apostrophe dans la cellule.
+        </p>
+
+        <h3>Peut-on exporter plus de 10 000 liens sans troncature ?</h3>
+        <p>
+          Oui. La copie et le fichier CSV contiennent tous les liens de la liste ; rien n'est coupé.
+          Lors de nos tests, une page de 10 000 liens est listée en une seconde environ, et la liste
+          continue de défiler et de se filtrer sans se figer. Le panneau lit jusqu'à 200 000 liens
+          sur la page, et autant dans chaque cadre intégré, et vous prévient s'il y en a davantage.
+        </p>
+
+        <h3>
+          Comment copier le texte et l'URL des liens pour les coller dans Excel, colonne par colonne
+          ?
+        </h3>
+        <p>
+          Ouvrez le menu à côté de <b>Copier les URL</b> et choisissez <b>Tableau pour Excel</b> :
+          l'URL, le texte, le domaine et le type vont dans des colonnes séparées quand vous collez
+          dans Excel ou Google Sheets. <b>Texte — URL</b> copie une paire « texte — adresse » par
+          ligne, et <b>URL</b> ne copie que les adresses, une par ligne.
+        </p>
+
+        <h3>Extrait-elle les liens mailto et tel ?</h3>
+        <p>
+          Oui. Les liens e-mail (<code>mailto:</code>) et téléphone (<code>tel:</code>,
+          <code>sms:</code>) figurent dans la liste avec leur texte, copiés tels qu'ils sont sur la
+          page. Pour n'avoir qu'eux, choisissez le type <b>E-mail</b> ou <b>Téléphones</b> dans
+          Filtres et paramètres.
+        </p>
+
+        <h3>Fonctionne-t-elle sur les applications monopage et les sites dynamiques ?</h3>
+        <p>
+          Oui. Elle lit la page telle qu'elle est dans votre onglet une fois ses scripts exécutés, y
+          compris les composants Web (shadow DOM). Si d'autres liens se chargent pendant le
+          défilement ou après « Afficher plus », faites défiler puis appuyez sur
+          <b>Actualiser</b> dans le panneau ; quand l'application passe à une autre page du même
+          site, la liste se met à jour toute seule.
+        </p>
+
+        <h3>Donne-t-elle des URL absolues complètes plutôt que des chemins relatifs ?</h3>
+        <p>
+          Oui. Chaque adresse de la liste, de la copie et du fichier est une URL complète, résolue
+          comme le fait le navigateur, y compris sur les pages avec une balise
+          <code>&lt;base&gt;</code>.
+        </p>
+
+        <h3>
+          Comment supprimer les paramètres UTM et autres paramètres de suivi des URL extraites ?
+        </h3>
+        <p>
+          Activez <b>Supprimer utm et autres paramètres de suivi</b> dans Filtres et paramètres.
+          L'option retire utm_source, fbclid, gclid et les autres balises de suivi de la liste, de
+          la copie et du fichier ; les liens qui ne différaient que par ces balises n'en font plus
+          qu'un.
+        </p>
+
+        <h3>Fusionne-t-elle les liens en double ?</h3>
+        <p>
+          Oui. Une même adresse n'apparaît qu'une fois, avec un compteur du nombre de fois où elle
+          est sur la page. Sous <b>Doublons</b>, vous pouvez aussi fusionner les liens qui ne
+          diffèrent que par la partie après # ou par une barre oblique à la fin.
+        </p>
+
+        <h3>Comment ne garder que les liens visibles ?</h3>
+        <p>
+          C'est le réglage par défaut : les liens des menus fermés et des blocs masqués ne sont pas
+          dans la liste. Le panneau indique combien il y en a, et <b>+N masqués</b> les rajoute.
+        </p>
+
+        <h3>
+          Peut-on filtrer les liens internes et externes, ou seulement les PDF et les images ?
+        </h3>
+        <p>
+          Oui. Filtres et paramètres propose les liens internes ou externes, les types (pages,
+          fichiers, e-mail, téléphones), les domaines et nofollow, sponsored ou ugc. Le type
+          <b>Fichiers</b> couvre les PDF, ZIP, images et autres fichiers ; pour le limiter à un seul
+          genre, tapez <code>.pdf</code> dans le champ de recherche.
+        </p>
+
+        <h3>Comment obtenir une liste propre des adresses des résultats de recherche Google ?</h3>
+        <p>
+          Sur une page de résultats Google ou Bing, le panneau propose <b>Résultats uniquement</b> :
+          rien que les résultats, dans l'ordre, sans annonces et sans les liens du moteur de
+          recherche lui-même.
+        </p>
+
+        <h3>Peut-on récupérer les liens d'une partie seulement d'une page ?</h3>
+        <p>
+          Oui. Sélectionnez cette partie, faites un clic droit puis choisissez
+          <b>Récupérer les liens de la sélection</b> : seuls les liens situés dans la sélection sont
+          listés.
+        </p>
+
+        <h3>Faut-il s'inscrire ? Envoie-t-elle mes liens quelque part ?</h3>
+        <p>
+          Pas de compte ni de connexion, et c'est gratuit, sans fonctions payantes ni publicité. La
+          liste est construite dans votre navigateur et l'extension ne fait aucune requête réseau :
+          vos liens vont uniquement dans votre presse-papiers ou dans un fichier que vous
+          téléchargez. Notre site compte les installations, les notes basses et les suppressions de
+          l'extension ; la <a href="../privacy/">politique de confidentialité</a> dit précisément
+          quoi.
+        </p>
+
+        <h3>Qu'est-ce qu'elle ne fait pas ?</h3>
+        <p>
+          Elle travaille avec l'onglet que vous avez ouvert : elle n'explore pas un site Web, ne
+          suit pas les liens et ne vérifie pas s'ils fonctionnent (codes d'état). Chrome ne permet
+          pas aux extensions de lire les pages du Chrome Web Store ni les pages
+          <code>chrome://</code>, et les liens des cadres intégrés provenant d'autres sites
+          demandent votre autorisation ; le panneau indique quelle partie de la page il n'a pas pu
+          lire.
+        </p>
+      </section>
+
+      <p class="again">
+        <a
+          class="cta"
+          href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=home"
+          >Ajouter à Chrome — gratuit</a
+        >
+      </p>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="guides/export-links-to-csv/">Exporter les liens en CSV</a> ·
+        <a href="guides/remove-tracking-and-redirects/">Supprimer les balises UTM</a> ·
+        <a href="../privacy/">Politique de confidentialité</a> · <a href="../feedback/">Contact</a>
+      </p>
+      <p>Les liens ne quittent jamais votre navigateur.</p>
+      <!-- languages -->
+      <p class="langs"><a href="../" hreflang="en" lang="en">English</a> · <a href="../de/" hreflang="de" lang="de">Deutsch</a> · <span aria-current="page">Français</span> · <a href="../es/" hreflang="es" lang="es">Español</a> · <a href="../pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../it/" hreflang="it" lang="it">Italiano</a> · <a href="../nl/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../pl/" hreflang="pl" lang="pl">Polski</a> · <a href="../ru/" hreflang="ru" lang="ru">Русский</a> · <a href="../uk/" hreflang="uk" lang="uk">Українська</a> · <a href="../tr/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../ja/" hreflang="ja" lang="ja">日本語</a> · <a href="../zh-cn/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>

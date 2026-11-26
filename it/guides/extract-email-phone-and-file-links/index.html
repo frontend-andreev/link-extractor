@@ -1,0 +1,192 @@
+<!doctype html>
+<!--
+  Translation of site/guides/extract-email-phone-and-file-links/index.html. Facts and button names must match it and public/_locales/it/messages.json.
+-->
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Come estrarre da una pagina i link di email, telefoni e file — Link Extractor</title>
+    <meta
+      name="description"
+      content="Ottieni solo i link mailto, tel e dei file di una pagina web (PDF, documenti, archivi) con il testo del link, poi copiali o esporta un CSV per Excel."
+    />
+    <link
+      rel="canonical"
+      href="https://link-extractor.com/it/guides/extract-email-phone-and-file-links/"
+    />
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://link-extractor.com/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="de" href="https://link-extractor.com/de/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="fr" href="https://link-extractor.com/fr/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="es" href="https://link-extractor.com/es/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://link-extractor.com/pt-br/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="it" href="https://link-extractor.com/it/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="nl" href="https://link-extractor.com/nl/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="pl" href="https://link-extractor.com/pl/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="ru" href="https://link-extractor.com/ru/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="uk" href="https://link-extractor.com/uk/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="tr" href="https://link-extractor.com/tr/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="ja" href="https://link-extractor.com/ja/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://link-extractor.com/zh-cn/guides/extract-email-phone-and-file-links/" />
+    <link rel="alternate" hreflang="x-default" href="https://link-extractor.com/guides/extract-email-phone-and-file-links/" />
+    <!-- /hreflang -->
+    <link rel="icon" href="../../../welcome/img/icon-32.png" />
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../guides/guide.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Link Extractor" />
+    <meta
+      property="og:title"
+      content="Come estrarre da una pagina i link di email, telefoni e file"
+    />
+    <meta
+      property="og:description"
+      content="Solo i link mailto, tel e dei file di una pagina, con il loro testo, pronti da copiare."
+    />
+    <meta
+      property="og:url"
+      content="https://link-extractor.com/it/guides/extract-email-phone-and-file-links/"
+    />
+    <meta property="og:image" content="https://link-extractor.com/shared/readme-screenshot.png" />
+  </head>
+  <body>
+    <header class="hero guide-hero">
+      <p class="crumbs"><a href="../../">Link Extractor</a> · Guide</p>
+      <h1>Come estrarre da una pagina i link di email, telefoni e PDF</h1>
+      <a
+        class="cta"
+        href="https://chromewebstore.google.com/detail/jhkaajdkjhnfgllboflfppkhaaclfagg?utm_source=link-extractor.com&amp;utm_medium=website&amp;utm_campaign=guides"
+        >Aggiungi a Chrome: è gratis</a
+      >
+    </header>
+
+    <main>
+      <article class="card guide">
+        <p class="short">
+          <b>Risposta breve:</b> apri la pagina, clicca l'icona di Link Extractor, apri
+          <b>Filtri e impostazioni</b> e in <b>Tipo</b> scegli <b>Email</b>, <b>Telefoni</b> o
+          <b>File</b>. L'elenco tiene solo quei link, e <b>Copia URL</b> o <b>CSV</b> ti dà solo
+          quelli.
+        </p>
+
+        <h2>A chi serve</h2>
+        <p>
+          A chi raccoglie contatti dalla pagina di un team, da un elenco o da una lista di
+          fornitori, e a chi ha bisogno di tutti i PDF, i documenti o gli archivi collegati da una
+          pagina: rapporti, listini, materiali di corsi, download.
+        </p>
+
+        <h2>Quali link contano come cosa</h2>
+        <ul>
+          <li><b>Email</b>: i link <code>mailto:</code>.</li>
+          <li><b>Telefoni</b>: i link <code>tel:</code> e <code>sms:</code>.</li>
+          <li>
+            <b>File</b>: i link il cui indirizzo finisce con un'estensione di file (PDF; documenti
+            Word, Excel e PowerPoint; OpenDocument, RTF, TXT, CSV ed EPUB; archivi ZIP, RAR, 7z e
+            simili; immagini; audio e video; installer e immagini disco) e ogni link che la pagina
+            segna come da scaricare.
+          </li>
+          <li><b>Pagine</b>: tutti gli altri link web.</li>
+        </ul>
+        <p>Se in <b>Tipo</b> non scegli nulla, valgono tutti i tipi.</p>
+
+        <h2>Passo per passo</h2>
+        <ol>
+          <li>
+            Apri la pagina e clicca l'icona di Link Extractor (Alt+Shift+L, su Mac Ctrl+Shift+L).
+          </li>
+          <li>Apri <b>Filtri e impostazioni</b>.</li>
+          <li>
+            In <b>Tipo</b>, scegli <b>Email</b>, <b>Telefoni</b> o <b>File</b>; puoi sceglierne più
+            di uno.
+          </li>
+          <li>
+            Per un solo genere di file, scrivilo anche nella casella di ricerca:
+            <code>.pdf</code> tiene solo i PDF, <code>.docx</code> solo i documenti Word.
+          </li>
+          <li>
+            Clicca <b>Copia URL</b>, oppure <b>CSV</b> per un file con il testo e il tipo di ogni
+            link.
+          </li>
+        </ol>
+
+        <h3>Cosa ottieni</h3>
+        <p>
+          I link email e telefono vengono copiati esattamente come sono nella pagina, per esempio
+          <code>mailto:sales@example.com</code> o <code>tel:+15551234567</code>, con il testo del
+          link accanto nell'elenco e nel file. I doppioni sono uniti, quindi un indirizzo che
+          compare nell'intestazione e nel footer è una sola riga. I link dei file sono URL completi
+          che puoi aprire o scaricare.
+        </p>
+
+        <h2>I limiti, detti chiaramente</h2>
+        <ul>
+          <li>
+            <b>Solo link.</b> Un indirizzo email o un numero di telefono scritto come semplice
+            testo, non come link, non è nell'elenco. Link Extractor elenca i link; non cerca nel
+            testo della pagina.
+          </li>
+          <li>
+            <b>I file si riconoscono dal loro indirizzo.</b> Un link di download che finisce con
+            qualcosa come <code>/download?id=42</code> non ha estensione; conta come pagina, a meno
+            che la pagina lo segni come download.
+          </li>
+          <li><b>Non scarica i file.</b> Ottieni i loro indirizzi; non fa richieste di rete.</li>
+          <li>
+            I filtri <b>Interni</b> ed <b>Esterni</b> nascondono i link email e telefono, perché non
+            hanno un sito.
+          </li>
+        </ul>
+
+        <h2>Quando conviene un altro strumento</h2>
+        <ul>
+          <li>
+            <b>I contatti di un intero sito.</b> Link Extractor non esplora i siti; legge la pagina
+            che hai aperto.
+          </li>
+          <li>
+            <b>Scaricare tutti i file in una volta.</b> Incolla gli URL copiati in un download
+            manager.
+          </li>
+        </ul>
+
+        <h2>Domande</h2>
+        <h3>L'indirizzo email viene copiato con «mailto:»?</h3>
+        <p>
+          Sì, il link viene copiato com'è nella pagina, compresa un'eventuale parte
+          <code>?subject=</code>. Per avere gli indirizzi puliti, togli <code>mailto:</code> con
+          trova e sostituisci nel tuo foglio di calcolo.
+        </p>
+        <h3>Posso avere i PDF collegati da una pagina dentro un frame?</h3>
+        <p>
+          Sì, i frame dello stesso sito vengono letti insieme alla pagina. I frame di altri siti
+          richiedono il tuo permesso, e il pannello dice quando non è riuscito a leggerne uno.
+        </p>
+        <h3>È gratis?</h3>
+        <p>Sì. Nessun account, nessuna funzione a pagamento, e i link restano nel tuo browser.</p>
+
+        <p class="more">
+          Correlato:
+          <a href="../copy-link-text-and-url/">copia in Excel le coppie testo del link e URL</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <p>
+        <a href="../../">Home</a> · <a href="../../../privacy/">Informativa sulla privacy</a> ·
+        <a href="../../../feedback/">Contatti</a>
+      </p>
+      <p>I link non escono mai dal tuo browser.</p>
+      <!-- languages -->
+      <p class="langs"><a href="../../../guides/extract-email-phone-and-file-links/" hreflang="en" lang="en">English</a> · <a href="../../../de/guides/extract-email-phone-and-file-links/" hreflang="de" lang="de">Deutsch</a> · <a href="../../../fr/guides/extract-email-phone-and-file-links/" hreflang="fr" lang="fr">Français</a> · <a href="../../../es/guides/extract-email-phone-and-file-links/" hreflang="es" lang="es">Español</a> · <a href="../../../pt-br/guides/extract-email-phone-and-file-links/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <span aria-current="page">Italiano</span> · <a href="../../../nl/guides/extract-email-phone-and-file-links/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../../pl/guides/extract-email-phone-and-file-links/" hreflang="pl" lang="pl">Polski</a> · <a href="../../../ru/guides/extract-email-phone-and-file-links/" hreflang="ru" lang="ru">Русский</a> · <a href="../../../uk/guides/extract-email-phone-and-file-links/" hreflang="uk" lang="uk">Українська</a> · <a href="../../../tr/guides/extract-email-phone-and-file-links/" hreflang="tr" lang="tr">Türkçe</a> · <a href="../../../ja/guides/extract-email-phone-and-file-links/" hreflang="ja" lang="ja">日本語</a> · <a href="../../../zh-cn/guides/extract-email-phone-and-file-links/" hreflang="zh-CN" lang="zh-CN">简体中文</a></p>
+      <!-- /languages -->
+    </footer>
+  </body>
+</html>
